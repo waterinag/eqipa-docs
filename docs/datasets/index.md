@@ -4,8 +4,8 @@ This section provides access instructions and sources for downloading remote sen
 
 ### 📦 Available Datasets
 
+- [IMD Gridded Precipitation (PCP)](pcp.md)
+- [WaPOR v3 – Actual Evapotranspiration (ETa)](eta.md)
+- [WaPOR v3 – Biomass Production (TBP)](tbp.md)
+- [NRSC LULC 250K Land Cover (LULC)](lulc.md)
 - [AW3D30 Elevation Model](elevation.md)
-- [NRSC LULC 250K Land Cover](lulc.md)
-- [WaPOR v3 – Actual Evapotranspiration](eta.md)
-- [WaPOR v3 – Biomass Production (NPP → TBP)](tbp.md)
-- [IMD Gridded Precipitation](pcp.md)

@@ -6,7 +6,7 @@ pip freeze > requirements.txt
 
 mkdocs new .
 mkdocs serve
-
+http://127.0.0.1:8000/eqipa-docs/
 
 rm -rf .git
 
@@ -25,3 +25,7 @@ mkdocs gh-deploy
 
 
 https://waterinag.github.io/eqipa-docs/
+
+
+
+git add .
