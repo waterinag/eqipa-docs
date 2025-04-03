@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/datasets/elevation/">
+        <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/datasets/pcp_chirps/">
       
       
-        <link rel="prev" href="../lulc/">
-      
-      
-        <link rel="next" href="../../tool-setup/system-setup/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +18,7 @@
     
     
       
-        <title>Elevation (AW3D30) - India EQIPA</title>
+        <title>🌧️ Precipitation (IMD) - India EQIPA</title>
       
     
     
@@ -64,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#elevation-digital-surface-model" class="md-skip">
+        <a href="#precipitation-imd" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Elevation (AW3D30)
+              🌧️ Precipitation (IMD)
             
           </span>
         </div>
@@ -215,8 +211,6 @@
       
   
   
-    
-  
   
   
     
@@ -229,11 +223,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -249,7 +245,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Download Datasets
@@ -375,32 +371,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Elevation (AW3D30)
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../elevation/" class="md-nav__link">
         
   
   
@@ -411,35 +385,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dataset-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      🗂️ Dataset Overview
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -654,6 +599,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#data-processing-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Data Processing Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convert-netcdf-to-daily-geotiffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Convert NetCDF to Daily GeoTIFFs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggregate-daily-geotiffs-to-monthly" class="md-nav__link">
+    <span class="md-ellipsis">
+      📆 Aggregate Daily GeoTIFFs to Monthly
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -673,19 +645,132 @@
   
 
 
-<h1 id="elevation-digital-surface-model">Elevation (Digital surface model):</h1>
-<p>In this analysis, DEM data from the Japan Aerospace Exploration Agency (JAXA) were used to understand the topography of the region.<br />
-The data is open access and free to use for any scientific studies.
-Data Source:  https://www.eorc.jaxa.jp/ALOS/en/aw3d30/index.htm</p>
+<h1 id="precipitation-imd">🌧️ Precipitation (IMD)</h1>
+<p>For estimating precipitation, the EQIPA tool uses high-resolution daily gridded rainfall data provided by the <strong>India Meteorological Department (IMD)</strong>. The dataset spans a long period (1901–2022) and offers daily precipitation values across India at a <strong>0.25° x 0.25° spatial resolution</strong>.</p>
 <hr />
 <h2 id="dataset-overview">🗂️ Dataset Overview</h2>
 <ul>
-<li><strong>Source</strong>: <a href="https://www.eorc.jaxa.jp/ALOS/en/aw3d30/index.htm">JAXA</a></li>
-<li><strong>Product</strong>: AW3D30</li>
-<li><strong>Spatial Resolution</strong>: 30m</li>
-<li><strong>Output Format Used in EQIPA</strong>: GeoTIFF</li>
+<li><strong>Source</strong>: <a href="https://www.imdpune.gov.in/cmpg/Griddata/Rainfall_25_NetCDF.html">IMD Daily Gridded Rainfall Data</a></li>
+<li><strong>Format</strong>: NetCDF (<code>.nc</code>)</li>
+<li><strong>Period of Use</strong>: 2018–2023 crop years</li>
+<li><strong>Spatial Resolution</strong>: 0.25° x 0.25°</li>
+<li><strong>Temporal Resolution</strong>: Daily</li>
+<li><strong>Output Format Used in EQIPA</strong>: Monthly GeoTIFF</li>
 </ul>
 <hr />
+<h2 id="data-processing-summary">📌 Data Processing Summary</h2>
+<ol>
+<li><strong>Daily NetCDF files</strong> are downloaded from IMD.</li>
+<li>Each file is converted to <strong>daily GeoTIFF rasters</strong>.</li>
+<li>These daily rasters are aggregated to produce <strong>monthly precipitation maps</strong>.</li>
+<li><strong>Annual precipitation</strong> (per crop year) is computed by summing monthly rasters from <strong>June to May</strong> (e.g., June 2022 – May 2023).</li>
+</ol>
+<hr />
+<h2 id="convert-netcdf-to-daily-geotiffs">🔄 Convert NetCDF to Daily GeoTIFFs</h2>
+<p>The following Python script converts daily precipitation values from IMD NetCDF files to GeoTIFF format using <code>xarray</code> and <code>rioxarray</code>.</p>
+<pre><code class="language-python">import xarray as xr
+import rioxarray
+import os
+
+firstyear = 2023
+lastyear = 2024
+
+output_folder = &quot;pcp_imd_daily&quot;
+os.makedirs(output_folder, exist_ok=True)
+
+input_folder = &quot;IMD_PCP_netcdf&quot;
+
+for year in range(firstyear, lastyear + 1):
+    # Construct the full path to the netCDF file using f-string and os.path.join
+    input_nc = os.path.join(input_folder, f&quot;RF25_ind{year}_rfp25.nc&quot;)
+
+    # Open the netCDF file
+    ds = xr.open_dataset(input_nc)
+    # print(ds.variables)
+
+    variable_name = &quot;RAINFALL&quot;
+    da = ds[variable_name]
+
+    # Loop over each day using the &quot;TIME&quot; coordinate
+    for day in da.coords[&quot;TIME&quot;]:
+        # Select the slice for the specific day
+        daily_data = da.sel(TIME=day)
+
+        # Write the CRS if not already present
+        daily_data.rio.write_crs(&quot;EPSG:4326&quot;, inplace=True)
+
+        # Construct a filename based on the day (e.g., '2018-01-01')
+        day_str = str(day.values).split(&quot;T&quot;)[0]
+        output_path = os.path.join(output_folder, f&quot;imd_pcp_{day_str}.tif&quot;)
+
+        # Export the daily slice to a GeoTIFF file
+        daily_data.rio.to_raster(output_path)
+        print(f&quot;Saved {output_path}&quot;)
+</code></pre>
+<hr />
+<h2 id="aggregate-daily-geotiffs-to-monthly">📆 Aggregate Daily GeoTIFFs to Monthly</h2>
+<p>This script uses <code>rasterio</code> and <code>numpy</code> to aggregate daily rasters into <strong>monthly precipitation maps</strong> by summing values.</p>
+<pre><code class="language-python">import os
+import glob
+import rasterio
+import numpy as np
+
+firstyear = 2000
+lastyear = 2024
+
+output_folder = &quot;pcp_imd_monthly&quot;
+os.makedirs(output_folder, exist_ok=True)
+
+input_folder = &quot;pcp_imd_daily&quot;
+
+for year in range(firstyear, lastyear + 1):
+    for month in range(1, 13):
+        # Daily files are assumed to be named: imd_pcp_YYYY-MM-DD.tif
+        pattern = os.path.join(input_folder, f&quot;imd_pcp_{year}-{month:02d}-*.tif&quot;)
+        daily_files = sorted(glob.glob(pattern))
+
+        if not daily_files:
+            print(f&quot;No daily files found for {year}-{month:02d}&quot;)
+            continue
+
+        daily_arrays = []
+        meta = None
+        nodata_val = None
+
+        # Loop over daily files and read data as float32.
+        # Replace no-data values with np.nan for summing.
+        for daily_file in daily_files:
+            with rasterio.open(daily_file) as src:
+                data = src.read(1).astype(np.float32)
+                if meta is None:
+                    meta = src.meta.copy()
+                    nodata_val = src.nodata
+                    if nodata_val is None:
+                        # If nodata isn't defined, set a default value (e.g., -9999)
+                        nodata_val = -9999
+                        meta.update(nodata=nodata_val)
+                # Replace nodata with np.nan so it won't affect the sum
+                data[data == nodata_val] = np.nan
+                daily_arrays.append(data)
+
+        # Stack daily arrays along a new axis
+        stack = np.stack(daily_arrays, axis=0)
+        monthly_sum = np.nansum(stack, axis=0)
+        # Identify pixels that are no-data in all daily files
+        all_nan_mask = np.all(np.isnan(stack), axis=0)
+        monthly_sum[all_nan_mask] = nodata_val
+
+        # Update metadata: ensure data type and single band output
+        meta.update(dtype=rasterio.float32, count=1)
+        output_filename = os.path.join(output_folder, f&quot;imd_pcp_{year}_{month:02d}.tif&quot;)
+
+        with rasterio.open(output_filename, 'w', **meta) as dst:
+            dst.write(monthly_sum, 1)
+
+        print(f&quot;Saved monthly raster: {output_filename}&quot;)
+</code></pre>
+<hr />
+<p>✅ This process ensures consistent and analysis-ready raster datasets for use in EQIPA's irrigation performance reports.</p>
 
 
 
