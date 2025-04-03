@@ -12,11 +12,16 @@ rm -rf .git
 
 
 
-
+# Initialize Git Repo
 git init
 git remote add origin https://github.com/waterinag/eqipa-docs.git
 git add .
-git commit -m "Clean initial commit"
+git commit -m "first commit"
 git branch -M main
-git push -f origin main  # <- force push to overwrite old content
+git push -f origin main 
 
+# Deploy to GitHub Pages
+mkdocs gh-deploy
+
+
+https://waterinag.github.io/eqipa-docs/

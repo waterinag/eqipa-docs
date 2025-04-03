@@ -64,13 +64,8 @@ python manage.py createsuperuser --username admin
 Sample credentials:
 
 - **Username:** `admin`
-- **Email:** `amanchaudhary.web@gmail.com`
-- **Password:** `ipa123`
-
-> You can create additional users such as:
->
-> - Username: `ipa_india`, Password: `ipa123`
-> - Username: `CWC_user`, Password: `cwcipa123`
+- **Email:** `your-email@gmail.com`
+- **Password:** `your-pass`
 
 ---
 
