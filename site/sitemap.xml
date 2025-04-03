@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://yourusername.github.io/eqipa-docs/</loc>
+         <loc>https://waterinag.github.io/eqipa-docs/</loc>
          <lastmod>2025-04-03</lastmod>
     </url>
     <url>
-         <loc>https://yourusername.github.io/eqipa-docs/datasets/</loc>
+         <loc>https://waterinag.github.io/eqipa-docs/datasets/</loc>
          <lastmod>2025-04-03</lastmod>
     </url>
     <url>
-         <loc>https://yourusername.github.io/eqipa-docs/datasets/elevation/</loc>
+         <loc>https://waterinag.github.io/eqipa-docs/datasets/elevation/</loc>
          <lastmod>2025-04-03</lastmod>
     </url>
     <url>
-         <loc>https://yourusername.github.io/eqipa-docs/datasets/eta/</loc>
+         <loc>https://waterinag.github.io/eqipa-docs/datasets/eta/</loc>
          <lastmod>2025-04-03</lastmod>
     </url>
     <url>
-         <loc>https://yourusername.github.io/eqipa-docs/datasets/lulc/</loc>
+         <loc>https://waterinag.github.io/eqipa-docs/datasets/lulc/</loc>
          <lastmod>2025-04-03</lastmod>
     </url>
     <url>
-         <loc>https://yourusername.github.io/eqipa-docs/datasets/pcp/</loc>
+         <loc>https://waterinag.github.io/eqipa-docs/datasets/pcp/</loc>
          <lastmod>2025-04-03</lastmod>
     </url>
     <url>
-         <loc>https://yourusername.github.io/eqipa-docs/datasets/tbp/</loc>
+         <loc>https://waterinag.github.io/eqipa-docs/datasets/tbp/</loc>
          <lastmod>2025-04-03</lastmod>
     </url>
     <url>
-         <loc>https://yourusername.github.io/eqipa-docs/tool-setup/apache/</loc>
+         <loc>https://waterinag.github.io/eqipa-docs/tool-setup/apache/</loc>
          <lastmod>2025-04-03</lastmod>
     </url>
     <url>
-         <loc>https://yourusername.github.io/eqipa-docs/tool-setup/deployment/</loc>
+         <loc>https://waterinag.github.io/eqipa-docs/tool-setup/deployment/</loc>
          <lastmod>2025-04-03</lastmod>
     </url>
     <url>
-         <loc>https://yourusername.github.io/eqipa-docs/tool-setup/errors/</loc>
+         <loc>https://waterinag.github.io/eqipa-docs/tool-setup/errors/</loc>
          <lastmod>2025-04-03</lastmod>
     </url>
     <url>
-         <loc>https://yourusername.github.io/eqipa-docs/tool-setup/installation/</loc>
+         <loc>https://waterinag.github.io/eqipa-docs/tool-setup/installation/</loc>
          <lastmod>2025-04-03</lastmod>
     </url>
     <url>
-         <loc>https://yourusername.github.io/eqipa-docs/tool-setup/run-locally/</loc>
+         <loc>https://waterinag.github.io/eqipa-docs/tool-setup/run-locally/</loc>
          <lastmod>2025-04-03</lastmod>
     </url>
     <url>
-         <loc>https://yourusername.github.io/eqipa-docs/tool-setup/system-setup/</loc>
+         <loc>https://waterinag.github.io/eqipa-docs/tool-setup/system-setup/</loc>
          <lastmod>2025-04-03</lastmod>
     </url>
 </urlset>

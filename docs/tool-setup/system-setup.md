@@ -4,8 +4,16 @@ This section covers the complete setup of system dependencies and software requi
 
 ---
 
-## 🧰 Prerequisite Software
+## Server Configuration
+- The EQIPA Tool requires a Linux-based Ubuntu server with AMD or intel processor
+minimum 8 cores, 5TB storage (considering future expansion of the database) and
+minimum 126 GB RAM for efficient performance.
+-  Full admin access to the server
 
+
+---
+
+## Prerequisite Software
 Ensure the following software is installed:
 
 - Python 3.10
@@ -21,11 +29,13 @@ Ensure the following software is installed:
 
 ---
 
-## 📦 Install Required System Packages
+## Install Required System Packages
 
 ```bash
 sudo apt-get update
+```
 
+```bash
 sudo apt-get install -y \
     git \
     gdal-bin \
@@ -41,7 +51,7 @@ sudo apt-get install -y \
 
 ---
 
-## 🧭 Install PostgreSQL & PostGIS
+## Install PostgreSQL & PostGIS
 
 ```bash
 sudo apt-get install -y postgresql postgresql-postgis
@@ -49,7 +59,7 @@ sudo apt-get install -y postgresql postgresql-postgis
 
 ---
 
-## 🌱 Install GRASS GIS
+## Install GRASS GIS
 
 ```bash
 sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
@@ -59,7 +69,7 @@ sudo apt-get install -y grass grass-dev
 
 ---
 
-## 🗺️ Create a GRASS GIS Location
+## Create a GRASS GIS Location
 
 ```bash
 grass -c EPSG:4326 -e /mnt/mapdata/grassdata/ipa_india
@@ -75,7 +85,7 @@ ls /mnt/mapdata/grassdata/ipa_india
 
 ---
 
-## 🗄️ Configure PostgreSQL User and Database
+## Configure PostgreSQL User and Database
 
 Create a new PostgreSQL user:
 

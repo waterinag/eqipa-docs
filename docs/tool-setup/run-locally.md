@@ -1,15 +1,11 @@
-# 💻 Running the App Locally
+# 💻 Running App in Development Mode
 
-This guide explains how to set up and run the EQIPA Django app locally in a development environment.
+This guide explains how to set up and run the EQIPA Django app in a development environment.
 
 ---
 
-## 🔧 Step 1: Clone the Repository
+## 🔧 Step 1: Copy the code to the system
 
-```bash
-git clone https://github.com/yourusername/ipa_india.git
-cd ipa_india/webapp
-```
 
 ---
 

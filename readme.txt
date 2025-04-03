@@ -1,3 +1,4 @@
+# Initialize mkdocs
 python3 -m venv venv
 source venv/bin/activate    
 pip install mkdocs mkdocs-material
@@ -8,6 +9,8 @@ mkdocs new .
 mkdocs serve
 http://127.0.0.1:8000/eqipa-docs/
 
+
+# Remove git files from the folder
 rm -rf .git
 
 
@@ -23,9 +26,19 @@ git push -f origin main
 # Deploy to GitHub Pages
 mkdocs gh-deploy
 
-
 https://waterinag.github.io/eqipa-docs/
 
 
 
+
+
+
+
+
+# Update MkDocs Site After Changes
 git add .
+git commit -m "updated"
+git push origin main
+
+# Redeploy the site:
+mkdocs gh-deploy

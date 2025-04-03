@@ -13,14 +13,14 @@ nav:
   - Introduction: index.md
   - Download Datasets:
       - Overview: datasets/index.md
-      - Precipitation (IMD): datasets/pcp.md
+      - Precipitation (IMD): datasets/pcp_imd.md
       - Evapotranspiration (WaPOR): datasets/eta.md
       - Biomass Production (WaPOR): datasets/tbp.md
       - Land Cover (NRSC LULC 250K): datasets/lulc.md
       - Elevation (AW3D30): datasets/elevation.md
   - Tool Setup:
     - System Setup: tool-setup/system-setup.md
-    - Running App Locally: tool-setup/run-locally.md
+    - Running App in Development Mode: tool-setup/run-locally.md
     - Deployment in Production: tool-setup/deployment.md
     - Apache Configuration: tool-setup/apache.md
     - Common Errors & Fixes: tool-setup/errors.md
