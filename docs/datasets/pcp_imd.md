@@ -1,10 +1,10 @@
-# 🌧️ Precipitation (IMD)
+# Precipitation (IMD)
 
 For estimating precipitation, the EQIPA platform uses high-resolution daily gridded rainfall data provided by the **India Meteorological Department (IMD)**. The dataset spans a long period (1901–2022) and offers daily precipitation values across India at a **0.25° x 0.25° spatial resolution**.
 
 ---
 
-## 🗂️ Dataset Overview
+## Dataset Overview
 
 - **Source**: [IMD Daily Gridded Rainfall Data](https://www.imdpune.gov.in/cmpg/Griddata/Rainfall_25_NetCDF.html)
 - **Format**: NetCDF (`.nc`)

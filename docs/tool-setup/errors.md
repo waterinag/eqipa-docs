@@ -4,7 +4,7 @@ This page lists common issues encountered while setting up or deploying the EQIP
 
 ---
 
-## 🔐 File Permission Errors
+## File Permission Errors
 
 ### Error
 
@@ -20,7 +20,7 @@ sudo chmod -R 755 /home/aman/ipa_india/webapp/ipa_india/log/
 
 ---
 
-## 🌀 uWSGI Modifier Error
+## uWSGI Modifier Error
 
 ### Error (in uWSGI logs)
 
@@ -41,7 +41,7 @@ uwsgi --ini ipa_india.ini
 
 ---
 
-## 📦 PostgreSQL Delete Constraint Error
+## PostgreSQL Delete Constraint Error
 
 ### Error
 
@@ -66,7 +66,7 @@ DELETE FROM area WHERE name = 'target_area_name';
 
 ---
 
-## 🧵 Screen Issues (Managing Background Sessions)
+## Screen Issues (Managing Background Sessions)
 
 ### Attach to a running screen
 
@@ -95,7 +95,7 @@ screen -S ipa_celery
 
 ---
 
-## 📄 Monitoring Celery Logs
+## Monitoring Celery Logs
 
 ```bash
 tail -f /home/aman/ipa_india/webapp/ipa_india/log/celery/worker1.log
@@ -109,7 +109,7 @@ done
 
 ---
 
-## 🧼 Restarting Celery and uWSGI After Code Changes
+## Restarting Celery and uWSGI After Code Changes
 
 ```bash
 # Reload systemd
@@ -130,5 +130,3 @@ uwsgi --ini ipa_india.ini
 ```
 
 ---
-
-✅ These solutions cover most of the deployment and runtime errors you may encounter.

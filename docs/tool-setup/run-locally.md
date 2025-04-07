@@ -4,12 +4,12 @@ This guide explains how to set up and run the EQIPA Django app in a development 
 
 ---
 
-## 🔧 Step 1: Copy the code to the system
+## 1: Copy the code to the system
 
 
 ---
 
-## 🐍 Step 2: Create and Activate a Virtual Environment
+## 2: Create and Activate a Virtual Environment
 
 Create a Python 3 virtual environment inside the `webapp` folder:
 
@@ -20,7 +20,7 @@ source venv/bin/activate
 
 ---
 
-## 📦 Step 3: Install Python Dependencies
+## 3: Install Python Dependencies
 
 Install all required packages using the `requirements.txt` file:
 
@@ -30,7 +30,7 @@ pip install -r requirements.txt
 
 ---
 
-## ⚙️ Step 4: Configure Django Settings
+## 4: Configure Django Settings
 
 Open `ipa_india/settings.py` and update the following:
 
@@ -39,7 +39,7 @@ Open `ipa_india/settings.py` and update the following:
 
 ---
 
-## 🔄 Step 5: Apply Migrations & Collect Static Files
+## 5: Apply Migrations & Collect Static Files
 
 Run the following commands to prepare your database and static files:
 
@@ -51,7 +51,7 @@ python manage.py collectstatic
 
 ---
 
-## 👤 Step 6: Create a Superuser
+## 6: Create a Superuser
 
 ```bash
 python manage.py createsuperuser --username admin
@@ -65,7 +65,7 @@ Sample credentials:
 
 ---
 
-## 🧪 Step 7: Test Local Server
+## 7: Test Local Server
 
 Run the Django development server:
 
@@ -86,7 +86,74 @@ Now open your browser at:
 
 ---
 
-## 🖥️ Admin Site Setup
+!!! note
+
+    Celery is used for handling long-running background tasks (like report generation). Start the worker using:
+
+    ```bash
+    celery -A ipa_india worker -l INFO
+    ```
+
+    To run Celery inside a `screen` session (optional):
+
+    ```bash
+    screen -S ipa_celery
+    celery -A ipa_india worker -l INFO
+    ```
+
+    To detach from the screen session:
+
+    ```bash
+    Ctrl + A, then D
+    ```
+
+    To reattach:
+
+    ```bash
+    screen -r ipa_celery
+    ```
+
+
+??? info "📦 Screen"
+
+    Learn more: [How to Use Linux Screen](https://linuxize.com/post/how-to-use-linux-screen/)
+
+    Use `screen` to manage background processes like Celery or the Django dev server:
+
+    **🔍 Check running screens:**
+    ```bash
+    screen -r
+    ```
+
+    **🔄 Attach to a screen:**
+    ```bash
+    screen -r <screen_name>
+    ```
+
+    **🔙 Detach a screen:**
+    ```bash
+    screen -d <screen_name>
+    ```
+
+    **❌ Delete (terminate) a screen:**
+    ```bash
+    screen -S <screen_name> -X quit
+    ```
+
+    **🆕 Start a new screen session:**
+    ```bash
+    screen -S <screen_name>
+    ```
+
+
+
+
+
+
+
+---
+
+##  Admin Site Setup
 
 When running the server for the first time, visit:
 

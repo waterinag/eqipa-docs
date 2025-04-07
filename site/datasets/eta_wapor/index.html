@@ -6,15 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Technical Documentation of EQIPA Platform">
       
       
-        <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/datasets/tbp/">
+        <meta name="author" content="waterinag">
       
       
-        <link rel="prev" href="../eta/">
+        <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/datasets/eta_wapor/">
       
       
-        <link rel="next" href="../lulc/">
+        <link rel="prev" href="../pcp_chirps/">
+      
+      
+        <link rel="next" href="../eta_ssebop/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,11 +26,14 @@
     
     
       
-        <title>Biomass Production (WaPOR) - India EQIPA</title>
+        <title>Evapotranspiration (WaPOR) - India EQIPA</title>
       
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -55,7 +62,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -100,12 +114,38 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Biomass Production (WaPOR)
+              Evapotranspiration (WaPOR)
             
           </span>
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -223,20 +263,15 @@
     
     
     
-      
-        
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -263,12 +298,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Environment Setup
     
   </span>
   
@@ -309,12 +367,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../eta/" class="md-nav__link">
+      <a href="../pcp_chirps/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Evapotranspiration (WaPOR)
+    Precipitation (CHIRPS)
     
   </span>
   
@@ -346,7 +404,7 @@
   
   
   <span class="md-ellipsis">
-    Biomass Production (WaPOR)
+    Evapotranspiration (WaPOR)
     
   </span>
   
@@ -359,7 +417,7 @@
   
   
   <span class="md-ellipsis">
-    Biomass Production (WaPOR)
+    Evapotranspiration (WaPOR)
     
   </span>
   
@@ -400,9 +458,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#python-script-download-monthly-npp-wapor-v3" class="md-nav__link">
+  <a href="#python-script-download-monthly-aeti-wapor-v3" class="md-nav__link">
     <span class="md-ellipsis">
-      ⬇️ Python Script: Download Monthly NPP (WaPOR v3)
+      ⬇️ Python Script: Download Monthly AETI (WaPOR v3)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clip-global-rasters-to-india-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clip Global Rasters to India Boundary
     </span>
   </a>
   
@@ -412,6 +479,52 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eta_ssebop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evapotranspiration (SSEBop)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tbp_wapor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Biomass Production (WaPOR)
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -480,22 +593,15 @@
     
     
     
-      
-        
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -682,9 +788,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#python-script-download-monthly-npp-wapor-v3" class="md-nav__link">
+  <a href="#python-script-download-monthly-aeti-wapor-v3" class="md-nav__link">
     <span class="md-ellipsis">
-      ⬇️ Python Script: Download Monthly NPP (WaPOR v3)
+      ⬇️ Python Script: Download Monthly AETI (WaPOR v3)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clip-global-rasters-to-india-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clip Global Rasters to India Boundary
     </span>
   </a>
   
@@ -710,8 +825,9 @@
 
 
 <h1 id="actual-evapotranspiration">Actual Evapotranspiration</h1>
-<p>Total Biomass Production (TBP) is defined as the sum of the above-ground dry matter produced for a given year. TBP is calculated from Net Primary Production (NPP). TBP is expressed in kgDM/ha/day, and has thus different biomass units compared to NPP, with 1 gC/m2/day (NPP) = 22.222 kgDM/ha/day (DMP).</p>
-<p>For further information on the methodology read the WaPOR documentation available at: https://bitbucket.org/cioapps/wapor-et-look/wiki/Home</p>
+<p>Evapotranspiration is the sum of the soil evaporation (E), canopy transpiration (T) and interception (I). 
+The sum of all three parameters i.e. the Actual Evapotranspiration and Interception (AETI) can be used to quantify the agricultural water consumption.
+For further information on the methodology read the WaPOR documentation available at: https://bitbucket.org/cioapps/wapor-et-look/wiki/Home</p>
 <hr />
 <h2 id="dataset-overview">🗂️ Dataset Overview</h2>
 <ul>
@@ -724,13 +840,13 @@
 <hr />
 <h2 id="data-processing-summary">📌 Data Processing Summary</h2>
 <ol>
-<li>Monthly WaPOR L1 v3 NPP (300m) maps have been downloaded from WaPOR.</li>
-<li>EMonthly TBP maps are calculated as = Monthly NPP × Scale Factor (0.001) × Unit Conversion Factor (22.222). See the scale factor for each WaPOR product here: https://data.apps.fao.org/wapor</li>
-<li>Annual TBP maps is computed for all crop years by aggregating monthly TBP maps from June to May, covering crop years 2018-19 to 2022-23.</li>
+<li>Monthly WaPOR L1 v3 AETI (300m) maps have been downloaded from WaPOR.</li>
+<li>Each monthly AETI raster have been multiplied by scale factor (0.1). See the scale factor for each WaPOR product here: https://data.apps.fao.org/wapor</li>
+<li>Annual AETI is computed for all crop years by aggregating monthly AETI values from June to May, covering crop years 2018-19 to 2022-23.</li>
 </ol>
 <hr />
-<h2 id="python-script-download-monthly-npp-wapor-v3">⬇️ Python Script: Download Monthly NPP (WaPOR v3)</h2>
-<p>This script downloads monthly NPP GeoTIFFs from FAO's WaPOR v3 Google-hosted URLs.</p>
+<h2 id="python-script-download-monthly-aeti-wapor-v3">⬇️ Python Script: Download Monthly AETI (WaPOR v3)</h2>
+<p>This script downloads monthly AETI GeoTIFFs from FAO's WaPOR v3 Google-hosted URLs.</p>
 <pre><code class="language-python">import requests
 import os
 from tqdm import tqdm
@@ -739,15 +855,15 @@ firstyear = 2018
 lastyear = 2024
 
 # Create a folder to store downloads (optional)
-download_folder = &quot;npp_wapor_v3_monthly&quot;
+download_folder = &quot;eta_wapor_v3_monthly&quot;
 os.makedirs(download_folder, exist_ok=True)
 
 
 for year in range(firstyear, lastyear):
     for month in range(1, 13):
-
-        filename = f&quot;WAPOR-3.L1-NPP-M.{year}-{month:02d}.tif&quot;
-        url = f&quot;https://gismgr.fao.org/DATA/WAPOR-3/MAPSET/L1-NPP-M/{filename}&quot;
+        # Format filename as WAPOR-3.L1-AETI-M.YYYY-MM.tif
+        filename = f&quot;WAPOR-3.L1-AETI-M.{year}-{month:02d}.tif&quot;
+        url = f&quot;https://gismgr.fao.org/DATA/WAPOR-3/MAPSET/L1-AETI-M/{filename}&quot;
         print(f&quot;Downloading {filename} from {url} ...&quot;)
 
         try:
@@ -776,8 +892,77 @@ for year in range(firstyear, lastyear):
         except requests.exceptions.RequestException as e:
             print(f&quot;Failed to download {filename}: {e}&quot;)
 
+</code></pre>
+<hr />
+<h2 id="clip-global-rasters-to-india-boundary">Clip Global Rasters to India Boundary</h2>
+<p>Once downloaded, use this script to clip the <strong>global raster</strong> to the <strong>India boundary</strong> using a boundary file.</p>
+<blockquote>
+<p>📁 Boundary file required: <code>assets/IndiaBoundary.geojson</code></p>
+</blockquote>
+<pre><code class="language-python">import os
+import numpy as np
+import rasterio
+from osgeo import gdal
+
+# Set your paths
+input_folder = &quot;WaPOR_v3_AETI_Monthly&quot;      
+output_folder = &quot;WaPOR_v3_AETI_M_India&quot;   
+geojson_boundary = &quot;IndiaBoundary.geojson&quot; 
+
+firstyear = 2022
+lastyear = 2023
+scale_factor=0.1
+
+# Create the output folder if it doesn't exist
+if not os.path.exists(output_folder):
+    os.makedirs(output_folder)
+
+# Loop through all files in the input folder
+for year in range(firstyear, lastyear+1):
+    for month in range(1, 13):
+        # Build input filename: WAPOR-3.L1-AETI-M.YYYY-MM.tif
+        filename = f&quot;WAPOR-3.L1-AETI-M.{year}-{month:02d}.tif&quot;
+        input_path = os.path.join(input_folder, filename)
+        output_filename = f&quot;WaPOR_v3_AETI_M_{year}_{month:02d}.tif&quot;
+
+        # Temporary file for the clipped raster
+        temp_clip = os.path.join(output_folder, f&quot;temp_{output_filename}&quot;)
+
+        # Clip the raster using GDAL.Warp with the GeoJSON boundary
+        warp_options = gdal.WarpOptions(cutlineDSName=geojson_boundary, cropToCutline=True,dstNodata=-9999)
+        gdal.Warp(destNameOrDestDS=temp_clip, srcDSOrSrcDSTab=input_path, options=warp_options)
+
+        # Define the output path for the scaled raster
+        output_path = os.path.join(output_folder, output_filename)
+
+        # Open the clipped raster with Rasterio
+        with rasterio.open(temp_clip) as src:
+            profile = src.profile 
+            data = src.read(1)
+            nodata = src.nodata
+
+            data = np.where(data == src.nodata, -9999, data)  
+            scaled_data = np.where(data != -9999, data * scale_factor, -9999)  
 
 
+
+            # Update the profile for the output file
+            profile.update(
+                dtype=rasterio.float32, 
+                nodata=nodata, 
+                compress=&quot;LZW&quot;  # Apply LZW compression
+            )
+            if nodata is not None:
+                profile.update(nodata=nodata)
+
+            # Write the scaled data to a new file
+            with rasterio.open(output_path, &quot;w&quot;, **profile) as dst:
+                dst.write(scaled_data.astype(rasterio.float32), 1)
+
+        # Optionally, remove the temporary clipped file
+        os.remove(temp_clip)
+
+        print(f&quot;Processed {filename}: clipped and scaled saved to {output_path}&quot;)
 
 
 </code></pre>
@@ -801,6 +986,12 @@ for year in range(firstyear, lastyear):
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
       </main>
       
         <footer class="md-footer">
@@ -808,6 +999,10 @@ for year in range(firstyear, lastyear):
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; The World Bank Group
+    </div>
   
   
     Made with
@@ -829,7 +1024,7 @@ for year in range(firstyear, lastyear):
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>

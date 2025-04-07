@@ -1,10 +1,10 @@
-# 🗺️ Land Use and Land Cover (LULC)
+# Land Use and Land Cover (LULC)
 
 The **Land Use and Land Cover (LULC)** data used in the EQIPA tool is sourced from the **National Remote Sensing Centre (NRSC)**, India. These maps provide a detailed spatial representation of how different land types are utilized across agricultural regions, enabling spatial analysis of irrigation performance.
 
 ---
 
-## 🗂️ Dataset Overview
+## Dataset Overview
 
 - **Source**: [NRSC LULC Portal](https://www.nrsc.gov.in/EO_LULC_Portals/)
 - **Provider**: National Remote Sensing Centre (NRSC), ISRO

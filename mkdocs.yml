@@ -32,6 +32,12 @@ theme:
         icon: material/toggle-switch
         name: Switch to light mode
 
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+  
 nav:
   - Introduction: index.md
   - Download Datasets:
@@ -44,6 +50,10 @@ nav:
     - Biomass Production (WaPOR): datasets/tbp_wapor.md
     - Land Cover (NRSC LULC 250K): datasets/lulc.md
     - Elevation (AW3D30): datasets/elevation.md
+  - Geospatial Tools:
+    - Overview: geo-tools/overview.md
+    - GRASS GIS: geo-tools/grass.md
+    - GDAL: geo-tools/gdal.md
   - Tool Setup:
     - System Setup: tool-setup/system-setup.md
     - Running App in Development Mode: tool-setup/run-locally.md

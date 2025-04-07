@@ -1,6 +1,6 @@
 # 🛠️ System Setup
 
-This section covers the complete setup of system dependencies and software required to run the **EQIPA (Evapotranspiration-based Quick Irrigation Performance Assessment)** application on a fresh Ubuntu server (tested on Ubuntu 20.04+).
+This section covers the complete setup of system dependencies and software required to run the **EQIPA (Evapotranspiration-based Quick Irrigation Performance Assessment)** application on a fresh Ubuntu server.
 
 ---
 
@@ -63,7 +63,6 @@ sudo apt-get install -y postgresql postgresql-postgis
 
 ```bash
 sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
-sudo apt-get update
 sudo apt-get install -y grass grass-dev
 ```
 

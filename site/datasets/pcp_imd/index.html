@@ -6,15 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Technical Documentation of EQIPA Platform">
+      
+      
+        <meta name="author" content="waterinag">
       
       
         <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/datasets/pcp_imd/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../setup/">
       
       
-        <link rel="next" href="../eta/">
+        <link rel="next" href="../pcp_chirps/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -27,6 +31,9 @@
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -55,7 +62,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -106,6 +120,32 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -223,20 +263,15 @@
     
     
     
-      
-        
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -263,12 +298,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Environment Setup
     
   </span>
   
@@ -354,9 +412,18 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#download-annual-netcdf-from-imd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download Annual NetCDF from IMD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#convert-netcdf-to-daily-geotiffs" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 Convert NetCDF to Daily GeoTIFFs
+      Convert NetCDF to Daily GeoTIFFs
     </span>
   </a>
   
@@ -365,7 +432,16 @@
         <li class="md-nav__item">
   <a href="#aggregate-daily-geotiffs-to-monthly" class="md-nav__link">
     <span class="md-ellipsis">
-      📆 Aggregate Daily GeoTIFFs to Monthly
+      Aggregate Daily GeoTIFFs to Monthly
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggregate-monthly-geotiffs-to-annual" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aggregate Monthly GeoTIFFs to Annual
     </span>
   </a>
   
@@ -387,7 +463,30 @@
   
   
     <li class="md-nav__item">
-      <a href="../eta/" class="md-nav__link">
+      <a href="../pcp_chirps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Precipitation (CHIRPS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eta_wapor/" class="md-nav__link">
         
   
   
@@ -410,7 +509,30 @@
   
   
     <li class="md-nav__item">
-      <a href="../tbp/" class="md-nav__link">
+      <a href="../eta_ssebop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evapotranspiration (SSEBop)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tbp_wapor/" class="md-nav__link">
         
   
   
@@ -489,22 +611,15 @@
     
     
     
-      
-        
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -691,9 +806,18 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#download-annual-netcdf-from-imd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download Annual NetCDF from IMD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#convert-netcdf-to-daily-geotiffs" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 Convert NetCDF to Daily GeoTIFFs
+      Convert NetCDF to Daily GeoTIFFs
     </span>
   </a>
   
@@ -702,7 +826,16 @@
         <li class="md-nav__item">
   <a href="#aggregate-daily-geotiffs-to-monthly" class="md-nav__link">
     <span class="md-ellipsis">
-      📆 Aggregate Daily GeoTIFFs to Monthly
+      Aggregate Daily GeoTIFFs to Monthly
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggregate-monthly-geotiffs-to-annual" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aggregate Monthly GeoTIFFs to Annual
     </span>
   </a>
   
@@ -748,7 +881,61 @@
 <li><strong>Annual precipitation</strong> (per crop year) is computed by summing monthly rasters from <strong>June to May</strong> (e.g., June 2022 – May 2023).</li>
 </ol>
 <hr />
-<h2 id="convert-netcdf-to-daily-geotiffs">🔄 Convert NetCDF to Daily GeoTIFFs</h2>
+<h2 id="download-annual-netcdf-from-imd">Download Annual NetCDF from IMD</h2>
+<pre><code class="language-python">import requests
+import os
+import re
+from tqdm import tqdm
+
+# Create a folder to store downloaded files
+download_folder = &quot;imd_netcdf_files&quot;
+os.makedirs(download_folder, exist_ok=True)
+
+firstyear = 2023
+lastyear = 2024
+
+
+
+# Define the URL
+url = &quot;https://www.imdpune.gov.in/cmpg/Griddata/RF25.php&quot;
+
+# Loop over the years for which you wish to download the netCDF files
+for year in range(firstyear, lastyear + 1):  # Adjust the range as needed
+    payload = {&quot;RF25&quot;: str(year)}
+    print(f&quot;Downloading netCDF file for year {year} ...&quot;)
+
+    try:
+        # Post the request with the payload
+        response = requests.post(url, data=payload, stream=True)
+        response.raise_for_status()  # Raise an error for bad responses
+
+        # Determine filename (using a default if not provided in headers)
+        filename = f&quot;RF25_{year}.nc&quot;
+
+        # Get total file size from headers (if available) for the progress bar
+        total_size = int(response.headers.get('content-length', 0))
+        progress_bar = tqdm(total=total_size, unit='B', unit_scale=True, desc=filename)
+
+        output_path = os.path.join(download_folder, filename)
+        with open(output_path, &quot;wb&quot;) as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                if chunk:
+                    f.write(chunk)
+                    progress_bar.update(len(chunk))
+        progress_bar.close()
+
+        # Check if the download completed correctly
+        if total_size != 0 and progress_bar.n != total_size:
+            print(f&quot;WARNING: Download size mismatch for {filename}&quot;)
+        else:
+            print(f&quot;Downloaded {filename} successfully.&quot;)
+
+    except requests.RequestException as e:
+        print(f&quot;Failed to download netCDF file for year {year}: {e}&quot;)
+
+</code></pre>
+<hr />
+<h2 id="convert-netcdf-to-daily-geotiffs">Convert NetCDF to Daily GeoTIFFs</h2>
 <p>The following Python script converts daily precipitation values from IMD NetCDF files to GeoTIFF format using <code>xarray</code> and <code>rioxarray</code>.</p>
 <pre><code class="language-python">import xarray as xr
 import rioxarray
@@ -757,14 +944,15 @@ import os
 firstyear = 2023
 lastyear = 2024
 
+input_folder = &quot;imd_netcdf_files&quot;
+
 output_folder = &quot;pcp_imd_daily&quot;
 os.makedirs(output_folder, exist_ok=True)
 
-input_folder = &quot;IMD_PCP_netcdf&quot;
 
 for year in range(firstyear, lastyear + 1):
     # Construct the full path to the netCDF file using f-string and os.path.join
-    input_nc = os.path.join(input_folder, f&quot;RF25_ind{year}_rfp25.nc&quot;)
+    input_nc = os.path.join(input_folder, f&quot;RF25_{year}.nc&quot;)
 
     # Open the netCDF file
     ds = xr.open_dataset(input_nc)
@@ -790,14 +978,14 @@ for year in range(firstyear, lastyear + 1):
         print(f&quot;Saved {output_path}&quot;)
 </code></pre>
 <hr />
-<h2 id="aggregate-daily-geotiffs-to-monthly">📆 Aggregate Daily GeoTIFFs to Monthly</h2>
+<h2 id="aggregate-daily-geotiffs-to-monthly">Aggregate Daily GeoTIFFs to Monthly</h2>
 <p>This script uses <code>rasterio</code> and <code>numpy</code> to aggregate daily rasters into <strong>monthly precipitation maps</strong> by summing values.</p>
 <pre><code class="language-python">import os
 import glob
 import rasterio
 import numpy as np
 
-firstyear = 2000
+firstyear = 2023
 lastyear = 2024
 
 output_folder = &quot;pcp_imd_monthly&quot;
@@ -852,7 +1040,69 @@ for year in range(firstyear, lastyear + 1):
         print(f&quot;Saved monthly raster: {output_filename}&quot;)
 </code></pre>
 <hr />
-<p>✅ This process ensures consistent and analysis-ready raster datasets for use in EQIPA's irrigation performance reports.</p>
+<h2 id="aggregate-monthly-geotiffs-to-annual">Aggregate Monthly GeoTIFFs to Annual</h2>
+<pre><code class="language-python">import os
+import numpy as np
+import rasterio
+
+firstyear = 2023
+lastyear=2024
+
+output_folder = &quot;pcp_imd_annual&quot;
+os.makedirs(output_folder, exist_ok=True)
+
+input_folder = &quot;pcp_imd_monthly&quot;
+
+for year in range(firstyear, lastyear):
+    # Annual period: June of current year to May of next year.
+    monthly_files = []
+
+    # June to December for the current year
+    for month in range(6, 13):
+        file_path = os.path.join(input_folder, f&quot;imd_pcp_{year}_{month:02d}.tif&quot;)
+        monthly_files.append(file_path)
+
+    # January to May for the next year
+    for month in range(1, 6):
+        file_path = os.path.join(input_folder, f&quot;imd_pcp_{year+1}_{month:02d}.tif&quot;)
+        monthly_files.append(file_path)
+
+
+    monthly_arrays = []
+    meta = None
+    nodata_val = None
+
+    for monthly_file in monthly_files:
+        with rasterio.open(monthly_file) as src:
+            data = src.read(1).astype(np.float32)
+            if meta is None:
+                meta = src.meta.copy()
+                nodata_val = src.nodata
+                if nodata_val is None:
+                    # If nodata is not defined, set a default value (e.g., -9999)
+                    nodata_val = -9999
+                    meta.update(nodata=nodata_val)
+            # Replace nodata values with np.nan so they don't affect the sum
+            data[data == nodata_val] = np.nan
+            monthly_arrays.append(data)
+
+    # Stack monthly arrays and compute the sum, ignoring NaNs
+    stack = np.stack(monthly_arrays, axis=0)
+    annual_sum = np.nansum(stack, axis=0)
+
+    # For pixels that are nan in every month, set back to nodata
+    all_nan_mask = np.all(np.isnan(stack), axis=0)
+    annual_sum[all_nan_mask] = nodata_val
+
+    meta.update(dtype=rasterio.float32, count=1)
+    output_filename = os.path.join(output_folder, f&quot;imd_pcp_{year}_{year+1}.tif&quot;)
+    with rasterio.open(output_filename, 'w', **meta) as dst:
+        dst.write(annual_sum, 1)
+
+    print(f&quot;Saved annual raster: {output_filename}&quot;)
+
+</code></pre>
+<hr />
 
 
 
@@ -873,6 +1123,12 @@ for year in range(firstyear, lastyear + 1):
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
       </main>
       
         <footer class="md-footer">
@@ -880,6 +1136,10 @@ for year in range(firstyear, lastyear + 1):
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; The World Bank Group
+    </div>
   
   
     Made with
@@ -901,7 +1161,7 @@ for year in range(firstyear, lastyear + 1):
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>

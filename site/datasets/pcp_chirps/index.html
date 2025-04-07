@@ -6,11 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Technical Documentation of EQIPA Platform">
+      
+      
+        <meta name="author" content="waterinag">
       
       
         <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/datasets/pcp_chirps/">
       
       
+        <link rel="prev" href="../pcp_imd/">
+      
+      
+        <link rel="next" href="../eta_wapor/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -18,11 +26,14 @@
     
     
       
-        <title>🌧️ Precipitation (IMD) - India EQIPA</title>
+        <title>Precipitation (CHIRPS) - India EQIPA</title>
       
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -51,7 +62,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -60,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#precipitation-imd" class="md-skip">
+        <a href="#precipitation-chirps" class="md-skip">
           Skip to content
         </a>
       
@@ -96,12 +114,38 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🌧️ Precipitation (IMD)
+              Precipitation (CHIRPS)
             
           </span>
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -211,28 +255,23 @@
       
   
   
+    
   
   
+  
     
     
     
     
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -245,7 +284,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Download Datasets
@@ -259,12 +298,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Environment Setup
     
   </span>
   
@@ -302,10 +364,102 @@
                 
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Precipitation (CHIRPS)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Precipitation (CHIRPS)
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chirps-v30-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      CHIRPS v3.0 Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download-monthly-chirps-pcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download Monthly CHIRPS PCP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clip-chirps-data-to-india-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clip CHIRPS Data to India Boundary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
-      <a href="../eta/" class="md-nav__link">
+      <a href="../eta_wapor/" class="md-nav__link">
         
   
   
@@ -328,7 +482,30 @@
   
   
     <li class="md-nav__item">
-      <a href="../tbp/" class="md-nav__link">
+      <a href="../eta_ssebop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evapotranspiration (SSEBop)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tbp_wapor/" class="md-nav__link">
         
   
   
@@ -407,22 +584,15 @@
     
     
     
-      
-        
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -591,36 +761,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dataset-overview" class="md-nav__link">
+  <a href="#chirps-v30-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      🗂️ Dataset Overview
+      CHIRPS v3.0 Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-processing-summary" class="md-nav__link">
+  <a href="#download-monthly-chirps-pcp" class="md-nav__link">
     <span class="md-ellipsis">
-      📌 Data Processing Summary
+      Download Monthly CHIRPS PCP
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#convert-netcdf-to-daily-geotiffs" class="md-nav__link">
+  <a href="#clip-chirps-data-to-india-boundary" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 Convert NetCDF to Daily GeoTIFFs
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#aggregate-daily-geotiffs-to-monthly" class="md-nav__link">
-    <span class="md-ellipsis">
-      📆 Aggregate Daily GeoTIFFs to Monthly
+      Clip CHIRPS Data to India Boundary
     </span>
   </a>
   
@@ -645,132 +806,87 @@
   
 
 
-<h1 id="precipitation-imd">🌧️ Precipitation (IMD)</h1>
-<p>For estimating precipitation, the EQIPA tool uses high-resolution daily gridded rainfall data provided by the <strong>India Meteorological Department (IMD)</strong>. The dataset spans a long period (1901–2022) and offers daily precipitation values across India at a <strong>0.25° x 0.25° spatial resolution</strong>.</p>
+<h1 id="precipitation-chirps">🌧️ Precipitation (CHIRPS)</h1>
+<p>Since 1999, USGS and CHC scientists—supported by funding from USAID, NASA, and NOAA—have developed techniques for producing rainfall maps, especially in areas where surface data is sparse.</p>
 <hr />
-<h2 id="dataset-overview">🗂️ Dataset Overview</h2>
+<h2 id="chirps-v30-overview">CHIRPS v3.0 Overview</h2>
+<p>CHIRPS v3.0 is available for three domains: Global, Africa, and Latin America. Similar to CHIRPS v2.0, two products of CHIRPS v3.0 are available. A preliminary version and a final version. The preliminary version is produced at the end of every pentad with rapidly available Global Telecommunication System (GTS) data, while the final version – produced about two weeks after the end of the month – incorporates data from the Global Historical Climatology Network (GHCN), and the Global Summary of the Day (GSOD).</p>
+<p>CHIRPS v3.0 benefits from nearly four times more sources of gauge data compared to CHIRPS v2.0. This increased volume of observations significantly improves the spatial and temporal accuracy of rainfall estimates.</p>
 <ul>
-<li><strong>Source</strong>: <a href="https://www.imdpune.gov.in/cmpg/Griddata/Rainfall_25_NetCDF.html">IMD Daily Gridded Rainfall Data</a></li>
-<li><strong>Format</strong>: NetCDF (<code>.nc</code>)</li>
-<li><strong>Period of Use</strong>: 2018–2023 crop years</li>
-<li><strong>Spatial Resolution</strong>: 0.25° x 0.25°</li>
-<li><strong>Temporal Resolution</strong>: Daily</li>
-<li><strong>Output Format Used in EQIPA</strong>: Monthly GeoTIFF</li>
+<li><strong>Source</strong>: <a href="https://data.chc.ucsb.edu/products/CHIRPS/v3.0/">CHIRPS v3</a></li>
 </ul>
 <hr />
-<h2 id="data-processing-summary">📌 Data Processing Summary</h2>
-<ol>
-<li><strong>Daily NetCDF files</strong> are downloaded from IMD.</li>
-<li>Each file is converted to <strong>daily GeoTIFF rasters</strong>.</li>
-<li>These daily rasters are aggregated to produce <strong>monthly precipitation maps</strong>.</li>
-<li><strong>Annual precipitation</strong> (per crop year) is computed by summing monthly rasters from <strong>June to May</strong> (e.g., June 2022 – May 2023).</li>
-</ol>
-<hr />
-<h2 id="convert-netcdf-to-daily-geotiffs">🔄 Convert NetCDF to Daily GeoTIFFs</h2>
-<p>The following Python script converts daily precipitation values from IMD NetCDF files to GeoTIFF format using <code>xarray</code> and <code>rioxarray</code>.</p>
-<pre><code class="language-python">import xarray as xr
-import rioxarray
+<h2 id="download-monthly-chirps-pcp">Download Monthly CHIRPS PCP</h2>
+<p>The following script downloads <strong>monthly CHIRPS v3.0 GeoTIFFs</strong> for a given year range:</p>
+<pre><code class="language-python">import requests
 import os
 
-firstyear = 2023
-lastyear = 2024
 
-output_folder = &quot;pcp_imd_daily&quot;
-os.makedirs(output_folder, exist_ok=True)
+firstyear = 2022
+lastyear = 2023
 
-input_folder = &quot;IMD_PCP_netcdf&quot;
+# Create a folder to store downloads
+download_folder = &quot;pcp_chirps_v3_monthly&quot;
+os.makedirs(download_folder, exist_ok=True)
+
 
 for year in range(firstyear, lastyear + 1):
-    # Construct the full path to the netCDF file using f-string and os.path.join
-    input_nc = os.path.join(input_folder, f&quot;RF25_ind{year}_rfp25.nc&quot;)
+    for month in range(1,13):
+        filename = f&quot;chirps-v3.0.{year}.{month:02d}.tif&quot;
+        url = f&quot;https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/tifs/{filename}&quot;
+        print(f&quot;Downloading {filename} from {url} ...&quot;)
 
-    # Open the netCDF file
-    ds = xr.open_dataset(input_nc)
-    # print(ds.variables)
+        try:
+            response = requests.get(url, stream=True)
+            response.raise_for_status()  
+            output_path = os.path.join(download_folder, filename)
+            with open(output_path, &quot;wb&quot;) as f:
+                for chunk in response.iter_content(chunk_size=8192):
+                    if chunk:
+                        f.write(chunk)
+            print(f&quot;Downloaded {filename} successfully.&quot;)
+        except requests.exceptions.RequestException as e:
+            print(f&quot;Failed to download {filename}: {e}&quot;)
 
-    variable_name = &quot;RAINFALL&quot;
-    da = ds[variable_name]
-
-    # Loop over each day using the &quot;TIME&quot; coordinate
-    for day in da.coords[&quot;TIME&quot;]:
-        # Select the slice for the specific day
-        daily_data = da.sel(TIME=day)
-
-        # Write the CRS if not already present
-        daily_data.rio.write_crs(&quot;EPSG:4326&quot;, inplace=True)
-
-        # Construct a filename based on the day (e.g., '2018-01-01')
-        day_str = str(day.values).split(&quot;T&quot;)[0]
-        output_path = os.path.join(output_folder, f&quot;imd_pcp_{day_str}.tif&quot;)
-
-        # Export the daily slice to a GeoTIFF file
-        daily_data.rio.to_raster(output_path)
-        print(f&quot;Saved {output_path}&quot;)
 </code></pre>
 <hr />
-<h2 id="aggregate-daily-geotiffs-to-monthly">📆 Aggregate Daily GeoTIFFs to Monthly</h2>
-<p>This script uses <code>rasterio</code> and <code>numpy</code> to aggregate daily rasters into <strong>monthly precipitation maps</strong> by summing values.</p>
+<h2 id="clip-chirps-data-to-india-boundary">Clip CHIRPS Data to India Boundary</h2>
+<p>Once downloaded, use this script to clip the <strong>global raster</strong> to the <strong>India boundary</strong> using a GeoJSON file.</p>
+<blockquote>
+<p>📁 Boundary file required: <code>assets/IndiaBoundary.geojson</code></p>
+</blockquote>
 <pre><code class="language-python">import os
-import glob
-import rasterio
-import numpy as np
+from osgeo import gdal
 
-firstyear = 2000
-lastyear = 2024
+# Set your paths
+input_folder = &quot;pcp_chirps_v3_monthly&quot;      
+output_folder = &quot;pcp_chirps_ind_monthly&quot;   
+geojson_boundary = &quot;IndiaBoundary.geojson&quot; 
 
-output_folder = &quot;pcp_imd_monthly&quot;
-os.makedirs(output_folder, exist_ok=True)
+firstyear = 2022
+lastyear = 2023
 
-input_folder = &quot;pcp_imd_daily&quot;
+# Create the output folder if it doesn't exist
+if not os.path.exists(output_folder):
+    os.makedirs(output_folder)
 
-for year in range(firstyear, lastyear + 1):
+# Loop through all files in the input folder
+for year in range(firstyear, lastyear+1):
     for month in range(1, 13):
-        # Daily files are assumed to be named: imd_pcp_YYYY-MM-DD.tif
-        pattern = os.path.join(input_folder, f&quot;imd_pcp_{year}-{month:02d}-*.tif&quot;)
-        daily_files = sorted(glob.glob(pattern))
+        # Build input filename: WAPOR-3.L1-AETI-M.YYYY-MM.tif
+        filename = f&quot;chirps-v3.0.{year}.{month:02d}.tif&quot;
+        input_path = os.path.join(input_folder, filename)
+        output_filename = f&quot;chirps_pcp_m_{year}_{month:02d}.tif&quot;
 
-        if not daily_files:
-            print(f&quot;No daily files found for {year}-{month:02d}&quot;)
-            continue
+        output_path = os.path.join(output_folder, output_filename)
 
-        daily_arrays = []
-        meta = None
-        nodata_val = None
+        # Clip the raster using GDAL.Warp with the GeoJSON boundary
+        warp_options = gdal.WarpOptions(cutlineDSName=geojson_boundary, cropToCutline=True,dstNodata=-9999)
+        gdal.Warp(destNameOrDestDS=output_path, srcDSOrSrcDSTab=input_path, options=warp_options)
 
-        # Loop over daily files and read data as float32.
-        # Replace no-data values with np.nan for summing.
-        for daily_file in daily_files:
-            with rasterio.open(daily_file) as src:
-                data = src.read(1).astype(np.float32)
-                if meta is None:
-                    meta = src.meta.copy()
-                    nodata_val = src.nodata
-                    if nodata_val is None:
-                        # If nodata isn't defined, set a default value (e.g., -9999)
-                        nodata_val = -9999
-                        meta.update(nodata=nodata_val)
-                # Replace nodata with np.nan so it won't affect the sum
-                data[data == nodata_val] = np.nan
-                daily_arrays.append(data)
+        print(f&quot;Processed {filename}: clipped and scaled saved to {output_path}&quot;)
 
-        # Stack daily arrays along a new axis
-        stack = np.stack(daily_arrays, axis=0)
-        monthly_sum = np.nansum(stack, axis=0)
-        # Identify pixels that are no-data in all daily files
-        all_nan_mask = np.all(np.isnan(stack), axis=0)
-        monthly_sum[all_nan_mask] = nodata_val
-
-        # Update metadata: ensure data type and single band output
-        meta.update(dtype=rasterio.float32, count=1)
-        output_filename = os.path.join(output_folder, f&quot;imd_pcp_{year}_{month:02d}.tif&quot;)
-
-        with rasterio.open(output_filename, 'w', **meta) as dst:
-            dst.write(monthly_sum, 1)
-
-        print(f&quot;Saved monthly raster: {output_filename}&quot;)
 </code></pre>
-<hr />
-<p>✅ This process ensures consistent and analysis-ready raster datasets for use in EQIPA's irrigation performance reports.</p>
 
 
 
@@ -791,6 +907,12 @@ for year in range(firstyear, lastyear + 1):
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
       </main>
       
         <footer class="md-footer">
@@ -798,6 +920,10 @@ for year in range(firstyear, lastyear + 1):
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; The World Bank Group
+    </div>
   
   
     Made with
@@ -819,7 +945,7 @@ for year in range(firstyear, lastyear + 1):
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>

@@ -4,7 +4,7 @@ This section explains how to configure Apache to serve the EQIPA Django project 
 
 ---
 
-## 📝 Step 1: Copy Apache Virtual Host Configuration
+## 1: Copy Apache Virtual Host Configuration
 
 Copy the example configuration to the Apache sites-available directory:
 
@@ -12,11 +12,68 @@ Copy the example configuration to the Apache sites-available directory:
 sudo cp ipa_india/template_apache.conf /etc/apache2/sites-available/ipa_india.conf
 ```
 
+??? info "ipa_india.conf"
+
+    ```bash
+    <VirtualHost *:80>
+        ServerName eqipa.waterinag.org
+
+    Alias /static/ /home/aman/ipa_india/webapp/ipa_india/static/
+
+        <Directory /home/aman/ipa_india/webapp/ipa_india/ipa_india>
+            <Files wsgi.py>
+                Require all granted
+            </Files>
+        </Directory>
+
+    <Location /static>
+                    SetHandler none
+                    Options -Indexes
+            </Location>
+
+            <Location /media>
+                    SetHandler none
+                    Options -Indexes
+            </Location>
+
+            Alias /media/ /home/aman/ipa_india/webapp/ipa_india/media/
+
+            Alias /static/ /home/aman/ipa_india/webapp/ipa_india/static/
+
+            <Directory /home/aman/ipa_india/webapp/ipa_india/>
+                    Require all granted
+            </Directory>
+
+            <Directory /home/aman/ipa_india/webapp/ipa_india/static>
+                    Options FollowSymLinks
+                    Order allow,deny
+                    Allow from all
+            </Directory>
+
+            <Directory /home/aman/ipa_india/webapp/ipa_india/media>
+                    Options FollowSymLinks
+                    Order allow,deny
+                    Allow from all
+            </Directory>
+
+        ProxyPass / unix:/home/aman/ipa_india/webapp/ipa_india/ipa_india.sock|uwsgi://localhost/
+        # Proxying the connection to uWSGI
+        
+        # ProxyPass / unix:/home/aman/ipa_india/webapp/ipa_india/ipa_india.sock|uwsgi://localhost/
+        ErrorLog ${APACHE_LOG_DIR}/ipa_india_error.log
+        CustomLog ${APACHE_LOG_DIR}/ipa_india_access.log combined
+
+
+    </VirtualHost>
+
+    ```
+
+
 > Make sure to update paths in the config to match your project directory.
 
 ---
 
-## 🔌 Step 2: Enable Required Apache Modules
+##  2: Enable Required Apache Modules
 
 ```bash
 sudo a2enmod uwsgi
@@ -25,7 +82,7 @@ sudo a2enmod ssl
 
 ---
 
-## 🔧 Step 3: Enable the Site
+## 3: Enable the Site
 
 ```bash
 sudo a2ensite ipa_india.conf
@@ -50,7 +107,7 @@ You should see: `Syntax OK`
 
 ---
 
-## 🛡️ Step 4: Enable SSL with Certbot
+##  4: Enable SSL with Certbot
 
 Install Certbot:
 
@@ -61,14 +118,15 @@ sudo apt install certbot python3-certbot-apache
 Enable HTTPS with your domain:
 
 ```bash
-sudo certbot --apache -d ipa.waterinag.org
+sudo certbot --apache -d eqipa.waterinag.org
 ```
 
-You can enable multiple domains if needed:
+Restart Apache to apply changes:
 
 ```bash
-sudo certbot --apache -d ipa.waterinag.org -d eqipa.waterinag.org
+sudo systemctl restart apache2
 ```
+
 
 ---
 
@@ -77,13 +135,13 @@ sudo certbot --apache -d ipa.waterinag.org -d eqipa.waterinag.org
 ### Enable site
 
 ```bash
-sudo a2ensite ipa.waterinag.org.conf
+sudo a2ensite eqipa.waterinag.org.conf
 ```
 
 ### Disable site
 
 ```bash
-sudo a2dissite ipa.waterinag.org.conf
+sudo a2dissite eqipa.waterinag.org.conf
 ```
 
 ### List enabled sites

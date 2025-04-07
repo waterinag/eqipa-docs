@@ -5,7 +5,7 @@ For further information on the methodology read the WaPOR documentation availabl
 
 ---
 
-## 🗂️ Dataset Overview
+## Dataset Overview
 
 - **Source**: [WaPOR L1 v3](https://console.cloud.google.com/storage/browser/fao-gismgr-wapor-3-data/DATA/WAPOR-3/MAPSET)
 - **Period of Use**: 2018–2023 crop years
@@ -34,7 +34,7 @@ import requests
 import os
 from tqdm import tqdm
 
-firstyear = 2018
+firstyear = 2023
 lastyear = 2024
 
 # Create a folder to store downloads (optional)
@@ -42,7 +42,7 @@ download_folder = "npp_wapor_v3_monthly"
 os.makedirs(download_folder, exist_ok=True)
 
 
-for year in range(firstyear, lastyear):
+for year in range(firstyear, lastyear+1):
     for month in range(1, 13):
 
         filename = f"WAPOR-3.L1-NPP-M.{year}-{month:02d}.tif"
@@ -92,12 +92,12 @@ import rasterio
 from osgeo import gdal
 
 # Set your paths
-input_folder = "Raster_Data/WaPOR_v3_NPP_Monthly"      
-output_folder = "WaPOR_v3_TBP_M_Kenya"   
-geojson_boundary = "Kenya_boundary.geojson" 
+input_folder = "npp_wapor_v3_monthly"      
+output_folder = "tbp_wapor_v3_monthly_ind"   
+geojson_boundary = "IndiaBoundary.geojson" 
 scale_factor=0.001*22.222
-firstyear = 2018
-lastyear = 2023
+firstyear = 2023
+lastyear = 2024
 
 # Create the output folder if it doesn't exist
 if not os.path.exists(output_folder):
@@ -106,7 +106,7 @@ if not os.path.exists(output_folder):
 # Loop through all files in the input folder
 for year in range(firstyear, lastyear+1):
     for month in range(1, 13):
-        output_filename = f"WaPOR_v3_TBP_M_{year}_{month:02d}.tif"
+        output_filename = f"wapor_tbp_m_{year}_{month:02d}.tif"
         temp_clip = os.path.join(output_folder, f"temp_{output_filename}")
 
         # Clip and Download raster from Cloud

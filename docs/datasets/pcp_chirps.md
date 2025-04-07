@@ -1,4 +1,4 @@
-# 🌧️ Precipitation (CHIRPS)
+# Precipitation (CHIRPS)
 
 Since 1999, USGS and CHC scientists—supported by funding from USAID, NASA, and NOAA—have developed techniques for producing rainfall maps, especially in areas where surface data is sparse.
 
@@ -54,7 +54,7 @@ for year in range(firstyear, lastyear + 1):
 
 ## Clip CHIRPS Data to India Boundary
 Once downloaded, use this script to clip the **global raster** to the **India boundary** using a GeoJSON file.
-> 📁 Boundary file required: `assets/IndiaBoundary.geojson`
+> 📁 Boundary file required: [`IndiaBoundary.geojson`](https://waterinag.github.io/eqipa-docs/assets/IndiaBoundary.geojson)
 
 ```python
 import os

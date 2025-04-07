@@ -53,7 +53,7 @@ conda activate eqipa_env
 Use the `conda-forge` channel:
 
 ```bash
-conda install -c conda-forge gdal libgdal-jp2openjpeg libnetcdf hdf5
+conda install -c conda-forge gdal libgdal-jp2openjpeg 
 ```
 
 Verify installation:

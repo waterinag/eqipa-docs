@@ -11,7 +11,7 @@ and cold pixel principles of SEBAL (Bastiaanssen et al., 1998) and METRIC (Allen
 models.
 ---
 
-## 🗂️ Dataset Overview
+## Dataset Overview
 
 - **Source**: [USGS](https://edcintl.cr.usgs.gov/downloads/sciweb1/shared/fews/web/global/)
 - **Spatial Resolution**: 1000m

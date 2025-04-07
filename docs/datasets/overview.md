@@ -2,7 +2,7 @@
 
 This section provides access instructions and sources for downloading remote sensing datasets used in the EQIPA platform. Each dataset has its own dedicated page with download links, tools, and script examples.
 
-### 📦 Available Datasets
+### 📦 Datasets Used:
 
 - [IMD Gridded Precipitation (PCP)](pcp_imd.md)
 - [WaPOR v3 – Actual Evapotranspiration (ETa)](eta.md)

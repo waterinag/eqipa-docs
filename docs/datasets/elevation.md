@@ -5,7 +5,7 @@ The data is open access and free to use for any scientific studies.
 
 ---
 
-## 🗂️ Dataset Overview
+## Dataset Overview
 
 - **Source**: [JAXA](https://www.eorc.jaxa.jp/ALOS/en/dataset/aw3d30/aw3d30_e.htm)
 - **Product**: AW3D30

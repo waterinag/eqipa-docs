@@ -4,7 +4,7 @@ The sum of all three parameters i.e. the Actual Evapotranspiration and Intercept
 For further information on the methodology read the WaPOR documentation available at: https://bitbucket.org/cioapps/wapor-et-look/wiki/Home
 ---
 
-## 🗂️ Dataset Overview
+## Dataset Overview
 
 - **Source**: [WaPOR L1 v3](https://console.cloud.google.com/storage/browser/fao-gismgr-wapor-3-data/DATA/WAPOR-3/MAPSET)
 - **Period of Use**: 2018–2023 crop years
@@ -33,7 +33,7 @@ import requests
 import os
 from tqdm import tqdm
 
-firstyear = 2018
+firstyear = 2023
 lastyear = 2024
 
 # Create a folder to store downloads (optional)
@@ -41,7 +41,7 @@ download_folder = "eta_wapor_v3_monthly"
 os.makedirs(download_folder, exist_ok=True)
 
 
-for year in range(firstyear, lastyear):
+for year in range(firstyear, lastyear+1):
     for month in range(1, 13):
         # Format filename as WAPOR-3.L1-AETI-M.YYYY-MM.tif
         filename = f"WAPOR-3.L1-AETI-M.{year}-{month:02d}.tif"
@@ -89,12 +89,12 @@ import rasterio
 from osgeo import gdal
 
 # Set your paths
-input_folder = "WaPOR_v3_AETI_Monthly"      
-output_folder = "WaPOR_v3_AETI_M_India"   
+input_folder = "eta_wapor_v3_monthly"      
+output_folder = "eta_wapor_v3_monthly_ind"   
 geojson_boundary = "IndiaBoundary.geojson" 
 
-firstyear = 2022
-lastyear = 2023
+firstyear = 2023
+lastyear = 2024
 scale_factor=0.1
 
 # Create the output folder if it doesn't exist
@@ -107,7 +107,7 @@ for year in range(firstyear, lastyear+1):
         # Build input filename: WAPOR-3.L1-AETI-M.YYYY-MM.tif
         filename = f"WAPOR-3.L1-AETI-M.{year}-{month:02d}.tif"
         input_path = os.path.join(input_folder, filename)
-        output_filename = f"WaPOR_v3_AETI_M_{year}_{month:02d}.tif"
+        output_filename = f"wapor_eta_m_{year}_{month:02d}.tif"
 
         # Temporary file for the clipped raster
         temp_clip = os.path.join(output_folder, f"temp_{output_filename}")
