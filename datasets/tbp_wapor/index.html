@@ -488,7 +488,7 @@
         <li class="md-nav__item">
   <a href="#dataset-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      🗂️ Dataset Overview
+      Dataset Overview
     </span>
   </a>
   
@@ -606,7 +606,7 @@
   
   
   <span class="md-ellipsis">
-    Tool Setup
+    Geospatial Tools
     
   </span>
   
@@ -616,6 +616,120 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Geospatial Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geo-tools/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geo-tools/grass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRASS GIS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geo-tools/gdal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GDAL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tool Setup
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Tool Setup
           </label>
@@ -772,7 +886,7 @@
         <li class="md-nav__item">
   <a href="#dataset-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      🗂️ Dataset Overview
+      Dataset Overview
     </span>
   </a>
   
@@ -828,7 +942,7 @@
 <p>Total Biomass Production (TBP) is defined as the sum of the above-ground dry matter produced for a given year. TBP is calculated from Net Primary Production (NPP). TBP is expressed in kgDM/ha/day, and has thus different biomass units compared to NPP, with 1 gC/m2/day (NPP) = 22.222 kgDM/ha/day (DMP).</p>
 <p>For further information on the methodology read the WaPOR documentation available at: https://bitbucket.org/cioapps/wapor-et-look/wiki/Home</p>
 <hr />
-<h2 id="dataset-overview">🗂️ Dataset Overview</h2>
+<h2 id="dataset-overview">Dataset Overview</h2>
 <ul>
 <li><strong>Source</strong>: <a href="https://console.cloud.google.com/storage/browser/fao-gismgr-wapor-3-data/DATA/WAPOR-3/MAPSET">WaPOR L1 v3</a></li>
 <li><strong>Period of Use</strong>: 2018–2023 crop years</li>
@@ -846,130 +960,126 @@
 <hr />
 <h2 id="python-script-download-monthly-npp-wapor-v3">⬇️ Python Script: Download Monthly NPP (WaPOR v3)</h2>
 <p>This script downloads monthly NPP GeoTIFFs from FAO's WaPOR v3 Google-hosted URLs.</p>
-<pre><code class="language-python">import requests
-import os
-from tqdm import tqdm
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
 
-firstyear = 2018
-lastyear = 2024
+<span class="n">firstyear</span> <span class="o">=</span> <span class="mi">2023</span>
+<span class="n">lastyear</span> <span class="o">=</span> <span class="mi">2024</span>
 
-# Create a folder to store downloads (optional)
-download_folder = &quot;npp_wapor_v3_monthly&quot;
-os.makedirs(download_folder, exist_ok=True)
-
-
-for year in range(firstyear, lastyear):
-    for month in range(1, 13):
-
-        filename = f&quot;WAPOR-3.L1-NPP-M.{year}-{month:02d}.tif&quot;
-        url = f&quot;https://gismgr.fao.org/DATA/WAPOR-3/MAPSET/L1-NPP-M/{filename}&quot;
-        print(f&quot;Downloading {filename} from {url} ...&quot;)
-
-        try:
-            response = requests.get(url, stream=True)
-            response.raise_for_status()  # Raise an error for bad responses
-
-            # Get total file size from headers (if available)
-            total_size = int(response.headers.get('content-length', 0))
-
-            # Create a progress bar with tqdm
-            progress_bar = tqdm(total=total_size, unit='B', unit_scale=True, desc=filename)
-
-            output_path = os.path.join(download_folder, filename)
-            with open(output_path, &quot;wb&quot;) as f:
-                for chunk in response.iter_content(chunk_size=8192):
-                    if chunk:
-                        f.write(chunk)
-                        progress_bar.update(len(chunk))
-            progress_bar.close()
-
-            # Optional: Check if the download completed correctly
-            if total_size != 0 and progress_bar.n != total_size:
-                print(f&quot;WARNING: Download size mismatch for {filename}&quot;)
-            else:
-                print(f&quot;Downloaded {filename} successfully.&quot;)
-        except requests.exceptions.RequestException as e:
-            print(f&quot;Failed to download {filename}: {e}&quot;)
+<span class="c1"># Create a folder to store downloads (optional)</span>
+<span class="n">download_folder</span> <span class="o">=</span> <span class="s2">&quot;npp_wapor_v3_monthly&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">download_folder</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 
-</code></pre>
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">firstyear</span><span class="p">,</span> <span class="n">lastyear</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">):</span>
+
+        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;WAPOR-3.L1-NPP-M.</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.tif&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://gismgr.fao.org/DATA/WAPOR-3/MAPSET/L1-NPP-M/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloading </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>  <span class="c1"># Raise an error for bad responses</span>
+
+            <span class="c1"># Get total file size from headers (if available)</span>
+            <span class="n">total_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;content-length&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+            <span class="c1"># Create a progress bar with tqdm</span>
+            <span class="n">progress_bar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">total_size</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">unit_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
+
+            <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">download_folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">8192</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">chunk</span><span class="p">:</span>
+                        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+                        <span class="n">progress_bar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">))</span>
+            <span class="n">progress_bar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+            <span class="c1"># Optional: Check if the download completed correctly</span>
+            <span class="k">if</span> <span class="n">total_size</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">progress_bar</span><span class="o">.</span><span class="n">n</span> <span class="o">!=</span> <span class="n">total_size</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARNING: Download size mismatch for </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloaded </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> successfully.&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to download </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
 <hr />
 <h2 id="clip-global-rasters-to-india-boundary">Clip Global Rasters to India Boundary</h2>
 <p>Once downloaded, use this script to clip the <strong>global raster</strong> to the <strong>India boundary</strong> using a boundary file.</p>
 <blockquote>
 <p>📁 Boundary file required: <code>assets/IndiaBoundary.geojson</code></p>
 </blockquote>
-<pre><code class="language-python">import os
-import numpy as np
-import rasterio
-from osgeo import gdal
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">osgeo</span><span class="w"> </span><span class="kn">import</span> <span class="n">gdal</span>
 
-# Set your paths
-input_folder = &quot;Raster_Data/WaPOR_v3_NPP_Monthly&quot;      
-output_folder = &quot;WaPOR_v3_TBP_M_Kenya&quot;   
-geojson_boundary = &quot;Kenya_boundary.geojson&quot; 
-scale_factor=0.001*22.222
-firstyear = 2018
-lastyear = 2023
+<span class="c1"># Set your paths</span>
+<span class="n">input_folder</span> <span class="o">=</span> <span class="s2">&quot;npp_wapor_v3_monthly&quot;</span>      
+<span class="n">output_folder</span> <span class="o">=</span> <span class="s2">&quot;tbp_wapor_v3_monthly_ind&quot;</span>   
+<span class="n">geojson_boundary</span> <span class="o">=</span> <span class="s2">&quot;IndiaBoundary.geojson&quot;</span> 
+<span class="n">scale_factor</span><span class="o">=</span><span class="mf">0.001</span><span class="o">*</span><span class="mf">22.222</span>
+<span class="n">firstyear</span> <span class="o">=</span> <span class="mi">2023</span>
+<span class="n">lastyear</span> <span class="o">=</span> <span class="mi">2024</span>
 
-# Create the output folder if it doesn't exist
-if not os.path.exists(output_folder):
-    os.makedirs(output_folder)
+<span class="c1"># Create the output folder if it doesn&#39;t exist</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_folder</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_folder</span><span class="p">)</span>
 
-# Loop through all files in the input folder
-for year in range(firstyear, lastyear+1):
-    for month in range(1, 13):
-        output_filename = f&quot;WaPOR_v3_TBP_M_{year}_{month:02d}.tif&quot;
-        temp_clip = os.path.join(output_folder, f&quot;temp_{output_filename}&quot;)
+<span class="c1"># Loop through all files in the input folder</span>
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">firstyear</span><span class="p">,</span> <span class="n">lastyear</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">):</span>
+        <span class="n">output_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;wapor_tbp_m_</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.tif&quot;</span>
+        <span class="n">temp_clip</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;temp_</span><span class="si">{</span><span class="n">output_filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-        # Clip and Download raster from Cloud
-        fileURL=f&quot;https://storage.googleapis.com/fao-gismgr-wapor-3-data/DATA/WAPOR-3/MAPSET/L2-NPP-M/WAPOR-3.L2-NPP-M.{year}-{month:02d}.tif&quot; 
-        vrt_file=f&quot;WAPOR-3.L2-NPP-M.{year}-{month:02d}.vrt&quot;
-        gdal.BuildVRT(vrt_file, [f&quot;/vsicurl/{fileURL}&quot;])
-        gdal.Warp(temp_clip, vrt_file, cutlineDSName=geojson_boundary, cropToCutline=True, dstNodata=-9999)
-
-
-        # Clip raster from local
-        # filename = f&quot;WAPOR-3.L1-NPP-M.{year}-{month:02d}.tif&quot;
-        # input_path = os.path.join(input_folder, filename)
-        # warp_options = gdal.WarpOptions(cutlineDSName=geojson_boundary, cropToCutline=True,dstNodata=-9999)
-        # gdal.Warp(destNameOrDestDS=temp_clip, srcDSOrSrcDSTab=input_path, options=warp_options)
+        <span class="c1"># Clip and Download raster from Cloud</span>
+        <span class="n">fileURL</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;https://storage.googleapis.com/fao-gismgr-wapor-3-data/DATA/WAPOR-3/MAPSET/L2-NPP-M/WAPOR-3.L2-NPP-M.</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.tif&quot;</span> 
+        <span class="n">vrt_file</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;WAPOR-3.L2-NPP-M.</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.vrt&quot;</span>
+        <span class="n">gdal</span><span class="o">.</span><span class="n">BuildVRT</span><span class="p">(</span><span class="n">vrt_file</span><span class="p">,</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;/vsicurl/</span><span class="si">{</span><span class="n">fileURL</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">])</span>
+        <span class="n">gdal</span><span class="o">.</span><span class="n">Warp</span><span class="p">(</span><span class="n">temp_clip</span><span class="p">,</span> <span class="n">vrt_file</span><span class="p">,</span> <span class="n">cutlineDSName</span><span class="o">=</span><span class="n">geojson_boundary</span><span class="p">,</span> <span class="n">cropToCutline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dstNodata</span><span class="o">=-</span><span class="mi">9999</span><span class="p">)</span>
 
 
-
-        # Define the output path for the scaled raster
-        output_path = os.path.join(output_folder, output_filename)
-
-        # Open the clipped raster with Rasterio
-        with rasterio.open(temp_clip) as src:
-            profile = src.profile 
-            data = src.read(1)
-            nodata = src.nodata
-
-            data = np.where(data == src.nodata, -9999, data)  
-            scaled_data = np.where(data != -9999, data * scale_factor, -9999)
+        <span class="c1"># Clip raster from local</span>
+        <span class="c1"># filename = f&quot;WAPOR-3.L1-NPP-M.{year}-{month:02d}.tif&quot;</span>
+        <span class="c1"># input_path = os.path.join(input_folder, filename)</span>
+        <span class="c1"># warp_options = gdal.WarpOptions(cutlineDSName=geojson_boundary, cropToCutline=True,dstNodata=-9999)</span>
+        <span class="c1"># gdal.Warp(destNameOrDestDS=temp_clip, srcDSOrSrcDSTab=input_path, options=warp_options)</span>
 
 
-            # Update the profile for the output file
-            profile.update(
-                dtype=rasterio.float32, 
-                nodata=nodata, 
-                compress=&quot;LZW&quot;  # Apply LZW compression
-            )
-            if nodata is not None:
-                profile.update(nodata=nodata)
 
-            # Write the scaled data to a new file
-            with rasterio.open(output_path, &quot;w&quot;, **profile) as dst:
-                dst.write(scaled_data.astype(rasterio.float32), 1)
+        <span class="c1"># Define the output path for the scaled raster</span>
+        <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="n">output_filename</span><span class="p">)</span>
 
-        # Optionally, remove the temporary clipped file
-        os.remove(temp_clip)
+        <span class="c1"># Open the clipped raster with Rasterio</span>
+        <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">temp_clip</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+            <span class="n">profile</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">profile</span> 
+            <span class="n">data</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">nodata</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">nodata</span>
 
-        print(f&quot;Processed: clipped and scaled saved to {output_path}&quot;)
+            <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span> <span class="o">==</span> <span class="n">src</span><span class="o">.</span><span class="n">nodata</span><span class="p">,</span> <span class="o">-</span><span class="mi">9999</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  
+            <span class="n">scaled_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">9999</span><span class="p">,</span> <span class="n">data</span> <span class="o">*</span> <span class="n">scale_factor</span><span class="p">,</span> <span class="o">-</span><span class="mi">9999</span><span class="p">)</span>
 
 
-</code></pre>
+            <span class="c1"># Update the profile for the output file</span>
+            <span class="n">profile</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">rasterio</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> 
+                <span class="n">nodata</span><span class="o">=</span><span class="n">nodata</span><span class="p">,</span> 
+                <span class="n">compress</span><span class="o">=</span><span class="s2">&quot;LZW&quot;</span>  <span class="c1"># Apply LZW compression</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">nodata</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">profile</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">nodata</span><span class="o">=</span><span class="n">nodata</span><span class="p">)</span>
+
+            <span class="c1"># Write the scaled data to a new file</span>
+            <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">profile</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+                <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">scaled_data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">rasterio</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Optionally, remove the temporary clipped file</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">temp_clip</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processed: clipped and scaled saved to </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
 
 
 
