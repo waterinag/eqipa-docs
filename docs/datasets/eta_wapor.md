@@ -76,3 +76,77 @@ for year in range(firstyear, lastyear):
 
 ```
 
+---
+
+## Clip Global Rasters to India Boundary
+Once downloaded, use this script to clip the **global raster** to the **India boundary** using a boundary file.
+> 📁 Boundary file required: `assets/IndiaBoundary.geojson`
+
+```python
+import os
+import numpy as np
+import rasterio
+from osgeo import gdal
+
+# Set your paths
+input_folder = "WaPOR_v3_AETI_Monthly"      
+output_folder = "WaPOR_v3_AETI_M_India"   
+geojson_boundary = "IndiaBoundary.geojson" 
+
+firstyear = 2022
+lastyear = 2023
+scale_factor=0.1
+
+# Create the output folder if it doesn't exist
+if not os.path.exists(output_folder):
+    os.makedirs(output_folder)
+
+# Loop through all files in the input folder
+for year in range(firstyear, lastyear+1):
+    for month in range(1, 13):
+        # Build input filename: WAPOR-3.L1-AETI-M.YYYY-MM.tif
+        filename = f"WAPOR-3.L1-AETI-M.{year}-{month:02d}.tif"
+        input_path = os.path.join(input_folder, filename)
+        output_filename = f"WaPOR_v3_AETI_M_{year}_{month:02d}.tif"
+
+        # Temporary file for the clipped raster
+        temp_clip = os.path.join(output_folder, f"temp_{output_filename}")
+        
+        # Clip the raster using GDAL.Warp with the GeoJSON boundary
+        warp_options = gdal.WarpOptions(cutlineDSName=geojson_boundary, cropToCutline=True,dstNodata=-9999)
+        gdal.Warp(destNameOrDestDS=temp_clip, srcDSOrSrcDSTab=input_path, options=warp_options)
+        
+        # Define the output path for the scaled raster
+        output_path = os.path.join(output_folder, output_filename)
+        
+        # Open the clipped raster with Rasterio
+        with rasterio.open(temp_clip) as src:
+            profile = src.profile 
+            data = src.read(1)
+            nodata = src.nodata
+
+            data = np.where(data == src.nodata, -9999, data)  
+            scaled_data = np.where(data != -9999, data * scale_factor, -9999)  
+
+
+            
+            # Update the profile for the output file
+            profile.update(
+                dtype=rasterio.float32, 
+                nodata=nodata, 
+                compress="LZW"  # Apply LZW compression
+            )
+            if nodata is not None:
+                profile.update(nodata=nodata)
+            
+            # Write the scaled data to a new file
+            with rasterio.open(output_path, "w", **profile) as dst:
+                dst.write(scaled_data.astype(rasterio.float32), 1)
+        
+        # Optionally, remove the temporary clipped file
+        os.remove(temp_clip)
+        
+        print(f"Processed {filename}: clipped and scaled saved to {output_path}")
+
+
+```

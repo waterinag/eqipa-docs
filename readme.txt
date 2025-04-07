@@ -9,6 +9,9 @@ mkdocs new .
 mkdocs serve
 http://127.0.0.1:8000/eqipa-docs/
 
+# Building site: When finished editing, build a static site from Markdown files:
+mkdocs build
+
 
 # Remove git files from the folder
 rm -rf .git
@@ -42,3 +45,8 @@ git push origin main
 
 # Redeploy the site:
 mkdocs gh-deploy
+
+
+
+
+

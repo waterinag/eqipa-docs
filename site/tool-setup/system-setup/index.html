@@ -286,7 +286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../datasets/pcp/" class="md-nav__link">
+      <a href="../../datasets/pcp_imd/" class="md-nav__link">
         
   
   
@@ -503,9 +503,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#server-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prerequisite-software" class="md-nav__link">
     <span class="md-ellipsis">
-      🧰 Prerequisite Software
+      Prerequisite Software
     </span>
   </a>
   
@@ -514,7 +523,7 @@
         <li class="md-nav__item">
   <a href="#install-required-system-packages" class="md-nav__link">
     <span class="md-ellipsis">
-      📦 Install Required System Packages
+      Install Required System Packages
     </span>
   </a>
   
@@ -523,7 +532,7 @@
         <li class="md-nav__item">
   <a href="#install-postgresql-postgis" class="md-nav__link">
     <span class="md-ellipsis">
-      🧭 Install PostgreSQL &amp; PostGIS
+      Install PostgreSQL &amp; PostGIS
     </span>
   </a>
   
@@ -532,7 +541,7 @@
         <li class="md-nav__item">
   <a href="#install-grass-gis" class="md-nav__link">
     <span class="md-ellipsis">
-      🌱 Install GRASS GIS
+      Install GRASS GIS
     </span>
   </a>
   
@@ -541,7 +550,7 @@
         <li class="md-nav__item">
   <a href="#create-a-grass-gis-location" class="md-nav__link">
     <span class="md-ellipsis">
-      🗺️ Create a GRASS GIS Location
+      Create a GRASS GIS Location
     </span>
   </a>
   
@@ -550,7 +559,7 @@
         <li class="md-nav__item">
   <a href="#configure-postgresql-user-and-database" class="md-nav__link">
     <span class="md-ellipsis">
-      🗄️ Configure PostgreSQL User and Database
+      Configure PostgreSQL User and Database
     </span>
   </a>
   
@@ -586,7 +595,7 @@
   
   
   <span class="md-ellipsis">
-    Running App Locally
+    Running App in Development Mode
     
   </span>
   
@@ -700,9 +709,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#server-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prerequisite-software" class="md-nav__link">
     <span class="md-ellipsis">
-      🧰 Prerequisite Software
+      Prerequisite Software
     </span>
   </a>
   
@@ -711,7 +729,7 @@
         <li class="md-nav__item">
   <a href="#install-required-system-packages" class="md-nav__link">
     <span class="md-ellipsis">
-      📦 Install Required System Packages
+      Install Required System Packages
     </span>
   </a>
   
@@ -720,7 +738,7 @@
         <li class="md-nav__item">
   <a href="#install-postgresql-postgis" class="md-nav__link">
     <span class="md-ellipsis">
-      🧭 Install PostgreSQL &amp; PostGIS
+      Install PostgreSQL &amp; PostGIS
     </span>
   </a>
   
@@ -729,7 +747,7 @@
         <li class="md-nav__item">
   <a href="#install-grass-gis" class="md-nav__link">
     <span class="md-ellipsis">
-      🌱 Install GRASS GIS
+      Install GRASS GIS
     </span>
   </a>
   
@@ -738,7 +756,7 @@
         <li class="md-nav__item">
   <a href="#create-a-grass-gis-location" class="md-nav__link">
     <span class="md-ellipsis">
-      🗺️ Create a GRASS GIS Location
+      Create a GRASS GIS Location
     </span>
   </a>
   
@@ -747,7 +765,7 @@
         <li class="md-nav__item">
   <a href="#configure-postgresql-user-and-database" class="md-nav__link">
     <span class="md-ellipsis">
-      🗄️ Configure PostgreSQL User and Database
+      Configure PostgreSQL User and Database
     </span>
   </a>
   
@@ -784,7 +802,15 @@
 <h1 id="system-setup">🛠️ System Setup</h1>
 <p>This section covers the complete setup of system dependencies and software required to run the <strong>EQIPA (Evapotranspiration-based Quick Irrigation Performance Assessment)</strong> application on a fresh Ubuntu server (tested on Ubuntu 20.04+).</p>
 <hr />
-<h2 id="prerequisite-software">🧰 Prerequisite Software</h2>
+<h2 id="server-configuration">Server Configuration</h2>
+<ul>
+<li>The EQIPA Tool requires a Linux-based Ubuntu server with AMD or intel processor
+minimum 8 cores, 5TB storage (considering future expansion of the database) and
+minimum 126 GB RAM for efficient performance.</li>
+<li>Full admin access to the server</li>
+</ul>
+<hr />
+<h2 id="prerequisite-software">Prerequisite Software</h2>
 <p>Ensure the following software is installed:</p>
 <ul>
 <li>Python 3.10</li>
@@ -799,10 +825,10 @@
 <li>Build tools &amp; Python development headers</li>
 </ul>
 <hr />
-<h2 id="install-required-system-packages">📦 Install Required System Packages</h2>
+<h2 id="install-required-system-packages">Install Required System Packages</h2>
 <pre><code class="language-bash">sudo apt-get update
-
-sudo apt-get install -y \
+</code></pre>
+<pre><code class="language-bash">sudo apt-get install -y \
     git \
     gdal-bin \
     apache2 \
@@ -815,17 +841,17 @@ sudo apt-get install -y \
     pango1.0-tools
 </code></pre>
 <hr />
-<h2 id="install-postgresql-postgis">🧭 Install PostgreSQL &amp; PostGIS</h2>
+<h2 id="install-postgresql-postgis">Install PostgreSQL &amp; PostGIS</h2>
 <pre><code class="language-bash">sudo apt-get install -y postgresql postgresql-postgis
 </code></pre>
 <hr />
-<h2 id="install-grass-gis">🌱 Install GRASS GIS</h2>
+<h2 id="install-grass-gis">Install GRASS GIS</h2>
 <pre><code class="language-bash">sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
 sudo apt-get update
 sudo apt-get install -y grass grass-dev
 </code></pre>
 <hr />
-<h2 id="create-a-grass-gis-location">🗺️ Create a GRASS GIS Location</h2>
+<h2 id="create-a-grass-gis-location">Create a GRASS GIS Location</h2>
 <pre><code class="language-bash">grass -c EPSG:4326 -e /mnt/mapdata/grassdata/ipa_india
 </code></pre>
 <p>Verify the mapset:</p>
@@ -835,7 +861,7 @@ sudo apt-get install -y grass grass-dev
 <p><strong>Note:</strong> In <code>settings.py</code>, the value of <code>GRASS_DB</code> should be set as <code>/mnt/mapdata/grassdata</code></p>
 </blockquote>
 <hr />
-<h2 id="configure-postgresql-user-and-database">🗄️ Configure PostgreSQL User and Database</h2>
+<h2 id="configure-postgresql-user-and-database">Configure PostgreSQL User and Database</h2>
 <p>Create a new PostgreSQL user:</p>
 <pre><code class="language-bash">sudo -u postgres createuser ipa_india
 </code></pre>

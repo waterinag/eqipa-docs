@@ -1,23 +1,49 @@
 site_name: India EQIPA 
+site_description: Technical Documentation of EQIPA Platform
+site_author: waterinag
 site_url: https://waterinag.github.io/eqipa-docs/
 edit_uri: edit/main/docs/
+
+copyright: "Copyright &copy; The World Bank Group"
 
 theme:
   name: material
   features:
-    - navigation.sections
-    - navigation.expand
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - search.highlight
+    # - navigation.sections
+    # - navigation.expand
     - content.code.copy
+  # logo: assets/logo.png
+  # favicon: assets/logo.ico
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
 
 nav:
   - Introduction: index.md
   - Download Datasets:
-      - Overview: datasets/index.md
-      - Precipitation (IMD): datasets/pcp_imd.md
-      - Evapotranspiration (WaPOR): datasets/eta.md
-      - Biomass Production (WaPOR): datasets/tbp.md
-      - Land Cover (NRSC LULC 250K): datasets/lulc.md
-      - Elevation (AW3D30): datasets/elevation.md
+    - Overview: datasets/overview.md
+    - Environment Setup: datasets/setup.md
+    - Precipitation (IMD): datasets/pcp_imd.md
+    - Precipitation (CHIRPS): datasets/pcp_chirps.md
+    - Evapotranspiration (WaPOR): datasets/eta_wapor.md
+    - Evapotranspiration (SSEBop): datasets/eta_ssebop.md
+    - Biomass Production (WaPOR): datasets/tbp_wapor.md
+    - Land Cover (NRSC LULC 250K): datasets/lulc.md
+    - Elevation (AW3D30): datasets/elevation.md
   - Tool Setup:
     - System Setup: tool-setup/system-setup.md
     - Running App in Development Mode: tool-setup/run-locally.md

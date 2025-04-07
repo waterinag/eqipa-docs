@@ -20,11 +20,11 @@ modular structure which makes it highly customizable and transferrable.
 
 ---
 
-## 🧑‍💻 Developed By
+## Developed By
 
 **Water Informatics Team – The World Bank**
 
-## 📩 Resource Persons
+## Resource Persons
 
 - **Dr. Poolad Karimi** – [pkarimi@worldbank.org](mailto:pkarimi@worldbank.org)
 - **Dr. Anju Gaur** – [agaur@worldbank.org](mailto:agaur@worldbank.org)
