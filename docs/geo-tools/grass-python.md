@@ -1,4 +1,5 @@
-# GRASS GIS
+
+# GRASS GIS Python library
 
 The Geographic Resource Analysis Support System (GRASS) is a free and open source geographic information system (GIS). It is a powerful tool for managing, analyzing, and visualizing geospatial data, supporting raster, vector, and 3D modeling functionalities.
 

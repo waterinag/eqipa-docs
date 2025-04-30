@@ -597,7 +597,7 @@
   
   
   <span class="md-ellipsis">
-    Tool Setup
+    Geospatial Tools
     
   </span>
   
@@ -607,6 +607,120 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Geospatial Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geo-tools/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geo-tools/grass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRASS GIS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geo-tools/gdal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GDAL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tool Setup
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Tool Setup
           </label>
@@ -806,7 +920,7 @@
   
 
 
-<h1 id="precipitation-chirps">🌧️ Precipitation (CHIRPS)</h1>
+<h1 id="precipitation-chirps">Precipitation (CHIRPS)</h1>
 <p>Since 1999, USGS and CHC scientists—supported by funding from USAID, NASA, and NOAA—have developed techniques for producing rainfall maps, especially in areas where surface data is sparse.</p>
 <hr />
 <h2 id="chirps-v30-overview">CHIRPS v3.0 Overview</h2>
@@ -818,75 +932,73 @@
 <hr />
 <h2 id="download-monthly-chirps-pcp">Download Monthly CHIRPS PCP</h2>
 <p>The following script downloads <strong>monthly CHIRPS v3.0 GeoTIFFs</strong> for a given year range:</p>
-<pre><code class="language-python">import requests
-import os
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 
-firstyear = 2022
-lastyear = 2023
+<span class="n">firstyear</span> <span class="o">=</span> <span class="mi">2022</span>
+<span class="n">lastyear</span> <span class="o">=</span> <span class="mi">2023</span>
 
-# Create a folder to store downloads
-download_folder = &quot;pcp_chirps_v3_monthly&quot;
-os.makedirs(download_folder, exist_ok=True)
+<span class="c1"># Create a folder to store downloads</span>
+<span class="n">download_folder</span> <span class="o">=</span> <span class="s2">&quot;pcp_chirps_v3_monthly&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">download_folder</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 
-for year in range(firstyear, lastyear + 1):
-    for month in range(1,13):
-        filename = f&quot;chirps-v3.0.{year}.{month:02d}.tif&quot;
-        url = f&quot;https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/tifs/{filename}&quot;
-        print(f&quot;Downloading {filename} from {url} ...&quot;)
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">firstyear</span><span class="p">,</span> <span class="n">lastyear</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">):</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;chirps-v3.0.</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.tif&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/tifs/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloading </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
 
-        try:
-            response = requests.get(url, stream=True)
-            response.raise_for_status()  
-            output_path = os.path.join(download_folder, filename)
-            with open(output_path, &quot;wb&quot;) as f:
-                for chunk in response.iter_content(chunk_size=8192):
-                    if chunk:
-                        f.write(chunk)
-            print(f&quot;Downloaded {filename} successfully.&quot;)
-        except requests.exceptions.RequestException as e:
-            print(f&quot;Failed to download {filename}: {e}&quot;)
-
-</code></pre>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>  
+            <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">download_folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">8192</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">chunk</span><span class="p">:</span>
+                        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloaded </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> successfully.&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to download </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
 <hr />
 <h2 id="clip-chirps-data-to-india-boundary">Clip CHIRPS Data to India Boundary</h2>
 <p>Once downloaded, use this script to clip the <strong>global raster</strong> to the <strong>India boundary</strong> using a GeoJSON file.</p>
 <blockquote>
-<p>📁 Boundary file required: <code>assets/IndiaBoundary.geojson</code></p>
+<p>📁 Boundary file required: <a href="https://waterinag.github.io/eqipa-docs/assets/IndiaBoundary.geojson"><code>IndiaBoundary.geojson</code></a></p>
 </blockquote>
-<pre><code class="language-python">import os
-from osgeo import gdal
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">osgeo</span><span class="w"> </span><span class="kn">import</span> <span class="n">gdal</span>
 
-# Set your paths
-input_folder = &quot;pcp_chirps_v3_monthly&quot;      
-output_folder = &quot;pcp_chirps_ind_monthly&quot;   
-geojson_boundary = &quot;IndiaBoundary.geojson&quot; 
+<span class="c1"># Set your paths</span>
+<span class="n">input_folder</span> <span class="o">=</span> <span class="s2">&quot;pcp_chirps_v3_monthly&quot;</span>      
+<span class="n">output_folder</span> <span class="o">=</span> <span class="s2">&quot;pcp_chirps_ind_monthly&quot;</span>   
+<span class="n">geojson_boundary</span> <span class="o">=</span> <span class="s2">&quot;IndiaBoundary.geojson&quot;</span> 
 
-firstyear = 2022
-lastyear = 2023
+<span class="n">firstyear</span> <span class="o">=</span> <span class="mi">2022</span>
+<span class="n">lastyear</span> <span class="o">=</span> <span class="mi">2023</span>
 
-# Create the output folder if it doesn't exist
-if not os.path.exists(output_folder):
-    os.makedirs(output_folder)
+<span class="c1"># Create the output folder if it doesn&#39;t exist</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_folder</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_folder</span><span class="p">)</span>
 
-# Loop through all files in the input folder
-for year in range(firstyear, lastyear+1):
-    for month in range(1, 13):
-        # Build input filename: WAPOR-3.L1-AETI-M.YYYY-MM.tif
-        filename = f&quot;chirps-v3.0.{year}.{month:02d}.tif&quot;
-        input_path = os.path.join(input_folder, filename)
-        output_filename = f&quot;chirps_pcp_m_{year}_{month:02d}.tif&quot;
+<span class="c1"># Loop through all files in the input folder</span>
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">firstyear</span><span class="p">,</span> <span class="n">lastyear</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">):</span>
+        <span class="c1"># Build input filename: WAPOR-3.L1-AETI-M.YYYY-MM.tif</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;chirps-v3.0.</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.tif&quot;</span>
+        <span class="n">input_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="n">output_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;chirps_pcp_m_</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.tif&quot;</span>
 
-        output_path = os.path.join(output_folder, output_filename)
+        <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="n">output_filename</span><span class="p">)</span>
 
-        # Clip the raster using GDAL.Warp with the GeoJSON boundary
-        warp_options = gdal.WarpOptions(cutlineDSName=geojson_boundary, cropToCutline=True,dstNodata=-9999)
-        gdal.Warp(destNameOrDestDS=output_path, srcDSOrSrcDSTab=input_path, options=warp_options)
+        <span class="c1"># Clip the raster using GDAL.Warp with the GeoJSON boundary</span>
+        <span class="n">warp_options</span> <span class="o">=</span> <span class="n">gdal</span><span class="o">.</span><span class="n">WarpOptions</span><span class="p">(</span><span class="n">cutlineDSName</span><span class="o">=</span><span class="n">geojson_boundary</span><span class="p">,</span> <span class="n">cropToCutline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">dstNodata</span><span class="o">=-</span><span class="mi">9999</span><span class="p">)</span>
+        <span class="n">gdal</span><span class="o">.</span><span class="n">Warp</span><span class="p">(</span><span class="n">destNameOrDestDS</span><span class="o">=</span><span class="n">output_path</span><span class="p">,</span> <span class="n">srcDSOrSrcDSTab</span><span class="o">=</span><span class="n">input_path</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">warp_options</span><span class="p">)</span>
 
-        print(f&quot;Processed {filename}: clipped and scaled saved to {output_path}&quot;)
-
-</code></pre>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processed </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">: clipped and scaled saved to </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
 
 
 

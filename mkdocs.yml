@@ -53,10 +53,13 @@ nav:
   - Geospatial Tools:
     - Overview: geo-tools/overview.md
     - GRASS GIS: geo-tools/grass.md
+    - GRASS GIS Python library: geo-tools/grass-python.md
     - GDAL: geo-tools/gdal.md
+    
   - Tool Setup:
     - System Setup: tool-setup/system-setup.md
-    - Running App in Development Mode: tool-setup/run-locally.md
+    - Running Tool in Development Mode: tool-setup/development-mode.md
     - Deployment in Production: tool-setup/deployment.md
+    - Run with Docker: tool-setup/run-docker.md
     - Apache Configuration: tool-setup/apache.md
     - Common Errors & Fixes: tool-setup/errors.md

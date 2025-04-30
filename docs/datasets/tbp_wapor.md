@@ -1,7 +1,7 @@
 # Actual Evapotranspiration
 Total Biomass Production (TBP) is defined as the sum of the above-ground dry matter produced for a given year. TBP is calculated from Net Primary Production (NPP). TBP is expressed in kgDM/ha/day, and has thus different biomass units compared to NPP, with 1 gC/m2/day (NPP) = 22.222 kgDM/ha/day (DMP).
 
-For further information on the methodology read the WaPOR documentation available at: https://bitbucket.org/cioapps/wapor-et-look/wiki/Home
+For further information on the methodology read the WaPOR documentation available at: [https://bitbucket.org/cioapps/wapor-et-look/wiki/Home](https://bitbucket.org/cioapps/wapor-et-look/wiki/Home)
 
 ---
 
@@ -18,7 +18,7 @@ For further information on the methodology read the WaPOR documentation availabl
 ## 📌 Data Processing Summary
 
 1. Monthly WaPOR L1 v3 NPP (300m) maps have been downloaded from WaPOR.
-2. EMonthly TBP maps are calculated as = Monthly NPP × Scale Factor (0.001) × Unit Conversion Factor (22.222). See the scale factor for each WaPOR product here: https://data.apps.fao.org/wapor
+2. Monthly TBP maps are calculated as = Monthly NPP × Scale Factor (0.001) × Unit Conversion Factor (22.222). See the scale factor for each WaPOR product here: [https://data.apps.fao.org/wapor](https://data.apps.fao.org/wapor)
 3. Annual TBP maps is computed for all crop years by aggregating monthly TBP maps from June to May, covering crop years 2018-19 to 2022-23.
 
 ---
@@ -110,17 +110,17 @@ for year in range(firstyear, lastyear+1):
         temp_clip = os.path.join(output_folder, f"temp_{output_filename}")
 
         # Clip and Download raster from Cloud
-        fileURL=f"https://storage.googleapis.com/fao-gismgr-wapor-3-data/DATA/WAPOR-3/MAPSET/L2-NPP-M/WAPOR-3.L2-NPP-M.{year}-{month:02d}.tif" 
-        vrt_file=f"WAPOR-3.L2-NPP-M.{year}-{month:02d}.vrt"
-        gdal.BuildVRT(vrt_file, [f"/vsicurl/{fileURL}"])
-        gdal.Warp(temp_clip, vrt_file, cutlineDSName=geojson_boundary, cropToCutline=True, dstNodata=-9999)
+        # fileURL=f"https://storage.googleapis.com/fao-gismgr-wapor-3-data/DATA/WAPOR-3/MAPSET/L2-NPP-M/WAPOR-3.L2-NPP-M.{year}-{month:02d}.tif" 
+        # vrt_file=f"WAPOR-3.L2-NPP-M.{year}-{month:02d}.vrt"
+        # gdal.BuildVRT(vrt_file, [f"/vsicurl/{fileURL}"])
+        # gdal.Warp(temp_clip, vrt_file, cutlineDSName=geojson_boundary, cropToCutline=True, dstNodata=-9999)
 
 
         # Clip raster from local
-        # filename = f"WAPOR-3.L1-NPP-M.{year}-{month:02d}.tif"
-        # input_path = os.path.join(input_folder, filename)
-        # warp_options = gdal.WarpOptions(cutlineDSName=geojson_boundary, cropToCutline=True,dstNodata=-9999)
-        # gdal.Warp(destNameOrDestDS=temp_clip, srcDSOrSrcDSTab=input_path, options=warp_options)
+        filename = f"WAPOR-3.L1-NPP-M.{year}-{month:02d}.tif"
+        input_path = os.path.join(input_folder, filename)
+        warp_options = gdal.WarpOptions(cutlineDSName=geojson_boundary, cropToCutline=True,dstNodata=-9999)
+        gdal.Warp(destNameOrDestDS=temp_clip, srcDSOrSrcDSTab=input_path, options=warp_options)
 
 
         

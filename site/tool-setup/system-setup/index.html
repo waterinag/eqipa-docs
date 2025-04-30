@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/tool-setup/system-setup/">
       
       
-        <link rel="prev" href="../../datasets/elevation/">
+        <link rel="prev" href="../../geo-tools/gdal/">
       
       
         <link rel="next" href="../run-locally/">
@@ -507,6 +507,120 @@
       
   
   
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Geospatial Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Geospatial Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geo-tools/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geo-tools/grass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRASS GIS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geo-tools/gdal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GDAL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -520,10 +634,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -536,8 +650,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Tool Setup
           </label>
@@ -897,7 +1011,7 @@
 
 
 <h1 id="system-setup">🛠️ System Setup</h1>
-<p>This section covers the complete setup of system dependencies and software required to run the <strong>EQIPA (Evapotranspiration-based Quick Irrigation Performance Assessment)</strong> application on a fresh Ubuntu server (tested on Ubuntu 20.04+).</p>
+<p>This section covers the complete setup of system dependencies and software required to run the <strong>EQIPA (Evapotranspiration-based Quick Irrigation Performance Assessment)</strong> application on a fresh Ubuntu server.</p>
 <hr />
 <h2 id="server-configuration">Server Configuration</h2>
 <ul>
@@ -923,58 +1037,57 @@ minimum 126 GB RAM for efficient performance.</li>
 </ul>
 <hr />
 <h2 id="install-required-system-packages">Install Required System Packages</h2>
-<pre><code class="language-bash">sudo apt-get update
-</code></pre>
-<pre><code class="language-bash">sudo apt-get install -y \
-    git \
-    gdal-bin \
-    apache2 \
-    postgis \
-    redis-server \
-    virtualenv \
-    build-essential \
-    python3-dev \
-    libpq-dev \
-    pango1.0-tools
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>git<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>gdal-bin<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>apache2<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>postgis<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>redis-server<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>virtualenv<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>build-essential<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>python3-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>libpq-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>pango1.0-tools
+</code></pre></div>
 <hr />
 <h2 id="install-postgresql-postgis">Install PostgreSQL &amp; PostGIS</h2>
-<pre><code class="language-bash">sudo apt-get install -y postgresql postgresql-postgis
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>postgresql<span class="w"> </span>postgresql-postgis
+</code></pre></div>
 <hr />
 <h2 id="install-grass-gis">Install GRASS GIS</h2>
-<pre><code class="language-bash">sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
-sudo apt-get update
-sudo apt-get install -y grass grass-dev
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>add-apt-repository<span class="w"> </span>ppa:ubuntugis/ubuntugis-unstable
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>grass<span class="w"> </span>grass-dev
+</code></pre></div>
 <hr />
 <h2 id="create-a-grass-gis-location">Create a GRASS GIS Location</h2>
-<pre><code class="language-bash">grass -c EPSG:4326 -e /mnt/mapdata/grassdata/ipa_india
-</code></pre>
+<div class="highlight"><pre><span></span><code>grass<span class="w"> </span>-c<span class="w"> </span>EPSG:4326<span class="w"> </span>-e<span class="w"> </span>/mnt/mapdata/grassdata/ipa_india
+</code></pre></div>
 <p>Verify the mapset:</p>
-<pre><code class="language-bash">ls /mnt/mapdata/grassdata/ipa_india
-</code></pre>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/mnt/mapdata/grassdata/ipa_india
+</code></pre></div>
 <blockquote>
 <p><strong>Note:</strong> In <code>settings.py</code>, the value of <code>GRASS_DB</code> should be set as <code>/mnt/mapdata/grassdata</code></p>
 </blockquote>
 <hr />
 <h2 id="configure-postgresql-user-and-database">Configure PostgreSQL User and Database</h2>
 <p>Create a new PostgreSQL user:</p>
-<pre><code class="language-bash">sudo -u postgres createuser ipa_india
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>createuser<span class="w"> </span>ipa_india
+</code></pre></div>
 <p>Login to PostgreSQL:</p>
-<pre><code class="language-bash">sudo -u postgres psql
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>psql
+</code></pre></div>
 <p>Inside psql:</p>
-<pre><code class="language-sql">ALTER USER postgres PASSWORD 'ipa_india';
-ALTER USER ipa_india PASSWORD 'ipa_india123';
-ALTER USER ipa_india WITH SUPERUSER;
-\q
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">postgres</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;ipa_india&#39;</span><span class="p">;</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">ipa_india</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;ipa_india123&#39;</span><span class="p">;</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">ipa_india</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">SUPERUSER</span><span class="p">;</span>
+<span class="err">\</span><span class="n">q</span>
+</code></pre></div>
 <p>Create the database and enable PostGIS:</p>
-<pre><code class="language-bash">createdb -U ipa_india -h localhost ipa_india
-psql -U ipa_india -h localhost ipa_india -c &quot;CREATE EXTENSION postgis&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code>createdb<span class="w"> </span>-U<span class="w"> </span>ipa_india<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>ipa_india
+psql<span class="w"> </span>-U<span class="w"> </span>ipa_india<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>ipa_india<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;CREATE EXTENSION postgis&quot;</span>
+</code></pre></div>
 <hr />
 <h2 id="summary">✅ Summary</h2>
 <table>

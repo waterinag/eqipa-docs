@@ -12,9 +12,13 @@
         <meta name="author" content="waterinag">
       
       
-        <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/tool-setup/installation/">
+        <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/geo-tools/grass/">
       
       
+        <link rel="prev" href="../overview/">
+      
+      
+        <link rel="next" href="../gdal/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +26,7 @@
     
     
       
-        <title>Installation - India EQIPA</title>
+        <title>GRASS GIS - India EQIPA</title>
       
     
     
@@ -73,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#grass-gis" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -105,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installation
+              GRASS GIS
             
           </span>
         </div>
@@ -498,18 +507,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -525,7 +536,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Geospatial Tools
@@ -539,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../geo-tools/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   
@@ -559,10 +570,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../geo-tools/grass/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    GRASS GIS
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -573,6 +606,155 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-grass-gis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install GRASS GIS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#starting-grass-gis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Starting GRASS GIS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Starting GRASS GIS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grass-gis-startup-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      GRASS GIS Startup Screen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grass-gis-database-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      GRASS GIS Database Structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-grass-gis-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common GRASS GIS Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common GRASS GIS Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-and-managing-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Starting and Managing Sessions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-and-region-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map and Region Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raster-vector-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raster &amp; Vector Info
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raster-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raster Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vector Operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Learn More
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -585,7 +767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../geo-tools/gdal/" class="md-nav__link">
+      <a href="../gdal/" class="md-nav__link">
         
   
   
@@ -653,7 +835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../system-setup/" class="md-nav__link">
+      <a href="../../tool-setup/system-setup/" class="md-nav__link">
         
   
   
@@ -676,7 +858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../run-locally/" class="md-nav__link">
+      <a href="../../tool-setup/run-locally/" class="md-nav__link">
         
   
   
@@ -699,7 +881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/" class="md-nav__link">
+      <a href="../../tool-setup/deployment/" class="md-nav__link">
         
   
   
@@ -722,7 +904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apache/" class="md-nav__link">
+      <a href="../../tool-setup/apache/" class="md-nav__link">
         
   
   
@@ -745,7 +927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../errors/" class="md-nav__link">
+      <a href="../../tool-setup/errors/" class="md-nav__link">
         
   
   
@@ -785,6 +967,145 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-grass-gis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install GRASS GIS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#starting-grass-gis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Starting GRASS GIS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Starting GRASS GIS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grass-gis-startup-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      GRASS GIS Startup Screen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grass-gis-database-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      GRASS GIS Database Structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-grass-gis-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common GRASS GIS Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common GRASS GIS Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-and-managing-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Starting and Managing Sessions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-and-region-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map and Region Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raster-vector-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raster &amp; Vector Info
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raster-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raster Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vector Operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Learn More
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -803,9 +1124,178 @@
   
 
 
-  <h1>Installation</h1>
+<h1 id="grass-gis">🌿 GRASS GIS</h1>
+<p>The Geographic Resource Analysis Support System (GRASS) is a free and open source geographic information system (GIS). It is a powerful tool for managing, analyzing, and visualizing geospatial data, supporting raster, vector, and 3D modeling functionalities.</p>
+<h3 id="key-features">Key Features</h3>
+<ul>
+<li>This cross platform GIS runs on Windows, Mac, and Linux. </li>
+<li>Support for large datasets and high-resolution analysis</li>
+<li>Extensive scripting and automation capabilities</li>
+<li>Integration with other GIS tools and libraries like QGIS, GDAL, and R</li>
+</ul>
+<hr />
+<h2 id="install-grass-gis">Install GRASS GIS</h2>
+<p>Download the latest stable release from the official site:</p>
+<p><a href="https://grass.osgeo.org/download/">https://grass.osgeo.org/download/</a></p>
+<p>Choose the installer based on your operating system:
+- Standalone installer for <strong>Windows</strong>
+- <code>.dmg</code> or Homebrew package for <strong>MacOS</strong>
+- <code>apt</code>, <code>dnf</code>, or <code>snap</code> installation for <strong>Linux</strong></p>
+<hr />
+<h2 id="starting-grass-gis">Starting GRASS GIS</h2>
+<p>When GRASS GIS launches, you must select a:</p>
+<ol>
+<li><strong>GISDBASE</strong> (root project directory)</li>
+<li><strong>Location</strong> (defines projection and extent)</li>
+<li><strong>Mapset</strong> (stores individual data and settings)</li>
+</ol>
+<blockquote>
+<p>📘 Read the <a href="https://grass.osgeo.org/grass-stable/manuals/helptext.html">GRASS Quickstart Guide</a> to understand this setup better.</p>
+</blockquote>
+<h3 id="grass-gis-startup-screen">GRASS GIS Startup Screen</h3>
+<p><img alt="GRASS Startup Screen" src="../../assets/images/grass_startup.png" /></p>
+<hr />
+<h3 id="grass-gis-database-structure">GRASS GIS Database Structure</h3>
+<p><img alt="GRASS Location Structure" src="../../assets/images/grass_structure.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GISDBASE</code></td>
+<td>Root folder where all GRASS GIS data is stored.</td>
+</tr>
+<tr>
+<td><code>LOCATION</code></td>
+<td>Folder inside <code>GISDBASE</code> that defines a projection/CRS. All data in a LOCATION shares the same CRS.</td>
+</tr>
+<tr>
+<td><code>MAPSET</code></td>
+<td>Subdirectory of a LOCATION for storing actual data and managing workflows.</td>
+</tr>
+<tr>
+<td><code>PERMANENT</code></td>
+<td>Special mapset holding region settings and the default CRS.</td>
+</tr>
+<tr>
+<td><code>WIND</code></td>
+<td>File in each MAPSET that holds region resolution/extent.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="common-grass-gis-commands">Common GRASS GIS Commands</h2>
+<p>Here are some frequently used GRASS GIS commands useful for working with rasters, vectors, regions, and exporting data.</p>
+<hr />
+<h3 id="starting-and-managing-sessions">Starting and Managing Sessions</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a new location from scratch</span>
+grass<span class="w"> </span>-c<span class="w"> </span>/mnt/mapdata/grassdata/new_location
 
+<span class="c1"># Start GRASS in an existing location/mapset</span>
+grass<span class="w"> </span>/path/to/mapset/location
 
+<span class="c1"># Create a new mapset inside an existing location</span>
+g.mapset<span class="w"> </span>-c<span class="w"> </span><span class="nv">mapset</span><span class="o">=</span><span class="nb">test</span><span class="w"> </span><span class="nv">location</span><span class="o">=</span>ipa_india
+
+<span class="c1"># Switch to a different mapset</span>
+g.mapset<span class="w"> </span><span class="nv">mapset</span><span class="o">=</span>pcp_mean_monthly
+
+<span class="c1"># Add multiple mapsets to current search path</span>
+g.mapsets<span class="w"> </span><span class="nv">mapset</span><span class="o">=</span>nrsc_lulc,ind_annual_data<span class="w"> </span><span class="nv">operation</span><span class="o">=</span>add
+</code></pre></div>
+<hr />
+<h3 id="map-and-region-management">Map and Region Management</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check raster resolution and extent</span>
+r.info<span class="w"> </span>-g<span class="w"> </span>pcpm_imd_2023_10
+
+<span class="c1"># List all rasters and vectors</span>
+g.list<span class="w"> </span><span class="nv">type</span><span class="o">=</span>raster,vector
+
+<span class="c1"># List all rasters and export to file</span>
+g.list<span class="w"> </span>rast<span class="w"> </span><span class="nv">map</span><span class="o">=</span>etg_etb_ind_monthly<span class="w"> </span>&gt;&gt;<span class="w"> </span>names.txt
+
+<span class="c1"># Set region to match a raster or vector map</span>
+g.region<span class="w"> </span><span class="nv">raster</span><span class="o">=</span>your_raster_map
+g.region<span class="w"> </span><span class="nv">vector</span><span class="o">=</span>your_vector_map
+
+<span class="c1"># View current region settings</span>
+g.region<span class="w"> </span>-p
+</code></pre></div>
+<hr />
+<h3 id="import-data">Import Data</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import a raster file (GeoTIFF, NetCDF, etc.)</span>
+r.import<span class="w"> </span><span class="nv">input</span><span class="o">=</span>chirps_pcp.tif<span class="w"> </span><span class="nv">output</span><span class="o">=</span>chirps_pcp
+
+<span class="c1"># Import a vector file (GeoJSON, Shapefile, etc.)</span>
+v.import<span class="w"> </span><span class="nv">input</span><span class="o">=</span>IndiaBoundary.geojson<span class="w"> </span><span class="nv">output</span><span class="o">=</span>india_boundary
+</code></pre></div>
+<hr />
+<h3 id="raster-vector-info">Raster &amp; Vector Info</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># View metadata of a raster or vector</span>
+r.info<span class="w"> </span><span class="nv">map</span><span class="o">=</span>chirps_pcp
+v.info<span class="w"> </span><span class="nv">map</span><span class="o">=</span>india_boundary
+</code></pre></div>
+<hr />
+<h3 id="raster-operations">Raster Operations</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Map algebra</span>
+r.mapcalc<span class="w"> </span><span class="nv">expression</span><span class="o">=</span><span class="s2">&quot;output_map = raster1 + raster2&quot;</span>
+
+<span class="c1"># Zonal statistics</span>
+r.univar<span class="w"> </span><span class="nv">map</span><span class="o">=</span>raster_map<span class="w"> </span><span class="nv">zones</span><span class="o">=</span>vector_zones_map
+
+<span class="c1"># Raster statistics summary</span>
+r.stats<span class="w"> </span>-a<span class="w"> </span><span class="nv">input</span><span class="o">=</span>raster_map_name
+
+<span class="c1"># Merge rasters</span>
+r.patch<span class="w"> </span><span class="nv">input</span><span class="o">=</span>map1,map2<span class="w"> </span><span class="nv">output</span><span class="o">=</span>merged_map
+
+<span class="c1"># Clip raster with current region</span>
+r.clip<span class="w"> </span><span class="nv">input</span><span class="o">=</span>your_raster<span class="w"> </span><span class="nv">output</span><span class="o">=</span>clipped_raster
+
+<span class="c1"># Resample raster</span>
+r.resample<span class="w"> </span><span class="nv">input</span><span class="o">=</span>your_raster<span class="w"> </span><span class="nv">output</span><span class="o">=</span>resampled_raster
+
+<span class="c1"># Apply raster mask</span>
+r.mask<span class="w"> </span><span class="nv">raster</span><span class="o">=</span>mask_map
+
+<span class="c1"># Export raster to GeoTIFF</span>
+r.out.gdal<span class="w"> </span><span class="nv">input</span><span class="o">=</span>raster_map<span class="w"> </span><span class="nv">output</span><span class="o">=</span>/path/output.tif<span class="w"> </span><span class="nv">format</span><span class="o">=</span>GTiff
+</code></pre></div>
+<hr />
+<h3 id="vector-operations">Vector Operations</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Buffer vector geometry</span>
+v.buffer<span class="w"> </span><span class="nv">input</span><span class="o">=</span>your_vector<span class="w"> </span><span class="nv">output</span><span class="o">=</span>buffered_vector<span class="w"> </span><span class="nv">distance</span><span class="o">=</span><span class="m">500</span>
+
+<span class="c1"># Convert vector to raster</span>
+v.to.rast<span class="w"> </span><span class="nv">input</span><span class="o">=</span>your_vector<span class="w"> </span><span class="nv">output</span><span class="o">=</span>rasterized_vector<span class="w"> </span><span class="nv">use</span><span class="o">=</span>cat
+
+<span class="c1"># Convert raster to vector</span>
+r.to.vect<span class="w"> </span><span class="nv">input</span><span class="o">=</span>your_raster<span class="w"> </span><span class="nv">output</span><span class="o">=</span>vector_map<span class="w"> </span><span class="nv">feature</span><span class="o">=</span>area
+
+<span class="c1"># Merge vectors</span>
+v.patch<span class="w"> </span><span class="nv">input</span><span class="o">=</span>vector1,vector2<span class="w"> </span><span class="nv">output</span><span class="o">=</span>merged_vector
+
+<span class="c1"># Export vector to Shapefile</span>
+v.out.ogr<span class="w"> </span><span class="nv">input</span><span class="o">=</span>vector_map<span class="w"> </span><span class="nv">output</span><span class="o">=</span>/path/output.shp<span class="w"> </span><span class="nv">format</span><span class="o">=</span>ESRI_Shapefile
+</code></pre></div>
+<hr />
+<blockquote>
+<p>Tip: Always verify the region and CRS settings (<code>g.region -p</code>) before running any spatial operation.</p>
+</blockquote>
+<hr />
+<h2 id="learn-more">📚 Learn More</h2>
+<ul>
+<li><a href="https://grass.osgeo.org/">GRASS GIS Official Site</a></li>
+<li><a href="http://grass.osgeo.org/documentation/">GRASS GIS Documentation</a></li>
+<li><a href="https://grass.osgeo.org/grass-stable/manuals/libpython/index.html">Python API for GRASS</a></li>
+<li><a href="https://grass.osgeo.org/learn/manuals/">GRASS GIS Manuals</a></li>
+<li><a href="https://grass-tutorials.osgeo.org/">GRASS GIS Tutorials</a></li>
+<li><a href="https://ncsu-geoforall-lab.github.io/grass-intro-workshop/">Intro to GRASS GIS Workshop</a></li>
+</ul>
 
 
 

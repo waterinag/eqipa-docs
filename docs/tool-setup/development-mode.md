@@ -1,4 +1,4 @@
-# 💻 Running App in Development Mode
+# 💻 Running Tool in Development Mode
 
 This guide explains how to set up and run the EQIPA Django app in a development environment.
 
@@ -34,8 +34,12 @@ pip install -r requirements.txt
 
 Open `ipa_india/settings.py` and update the following:
 
+- `ALLOWED_HOSTS`
+- `CSRF_TRUSTED_ORIGINS`
+- `BASE_URL`
 - `DATABASES` section → add username, password, and DB name
 - `GRASS_DB` path → e.g., `/mnt/mapdata/grassdata/ipa_india`
+- `GRASS_LOCATION`
 
 ---
 
@@ -82,52 +86,61 @@ python manage.py runserver 0.0.0.0:8001
 Now open your browser at:
 
 - [http://127.0.0.1:8000](http://127.0.0.1:8000)
-- or your local IP, e.g.: `http://10.37.129.2:8001/`
+- or your local IP, e.g.: `http://ServerIP:8001/`
 
 ---
 
-!!! note
-
-    Celery is used for handling long-running background tasks (like report generation). Start the worker using:
-
-    ```bash
-    celery -A ipa_india worker -l INFO
-    ```
-
-    To run Celery inside a `screen` session (optional):
-
-    ```bash
-    screen -S ipa_celery
-    celery -A ipa_india worker -l INFO
-    ```
-
-    To detach from the screen session:
-
-    ```bash
-    Ctrl + A, then D
-    ```
-
-    To reattach:
-
-    ```bash
-    screen -r ipa_celery
-    ```
 
 
-??? info "📦 Screen"
+Start Celery worker using:
+
+```bash
+celery -A ipa_india worker -l INFO
+```
+
+To run Celery inside a `screen` session:
+
+```bash
+screen -S ipa_celery
+celery -A ipa_india worker -l INFO
+```
+
+To detach from the screen session:
+
+```bash
+Ctrl + A, then D
+```
+
+To reattach:
+
+```bash
+screen -r ipa_celery
+```
+
+
+
+
+
+!!! info "📦 Screen"
 
     Learn more: [How to Use Linux Screen](https://linuxize.com/post/how-to-use-linux-screen/)
 
     Use `screen` to manage background processes like Celery or the Django dev server:
 
-    **🔍 Check running screens:**
+    **Install Linux Screen on Ubuntu and Debian:**
     ```bash
-    screen -r
+    sudo apt update
+    sudo apt install screen
+    
     ```
-
     **🔄 Attach to a screen:**
     ```bash
     screen -r <screen_name>
+    ```
+
+    **🔍 Check running screens:**
+    ```bash
+    screen -r
     ```
 
     **🔙 Detach a screen:**
@@ -144,6 +157,12 @@ Now open your browser at:
     ```bash
     screen -S <screen_name>
     ```
+    
+    Detach from a screen
+    ```bash
+    Ctrl + A, then D
+    ```
+
 
 
 
@@ -158,7 +177,7 @@ Now open your browser at:
 When running the server for the first time, visit:
 
 ```
-http://127.0.0.1:8000/admin
+http://ServerIP:8000/admin
 ```
 
 Go to the **"Sites"** tab and update the domain to match your current host:

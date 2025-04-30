@@ -26,6 +26,9 @@ sudo chmod -R 755 /home/aman/ipa_india/webapp/ipa_india/log/
 
 ```
 -- unavailable modifier requested: 0 --
+-- unavailable modifier requested: 0 --
+-- unavailable modifier requested: 0 --
+-- unavailable modifier requested: 0 --
 ```
 
 ### Solution
@@ -41,59 +44,6 @@ uwsgi --ini ipa_india.ini
 
 ---
 
-## PostgreSQL Delete Constraint Error
-
-### Error
-
-```
-ERROR:  update or delete on table "area" violates foreign key constraint ...
-DETAIL:  Key (id)=(X) is still referenced from table "taskhistory"
-```
-
-### Solution
-
-1. Delete dependent entries from `taskhistory`:
-
-```sql
-DELETE FROM taskhistory WHERE area_id = <id>;
-```
-
-2. Then delete from `area`:
-
-```sql
-DELETE FROM area WHERE name = 'target_area_name';
-```
-
----
-
-## Screen Issues (Managing Background Sessions)
-
-### Attach to a running screen
-
-```bash
-screen -r 392898.django_server
-```
-
-### Detach from a screen
-
-```bash
-Ctrl + A, then D
-```
-
-### Kill a screen session
-
-```bash
-screen -S celery_worker -X quit
-```
-
-### Start a new screen
-
-```bash
-screen -S ipa_server
-screen -S ipa_celery
-```
-
----
 
 ## Monitoring Celery Logs
 
@@ -107,26 +57,23 @@ for file in /home/aman/ipa_india/webapp/ipa_india/log/celery/*.log; do
 done
 ```
 
----
-
-## Restarting Celery and uWSGI After Code Changes
+## Monitoring uWSGI log
 
 ```bash
-# Reload systemd
-sudo systemctl daemon-reload
-
-# Stop & start Celery
-sudo systemctl stop celery_ipa_india.service
-sudo systemctl start celery_ipa_india.service
-sudo systemctl status celery_ipa_india.service
-
-# Kill stray celery workers
-sudo pkill -9 -f 'celery worker'
-ps aux | grep celery
-
-# Restart uWSGI
-sudo killall -9 uwsgi
-uwsgi --ini ipa_india.ini
+tail -f /home/aman/ipa_india/webapp/ipa_india/log/ipa_india.log
 ```
 
+## Monitoring apache logs
+
+```bash
+sudo tail -f /var/log/apache2/ipa_india_error.log
+sudo tail -f /var/log/apache2/ipa_india_access.log
+```
+
+
+
+
+
 ---
+
+

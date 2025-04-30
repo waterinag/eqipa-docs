@@ -13,7 +13,6 @@ Celery is used to handle background tasks such as report generation.
 ```bash
 sudo mkdir /var/run/celery/
 sudo chown -R $USER:$USER /var/run/celery/
-
 sudo chown -R aman:aman /var/run/celery/
 ```
 
@@ -25,7 +24,7 @@ sudo chown -R aman:aman /var/run/celery/
 sudo ln -s /home/aman/ipa_india/webapp/ipa_india/celery_ipa_india.service /etc/systemd/system
 ```
 
-> Make sure to update paths if your project is located elsewhere.
+> Make sure to update the necessary fields in celery_ipa_india.service
 .. EnvironmentFile=-/home/aman/ipa_india/webapp/ipa_india/celery.conf
 .. WorkingDirectory=/home/aman/ipa_india/webapp/ipa_india/
 
@@ -37,6 +36,9 @@ sudo ln -s /home/aman/ipa_india/webapp/ipa_india/celery_ipa_india.service /etc/s
 sudo systemctl daemon-reload
 sudo systemctl enable celery_ipa_india.service
 sudo systemctl start celery_ipa_india.service
+
+# enable the service to be automatically start on boot
+sudo systemctl status celery_ipa_india.service
 ```
 
 ??? info "celery_ipa_india.service"
@@ -86,6 +88,8 @@ Ensure your virtual environment is activated, then run:
 ```bash
 uwsgi --ini ipa_india.ini
 ```
+> Make sure to update the necessary fields in ipa_india.ini
+
 
 ??? info "ipa_india.ini"
 
@@ -109,6 +113,51 @@ uwsgi --ini ipa_india.ini
 
 
 This will launch the Django application using your `.ini` configuration.
+
+---
+
+## Restarting Celery and uWSGI After Code Changes
+
+```bash
+# reload the systemd files (this has been done everytime celery_ipa_india.service is changed)
+sudo systemctl daemon-reload
+
+#Stop Celery Service
+sudo systemctl stop celery_ipa_india.service
+
+#Start Celery Service
+sudo systemctl start celery_ipa_india.service
+
+#Verify Celery is Running Correctly
+sudo systemctl status celery_ipa_india.service
+
+#Kill Remaining Celery Processes
+sudo pkill -9 -f 'celery worker'
+
+#Ensure All Processes Are Stoppedps aux | grep celery
+ps aux | grep celery`
+
+#Monitoring Logs
+tail -f /home/aman/ipa_india/log/celery/worker1-7.log
+tail -f /home/aman/ipa_india/log/celery/worker1-6.log
+tail -f /home/aman/ipa_india/log/celery/worker1.log
+
+# or all at once:
+for file in /home/aman/ipa_india/log/celery/*.log; do
+    echo "Checking $file"
+    tail -n 20 $file
+done
+
+
+# check all the running uWSGI workers
+ps aux | grep uwsgi
+
+# To stop uWSGI
+sudo killall -9 uwsgi
+
+#Restart uWSGI (first activate the venv)
+uwsgi --ini ipa_india.ini
+```
 
 ---
 

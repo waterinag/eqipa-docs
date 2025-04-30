@@ -1,6 +1,6 @@
 # 🛠️ System Setup
 
-This section covers the complete setup of system dependencies and software required to run the **EQIPA (Evapotranspiration-based Quick Irrigation Performance Assessment)** application on a fresh Ubuntu server.
+This section covers the complete setup of system dependencies and software required to run the **EQIPA (Evapotranspiration-based Quick Irrigation Performance Assessment)** application on a fresh **Ubuntu server**.
 
 ---
 
@@ -48,6 +48,27 @@ sudo apt-get install -y \
     libpq-dev \
     pango1.0-tools
 ```
+
+## Verify Installation
+
+```bash
+python3 --version
+sudo apt install -y python3.10 python3.10-venv python3.10-dev
+```
+
+##  Choose the default version
+```bash
+sudo update-alternatives --config python3
+
+  Selection    Path                Priority   Status
+------------------------------------------------------------
+* 0            /usr/bin/python3.8   2         auto mode
+  1            /usr/bin/python3.8   2         manual mode
+  2            /usr/bin/python3.10  1         manual mode
+
+```
+
+
 
 ---
 
@@ -127,4 +148,4 @@ psql -U ipa_india -h localhost ipa_india -c "CREATE EXTENSION postgis"
 | Redis          | Required for Celery queue                     |
 | Apache2 + uWSGI| For production deployment                     |
 
-You're now ready to proceed with setting up the Django app. → [Continue to Running App Locally](run-locally.md)
+You're now ready to proceed with setting up the Django app. → [Continue to Running tool in Development Mode](development-mode.md)

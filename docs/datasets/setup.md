@@ -39,8 +39,6 @@ conda --version
 
 ### 2: Create a Conda Environment
 
-Conda makes it easy to isolate packages:
-
 ```bash
 conda create --name eqipa_env python=3.10
 conda activate eqipa_env
@@ -56,10 +54,16 @@ Use the `conda-forge` channel:
 conda install -c conda-forge gdal libgdal-jp2openjpeg 
 ```
 
-Verify installation:
+Verify GDAL installation:
 
 ```bash
 gdalinfo --version
+```
+
+Verify GRASS GIS installation:
+
+```bash
+grass --version
 ```
 
 Then install required Python libraries:
@@ -89,10 +93,12 @@ conda env create -f eqipa_env.yml
 
 ## On Ubuntu (Without Conda)
 
-### 1. Install GDAL system packages:
+### 1. Install GDAL system packages
+
 ```bash
 sudo apt-get install gdal-bin libgdal-dev libspatialindex-dev
 ```
+
 ---
 
 ### 2. Create and Activate a Python Virtual Environment

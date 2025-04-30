@@ -1,6 +1,6 @@
 # Precipitation (IMD)
 
-For estimating precipitation, the EQIPA platform uses high-resolution daily gridded rainfall data provided by the **India Meteorological Department (IMD)**. The dataset spans a long period (1901–2022) and offers daily precipitation values across India at a **0.25° x 0.25° spatial resolution**.
+For estimating precipitation, the EQIPA platform uses high-resolution daily gridded rainfall data provided by the **India Meteorological Department (IMD)**. The dataset spans a long period (1901–Present) and offers daily precipitation values across India at a **0.25° x 0.25° spatial resolution**.
 
 ---
 
@@ -24,6 +24,7 @@ For estimating precipitation, the EQIPA platform uses high-resolution daily grid
 
 
 ---
+
 
 ## Download Annual NetCDF from IMD
 
@@ -188,7 +189,7 @@ for year in range(firstyear, lastyear + 1):
         
         # Update metadata: ensure data type and single band output
         meta.update(dtype=rasterio.float32, count=1)
-        output_filename = os.path.join(output_folder, f"imd_pcp_{year}_{month:02d}.tif")
+        output_filename = os.path.join(output_folder, f"imd_pcp_m_{year}_{month:02d}.tif")
         
         with rasterio.open(output_filename, 'w', **meta) as dst:
             dst.write(monthly_sum, 1)
@@ -220,12 +221,12 @@ for year in range(firstyear, lastyear):
     
     # June to December for the current year
     for month in range(6, 13):
-        file_path = os.path.join(input_folder, f"imd_pcp_{year}_{month:02d}.tif")
+        file_path = os.path.join(input_folder, f"imd_pcp_m_{year}_{month:02d}.tif")
         monthly_files.append(file_path)
 
     # January to May for the next year
     for month in range(1, 6):
-        file_path = os.path.join(input_folder, f"imd_pcp_{year+1}_{month:02d}.tif")
+        file_path = os.path.join(input_folder, f"imd_pcp_m_{year+1}_{month:02d}.tif")
         monthly_files.append(file_path)
 
     
@@ -256,7 +257,7 @@ for year in range(firstyear, lastyear):
     annual_sum[all_nan_mask] = nodata_val
     
     meta.update(dtype=rasterio.float32, count=1)
-    output_filename = os.path.join(output_folder, f"imd_pcp_{year}_{year+1}.tif")
+    output_filename = os.path.join(output_folder, f"imd_pcp_a_{year}_{year+1}.tif")
     with rasterio.open(output_filename, 'w', **meta) as dst:
         dst.write(annual_sum, 1)
     

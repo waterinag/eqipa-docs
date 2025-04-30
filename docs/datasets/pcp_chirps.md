@@ -52,7 +52,7 @@ for year in range(firstyear, lastyear + 1):
 
 ---
 
-## Clip CHIRPS Data to India Boundary
+## Clip CHIRPS Global Rasters to India Boundary
 Once downloaded, use this script to clip the **global raster** to the **India boundary** using a GeoJSON file.
 > 📁 Boundary file required: [`IndiaBoundary.geojson`](https://waterinag.github.io/eqipa-docs/assets/IndiaBoundary.geojson)
 

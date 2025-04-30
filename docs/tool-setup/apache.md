@@ -9,7 +9,7 @@ This section explains how to configure Apache to serve the EQIPA Django project 
 Copy the example configuration to the Apache sites-available directory:
 
 ```bash
-sudo cp ipa_india/template_apache.conf /etc/apache2/sites-available/ipa_india.conf
+sudo cp /home/aman/ipa_india/webapp/ipa_india/ipa_india.conf /etc/apache2/sites-available/ipa_india.conf
 ```
 
 ??? info "ipa_india.conf"
@@ -88,6 +88,16 @@ sudo a2enmod ssl
 sudo a2ensite ipa_india.conf
 ```
 
+---
+
+Verify Apache Configuration
+
+```bash
+sudo apachectl configtest
+```
+You should see: `Syntax OK`
+
+---
 Restart Apache to apply changes:
 
 ```bash
@@ -97,15 +107,11 @@ sudo systemctl restart apache2
 
 ---
 
-## ✅ Verify Apache Configuration
 
-```bash
-sudo apachectl configtest
-```
 
-You should see: `Syntax OK`
 
----
+
+
 
 ##  4: Enable SSL with Certbot
 
