@@ -18,7 +18,7 @@
         <link rel="prev" href="../../geo-tools/gdal/">
       
       
-        <link rel="next" href="../run-locally/">
+        <link rel="next" href="../development-mode/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -594,6 +594,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../geo-tools/grass-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRASS GIS Python library
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../geo-tools/gdal/" class="md-nav__link">
         
   
@@ -741,6 +764,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#verify-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verify Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choose-the-default-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choose the default version
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#install-postgresql-postgis" class="md-nav__link">
     <span class="md-ellipsis">
       Install PostgreSQL &amp; PostGIS
@@ -801,12 +842,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../run-locally/" class="md-nav__link">
+      <a href="../development-mode/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Running App in Development Mode
+    Running Tool in Development Mode
     
   </span>
   
@@ -830,6 +871,29 @@
   
   <span class="md-ellipsis">
     Deployment in Production
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../run-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Run with Docker
     
   </span>
   
@@ -947,6 +1011,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#verify-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verify Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choose-the-default-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choose the default version
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#install-postgresql-postgis" class="md-nav__link">
     <span class="md-ellipsis">
       Install PostgreSQL &amp; PostGIS
@@ -1011,7 +1093,7 @@
 
 
 <h1 id="system-setup">🛠️ System Setup</h1>
-<p>This section covers the complete setup of system dependencies and software required to run the <strong>EQIPA (Evapotranspiration-based Quick Irrigation Performance Assessment)</strong> application on a fresh Ubuntu server.</p>
+<p>This section covers the complete setup of system dependencies and software required to run the <strong>EQIPA (Evapotranspiration-based Quick Irrigation Performance Assessment)</strong> application on a fresh <strong>Ubuntu server</strong>.</p>
 <hr />
 <h2 id="server-configuration">Server Configuration</h2>
 <ul>
@@ -1050,6 +1132,19 @@ minimum 126 GB RAM for efficient performance.</li>
 <span class="w">    </span>python3-dev<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>libpq-dev<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>pango1.0-tools
+</code></pre></div>
+<h2 id="verify-installation">Verify Installation</h2>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>--version
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3.10<span class="w"> </span>python3.10-venv<span class="w"> </span>python3.10-dev
+</code></pre></div>
+<h2 id="choose-the-default-version">Choose the default version</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>update-alternatives<span class="w"> </span>--config<span class="w"> </span>python3
+
+<span class="w">  </span>Selection<span class="w">    </span>Path<span class="w">                </span>Priority<span class="w">   </span>Status
+------------------------------------------------------------
+*<span class="w"> </span><span class="m">0</span><span class="w">            </span>/usr/bin/python3.8<span class="w">   </span><span class="m">2</span><span class="w">         </span>auto<span class="w"> </span>mode
+<span class="w">  </span><span class="m">1</span><span class="w">            </span>/usr/bin/python3.8<span class="w">   </span><span class="m">2</span><span class="w">         </span>manual<span class="w"> </span>mode
+<span class="w">  </span><span class="m">2</span><span class="w">            </span>/usr/bin/python3.10<span class="w">  </span><span class="m">1</span><span class="w">         </span>manual<span class="w"> </span>mode
 </code></pre></div>
 <hr />
 <h2 id="install-postgresql-postgis">Install PostgreSQL &amp; PostGIS</h2>
@@ -1124,7 +1219,7 @@ psql<span class="w"> </span>-U<span class="w"> </span>ipa_india<span class="w"> 
 </tr>
 </tbody>
 </table>
-<p>You're now ready to proceed with setting up the Django app. → <a href="../run-locally/">Continue to Running App Locally</a></p>
+<p>You're now ready to proceed with setting up the Django app. → <a href="../development-mode/">Continue to Running tool in Development Mode</a></p>
 
 
 

@@ -12,13 +12,13 @@
         <meta name="author" content="waterinag">
       
       
-        <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/tool-setup/apache/">
+        <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/tool-setup/development-mode/">
       
       
-        <link rel="prev" href="../run-docker/">
+        <link rel="prev" href="../system-setup/">
       
       
-        <link rel="next" href="../errors/">
+        <link rel="next" href="../deployment/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Apache Configuration - India EQIPA</title>
+        <title>Running Tool in Development Mode - India EQIPA</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#apache-configuration" class="md-skip">
+        <a href="#running-tool-in-development-mode" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Apache Configuration
+              Running Tool in Development Mode
             
           </span>
         </div>
@@ -707,10 +707,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../development-mode/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Running Tool in Development Mode
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -721,6 +743,98 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-copy-the-code-to-the-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      1: Copy the code to the system
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create-and-activate-a-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      2: Create and Activate a Virtual Environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-install-python-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      3: Install Python Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-configure-django-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      4: Configure Django Settings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-apply-migrations-collect-static-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      5: Apply Migrations &amp; Collect Static Files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-create-a-superuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      6: Create a Superuser
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-test-local-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      7: Test Local Server
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#admin-site-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Admin Site Setup
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -776,32 +890,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Apache Configuration
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../apache/" class="md-nav__link">
         
   
   
@@ -812,137 +904,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-copy-apache-virtual-host-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      1: Copy Apache Virtual Host Configuration
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-enable-required-apache-modules" class="md-nav__link">
-    <span class="md-ellipsis">
-      2: Enable Required Apache Modules
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-enable-the-site" class="md-nav__link">
-    <span class="md-ellipsis">
-      3: Enable the Site
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-enable-ssl-with-certbot" class="md-nav__link">
-    <span class="md-ellipsis">
-      4: Enable SSL with Certbot
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#apache-site-commands-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      📂 Apache Site Commands Summary
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="📂 Apache Site Commands Summary">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#enable-site" class="md-nav__link">
-    <span class="md-ellipsis">
-      Enable site
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#disable-site" class="md-nav__link">
-    <span class="md-ellipsis">
-      Disable site
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-enabled-sites" class="md-nav__link">
-    <span class="md-ellipsis">
-      List enabled sites
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#logs-and-troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔎 Logs and Troubleshooting
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🔎 Logs and Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#view-apache-error-log" class="md-nav__link">
-    <span class="md-ellipsis">
-      View Apache error log
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-uwsgi-log" class="md-nav__link">
-    <span class="md-ellipsis">
-      Check uWSGI log
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1005,113 +966,74 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-copy-apache-virtual-host-configuration" class="md-nav__link">
+  <a href="#1-copy-the-code-to-the-system" class="md-nav__link">
     <span class="md-ellipsis">
-      1: Copy Apache Virtual Host Configuration
+      1: Copy the code to the system
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-enable-required-apache-modules" class="md-nav__link">
+  <a href="#2-create-and-activate-a-virtual-environment" class="md-nav__link">
     <span class="md-ellipsis">
-      2: Enable Required Apache Modules
+      2: Create and Activate a Virtual Environment
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-enable-the-site" class="md-nav__link">
+  <a href="#3-install-python-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
-      3: Enable the Site
+      3: Install Python Dependencies
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-enable-ssl-with-certbot" class="md-nav__link">
+  <a href="#4-configure-django-settings" class="md-nav__link">
     <span class="md-ellipsis">
-      4: Enable SSL with Certbot
+      4: Configure Django Settings
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#apache-site-commands-summary" class="md-nav__link">
+  <a href="#5-apply-migrations-collect-static-files" class="md-nav__link">
     <span class="md-ellipsis">
-      📂 Apache Site Commands Summary
+      5: Apply Migrations &amp; Collect Static Files
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="📂 Apache Site Commands Summary">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#enable-site" class="md-nav__link">
-    <span class="md-ellipsis">
-      Enable site
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#disable-site" class="md-nav__link">
-    <span class="md-ellipsis">
-      Disable site
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-enabled-sites" class="md-nav__link">
-    <span class="md-ellipsis">
-      List enabled sites
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#logs-and-troubleshooting" class="md-nav__link">
+  <a href="#6-create-a-superuser" class="md-nav__link">
     <span class="md-ellipsis">
-      🔎 Logs and Troubleshooting
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🔎 Logs and Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#view-apache-error-log" class="md-nav__link">
-    <span class="md-ellipsis">
-      View Apache error log
+      6: Create a Superuser
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#check-uwsgi-log" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#7-test-local-server" class="md-nav__link">
     <span class="md-ellipsis">
-      Check uWSGI log
+      7: Test Local Server
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#admin-site-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Admin Site Setup
+    </span>
+  </a>
   
 </li>
       
@@ -1134,124 +1056,116 @@
   
 
 
-<h1 id="apache-configuration">🌐 Apache Configuration</h1>
-<p>This section explains how to configure Apache to serve the EQIPA Django project using <strong>uWSGI</strong> and enable <strong>SSL</strong> using Let's Encrypt via <strong>Certbot</strong>.</p>
+<h1 id="running-tool-in-development-mode">💻 Running Tool in Development Mode</h1>
+<p>This guide explains how to set up and run the EQIPA Django app in a development environment.</p>
 <hr />
-<h2 id="1-copy-apache-virtual-host-configuration">1: Copy Apache Virtual Host Configuration</h2>
-<p>Copy the example configuration to the Apache sites-available directory:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>cp<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/ipa_india.conf<span class="w"> </span>/etc/apache2/sites-available/ipa_india.conf
-</code></pre></div>
-<details class="info">
-<summary>ipa_india.conf</summary>
-<div class="highlight"><pre><span></span><code>&lt;VirtualHost<span class="w"> </span>*:80&gt;
-<span class="w">    </span>ServerName<span class="w"> </span>eqipa.waterinag.org
-
-Alias<span class="w"> </span>/static/<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/static/
-
-<span class="w">    </span>&lt;Directory<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/ipa_india&gt;
-<span class="w">        </span>&lt;Files<span class="w"> </span>wsgi.py&gt;
-<span class="w">            </span>Require<span class="w"> </span>all<span class="w"> </span>granted
-<span class="w">        </span>&lt;/Files&gt;
-<span class="w">    </span>&lt;/Directory&gt;
-
-&lt;Location<span class="w"> </span>/static&gt;
-<span class="w">                </span>SetHandler<span class="w"> </span>none
-<span class="w">                </span>Options<span class="w"> </span>-Indexes
-<span class="w">        </span>&lt;/Location&gt;
-
-<span class="w">        </span>&lt;Location<span class="w"> </span>/media&gt;
-<span class="w">                </span>SetHandler<span class="w"> </span>none
-<span class="w">                </span>Options<span class="w"> </span>-Indexes
-<span class="w">        </span>&lt;/Location&gt;
-
-<span class="w">        </span>Alias<span class="w"> </span>/media/<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/media/
-
-<span class="w">        </span>Alias<span class="w"> </span>/static/<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/static/
-
-<span class="w">        </span>&lt;Directory<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/&gt;
-<span class="w">                </span>Require<span class="w"> </span>all<span class="w"> </span>granted
-<span class="w">        </span>&lt;/Directory&gt;
-
-<span class="w">        </span>&lt;Directory<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/static&gt;
-<span class="w">                </span>Options<span class="w"> </span>FollowSymLinks
-<span class="w">                </span>Order<span class="w"> </span>allow,deny
-<span class="w">                </span>Allow<span class="w"> </span>from<span class="w"> </span>all
-<span class="w">        </span>&lt;/Directory&gt;
-
-<span class="w">        </span>&lt;Directory<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/media&gt;
-<span class="w">                </span>Options<span class="w"> </span>FollowSymLinks
-<span class="w">                </span>Order<span class="w"> </span>allow,deny
-<span class="w">                </span>Allow<span class="w"> </span>from<span class="w"> </span>all
-<span class="w">        </span>&lt;/Directory&gt;
-
-<span class="w">    </span>ProxyPass<span class="w"> </span>/<span class="w"> </span>unix:/home/aman/ipa_india/webapp/ipa_india/ipa_india.sock<span class="p">|</span>uwsgi://localhost/
-<span class="w">    </span><span class="c1"># Proxying the connection to uWSGI</span>
-
-<span class="w">    </span><span class="c1"># ProxyPass / unix:/home/aman/ipa_india/webapp/ipa_india/ipa_india.sock|uwsgi://localhost/</span>
-<span class="w">    </span>ErrorLog<span class="w"> </span><span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/ipa_india_error.log
-<span class="w">    </span>CustomLog<span class="w"> </span><span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/ipa_india_access.log<span class="w"> </span>combined
-
-
-&lt;/VirtualHost&gt;
-</code></pre></div>
-</details>
-<blockquote>
-<p>Make sure to update paths in the config to match your project directory.</p>
-</blockquote>
+<h2 id="1-copy-the-code-to-the-system">1: Copy the code to the system</h2>
 <hr />
-<h2 id="2-enable-required-apache-modules">2: Enable Required Apache Modules</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>a2enmod<span class="w"> </span>uwsgi
-sudo<span class="w"> </span>a2enmod<span class="w"> </span>ssl
+<h2 id="2-create-and-activate-a-virtual-environment">2: Create and Activate a Virtual Environment</h2>
+<p>Create a Python 3 virtual environment inside the <code>webapp</code> folder:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
 </code></pre></div>
 <hr />
-<h2 id="3-enable-the-site">3: Enable the Site</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>a2ensite<span class="w"> </span>ipa_india.conf
+<h2 id="3-install-python-dependencies">3: Install Python Dependencies</h2>
+<p>Install all required packages using the <code>requirements.txt</code> file:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div>
 <hr />
-<p>Verify Apache Configuration</p>
-<p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apachectl<span class="w"> </span>configtest
-</code></pre></div>
-You should see: <code>Syntax OK</code></p>
+<h2 id="4-configure-django-settings">4: Configure Django Settings</h2>
+<p>Open <code>ipa_india/settings.py</code> and update the following:</p>
+<ul>
+<li><code>ALLOWED_HOSTS</code></li>
+<li><code>CSRF_TRUSTED_ORIGINS</code></li>
+<li><code>BASE_URL</code></li>
+<li><code>DATABASES</code> section → add username, password, and DB name</li>
+<li><code>GRASS_DB</code> path → e.g., <code>/mnt/mapdata/grassdata/ipa_india</code></li>
+<li><code>GRASS_LOCATION</code></li>
+</ul>
 <hr />
-<p>Restart Apache to apply changes:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>apache2
-sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
-</code></pre></div>
-<hr />
-<h2 id="4-enable-ssl-with-certbot">4: Enable SSL with Certbot</h2>
-<p>Install Certbot:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>certbot<span class="w"> </span>python3-certbot-apache
-</code></pre></div>
-<p>Enable HTTPS with your domain:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>certbot<span class="w"> </span>--apache<span class="w"> </span>-d<span class="w"> </span>eqipa.waterinag.org
-</code></pre></div>
-<p>Restart Apache to apply changes:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
+<h2 id="5-apply-migrations-collect-static-files">5: Apply Migrations &amp; Collect Static Files</h2>
+<p>Run the following commands to prepare your database and static files:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>manage.py<span class="w"> </span>makemigrations<span class="w"> </span>webapp
+python<span class="w"> </span>manage.py<span class="w"> </span>migrate
+python<span class="w"> </span>manage.py<span class="w"> </span>collectstatic
 </code></pre></div>
 <hr />
-<h2 id="apache-site-commands-summary">📂 Apache Site Commands Summary</h2>
-<h3 id="enable-site">Enable site</h3>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>a2ensite<span class="w"> </span>eqipa.waterinag.org.conf
+<h2 id="6-create-a-superuser">6: Create a Superuser</h2>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser<span class="w"> </span>--username<span class="w"> </span>admin
 </code></pre></div>
-<h3 id="disable-site">Disable site</h3>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>a2dissite<span class="w"> </span>eqipa.waterinag.org.conf
-</code></pre></div>
-<h3 id="list-enabled-sites">List enabled sites</h3>
-<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>/etc/apache2/sites-enabled
-</code></pre></div>
+<p>Sample credentials:</p>
+<ul>
+<li><strong>Username:</strong> <code>admin</code></li>
+<li><strong>Email:</strong> <code>your-email@gmail.com</code></li>
+<li><strong>Password:</strong> <code>your-pass</code></li>
+</ul>
 <hr />
-<h2 id="logs-and-troubleshooting">🔎 Logs and Troubleshooting</h2>
-<h3 id="view-apache-error-log">View Apache error log</h3>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span>/var/log/apache2/ipa_india_error.log
+<h2 id="7-test-local-server">7: Test Local Server</h2>
+<p>Run the Django development server:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>manage.py<span class="w"> </span>runserver
 </code></pre></div>
-<h3 id="check-uwsgi-log">Check uWSGI log</h3>
-<div class="highlight"><pre><span></span><code>tail<span class="w"> </span>-f<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/log/ipa_india.log
+<p>To access from another device on the same network:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>manage.py<span class="w"> </span>runserver<span class="w"> </span><span class="m">0</span>.0.0.0:8001
 </code></pre></div>
-<blockquote>
-<p>Ensure Apache's config is pointing to the correct uWSGI socket and the socket file has proper read/write permissions.</p>
-</blockquote>
+<p>Now open your browser at:</p>
+<ul>
+<li><a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a></li>
+<li>or your local IP, e.g.: <code>http://ServerIP:8001/</code></li>
+</ul>
 <hr />
-<p>✅ Apache is now configured and serving your EQIPA application securely over HTTPS!</p>
+<p>Start Celery worker using:</p>
+<div class="highlight"><pre><span></span><code>celery<span class="w"> </span>-A<span class="w"> </span>ipa_india<span class="w"> </span>worker<span class="w"> </span>-l<span class="w"> </span>INFO
+</code></pre></div>
+<p>To run Celery inside a <code>screen</code> session:</p>
+<div class="highlight"><pre><span></span><code>screen<span class="w"> </span>-S<span class="w"> </span>ipa_celery
+celery<span class="w"> </span>-A<span class="w"> </span>ipa_india<span class="w"> </span>worker<span class="w"> </span>-l<span class="w"> </span>INFO
+</code></pre></div>
+<p>To detach from the screen session:</p>
+<div class="highlight"><pre><span></span><code>Ctrl<span class="w"> </span>+<span class="w"> </span>A,<span class="w"> </span><span class="k">then</span><span class="w"> </span>D
+</code></pre></div>
+<p>To reattach:</p>
+<div class="highlight"><pre><span></span><code>screen<span class="w"> </span>-r<span class="w"> </span>ipa_celery
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">📦 Screen</p>
+<p>Learn more: <a href="https://linuxize.com/post/how-to-use-linux-screen/">How to Use Linux Screen</a></p>
+<p>Use <code>screen</code> to manage background processes like Celery or the Django dev server:</p>
+<p><strong>Install Linux Screen on Ubuntu and Debian:</strong>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>screen
+</code></pre></div>
+<strong>🔄 Attach to a screen:</strong>
+<div class="highlight"><pre><span></span><code>screen<span class="w"> </span>-r<span class="w"> </span>&lt;screen_name&gt;
+</code></pre></div></p>
+<p><strong>🔍 Check running screens:</strong>
+<div class="highlight"><pre><span></span><code>screen<span class="w"> </span>-r
+</code></pre></div></p>
+<p><strong>🔙 Detach a screen:</strong>
+<div class="highlight"><pre><span></span><code>screen<span class="w"> </span>-d<span class="w"> </span>&lt;screen_name&gt;
+</code></pre></div></p>
+<p><strong>❌ Delete (terminate) a screen:</strong>
+<div class="highlight"><pre><span></span><code>screen<span class="w"> </span>-S<span class="w"> </span>&lt;screen_name&gt;<span class="w"> </span>-X<span class="w"> </span>quit
+</code></pre></div></p>
+<p><strong>🆕 Start a new screen session:</strong>
+<div class="highlight"><pre><span></span><code>screen<span class="w"> </span>-S<span class="w"> </span>&lt;screen_name&gt;
+</code></pre></div></p>
+<p>Detach from a screen
+<div class="highlight"><pre><span></span><code>Ctrl<span class="w"> </span>+<span class="w"> </span>A,<span class="w"> </span><span class="k">then</span><span class="w"> </span>D
+</code></pre></div></p>
+</div>
+<hr />
+<h2 id="admin-site-setup">Admin Site Setup</h2>
+<p>When running the server for the first time, visit:</p>
+<div class="highlight"><pre><span></span><code>http://ServerIP:8000/admin
+</code></pre></div>
+<p>Go to the <strong>"Sites"</strong> tab and update the domain to match your current host:</p>
+<ul>
+<li>For local testing: <code>127.0.0.1:8000</code></li>
+<li>For production: your domain name</li>
+</ul>
+<p>This ensures correct rendering of templates during report generation.</p>
+<hr />
+<p>✅ Your development server is now ready!</p>
 
 
 

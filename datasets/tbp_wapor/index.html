@@ -674,6 +674,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../geo-tools/grass-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRASS GIS Python library
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../geo-tools/gdal/" class="md-nav__link">
         
   
@@ -765,12 +788,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool-setup/run-locally/" class="md-nav__link">
+      <a href="../../tool-setup/development-mode/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Running App in Development Mode
+    Running Tool in Development Mode
     
   </span>
   
@@ -794,6 +817,29 @@
   
   <span class="md-ellipsis">
     Deployment in Production
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool-setup/run-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Run with Docker
     
   </span>
   
@@ -940,7 +986,7 @@
 
 <h1 id="actual-evapotranspiration">Actual Evapotranspiration</h1>
 <p>Total Biomass Production (TBP) is defined as the sum of the above-ground dry matter produced for a given year. TBP is calculated from Net Primary Production (NPP). TBP is expressed in kgDM/ha/day, and has thus different biomass units compared to NPP, with 1 gC/m2/day (NPP) = 22.222 kgDM/ha/day (DMP).</p>
-<p>For further information on the methodology read the WaPOR documentation available at: https://bitbucket.org/cioapps/wapor-et-look/wiki/Home</p>
+<p>For further information on the methodology read the WaPOR documentation available at: <a href="https://bitbucket.org/cioapps/wapor-et-look/wiki/Home">https://bitbucket.org/cioapps/wapor-et-look/wiki/Home</a></p>
 <hr />
 <h2 id="dataset-overview">Dataset Overview</h2>
 <ul>
@@ -954,7 +1000,7 @@
 <h2 id="data-processing-summary">📌 Data Processing Summary</h2>
 <ol>
 <li>Monthly WaPOR L1 v3 NPP (300m) maps have been downloaded from WaPOR.</li>
-<li>EMonthly TBP maps are calculated as = Monthly NPP × Scale Factor (0.001) × Unit Conversion Factor (22.222). See the scale factor for each WaPOR product here: https://data.apps.fao.org/wapor</li>
+<li>Monthly TBP maps are calculated as = Monthly NPP × Scale Factor (0.001) × Unit Conversion Factor (22.222). See the scale factor for each WaPOR product here: <a href="https://data.apps.fao.org/wapor">https://data.apps.fao.org/wapor</a></li>
 <li>Annual TBP maps is computed for all crop years by aggregating monthly TBP maps from June to May, covering crop years 2018-19 to 2022-23.</li>
 </ol>
 <hr />
@@ -1035,17 +1081,17 @@
         <span class="n">temp_clip</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;temp_</span><span class="si">{</span><span class="n">output_filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
         <span class="c1"># Clip and Download raster from Cloud</span>
-        <span class="n">fileURL</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;https://storage.googleapis.com/fao-gismgr-wapor-3-data/DATA/WAPOR-3/MAPSET/L2-NPP-M/WAPOR-3.L2-NPP-M.</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.tif&quot;</span> 
-        <span class="n">vrt_file</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;WAPOR-3.L2-NPP-M.</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.vrt&quot;</span>
-        <span class="n">gdal</span><span class="o">.</span><span class="n">BuildVRT</span><span class="p">(</span><span class="n">vrt_file</span><span class="p">,</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;/vsicurl/</span><span class="si">{</span><span class="n">fileURL</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">])</span>
-        <span class="n">gdal</span><span class="o">.</span><span class="n">Warp</span><span class="p">(</span><span class="n">temp_clip</span><span class="p">,</span> <span class="n">vrt_file</span><span class="p">,</span> <span class="n">cutlineDSName</span><span class="o">=</span><span class="n">geojson_boundary</span><span class="p">,</span> <span class="n">cropToCutline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dstNodata</span><span class="o">=-</span><span class="mi">9999</span><span class="p">)</span>
+        <span class="c1"># fileURL=f&quot;https://storage.googleapis.com/fao-gismgr-wapor-3-data/DATA/WAPOR-3/MAPSET/L2-NPP-M/WAPOR-3.L2-NPP-M.{year}-{month:02d}.tif&quot; </span>
+        <span class="c1"># vrt_file=f&quot;WAPOR-3.L2-NPP-M.{year}-{month:02d}.vrt&quot;</span>
+        <span class="c1"># gdal.BuildVRT(vrt_file, [f&quot;/vsicurl/{fileURL}&quot;])</span>
+        <span class="c1"># gdal.Warp(temp_clip, vrt_file, cutlineDSName=geojson_boundary, cropToCutline=True, dstNodata=-9999)</span>
 
 
         <span class="c1"># Clip raster from local</span>
-        <span class="c1"># filename = f&quot;WAPOR-3.L1-NPP-M.{year}-{month:02d}.tif&quot;</span>
-        <span class="c1"># input_path = os.path.join(input_folder, filename)</span>
-        <span class="c1"># warp_options = gdal.WarpOptions(cutlineDSName=geojson_boundary, cropToCutline=True,dstNodata=-9999)</span>
-        <span class="c1"># gdal.Warp(destNameOrDestDS=temp_clip, srcDSOrSrcDSTab=input_path, options=warp_options)</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;WAPOR-3.L1-NPP-M.</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.tif&quot;</span>
+        <span class="n">input_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="n">warp_options</span> <span class="o">=</span> <span class="n">gdal</span><span class="o">.</span><span class="n">WarpOptions</span><span class="p">(</span><span class="n">cutlineDSName</span><span class="o">=</span><span class="n">geojson_boundary</span><span class="p">,</span> <span class="n">cropToCutline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">dstNodata</span><span class="o">=-</span><span class="mi">9999</span><span class="p">)</span>
+        <span class="n">gdal</span><span class="o">.</span><span class="n">Warp</span><span class="p">(</span><span class="n">destNameOrDestDS</span><span class="o">=</span><span class="n">temp_clip</span><span class="p">,</span> <span class="n">srcDSOrSrcDSTab</span><span class="o">=</span><span class="n">input_path</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">warp_options</span><span class="p">)</span>
 
 
 

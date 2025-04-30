@@ -15,10 +15,10 @@
         <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/tool-setup/deployment/">
       
       
-        <link rel="prev" href="../run-locally/">
+        <link rel="prev" href="../development-mode/">
       
       
-        <link rel="next" href="../apache/">
+        <link rel="next" href="../run-docker/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -594,6 +594,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../geo-tools/grass-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRASS GIS Python library
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../geo-tools/gdal/" class="md-nav__link">
         
   
@@ -687,12 +710,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../run-locally/" class="md-nav__link">
+      <a href="../development-mode/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Running App in Development Mode
+    Running Tool in Development Mode
     
   </span>
   
@@ -835,6 +858,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#restarting-celery-and-uwsgi-after-code-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restarting Celery and uWSGI After Code Changes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#summary-of-configuration-files" class="md-nav__link">
     <span class="md-ellipsis">
       Summary of Configuration Files
@@ -847,6 +879,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../run-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Run with Docker
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1007,6 +1062,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#restarting-celery-and-uwsgi-after-code-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restarting Celery and uWSGI After Code Changes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#summary-of-configuration-files" class="md-nav__link">
     <span class="md-ellipsis">
       Summary of Configuration Files
@@ -1042,7 +1106,6 @@
 <h3 id="1-create-pid-directory">1: Create PID Directory</h3>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>/var/run/celery/
 sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span><span class="nv">$USER</span>:<span class="nv">$USER</span><span class="w"> </span>/var/run/celery/
-
 sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>aman:aman<span class="w"> </span>/var/run/celery/
 </code></pre></div>
 <hr />
@@ -1050,7 +1113,7 @@ sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </sp
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/celery_ipa_india.service<span class="w"> </span>/etc/systemd/system
 </code></pre></div>
 <blockquote>
-<p>Make sure to update paths if your project is located elsewhere.
+<p>Make sure to update the necessary fields in celery_ipa_india.service
 .. EnvironmentFile=-/home/aman/ipa_india/webapp/ipa_india/celery.conf
 .. WorkingDirectory=/home/aman/ipa_india/webapp/ipa_india/</p>
 </blockquote>
@@ -1059,6 +1122,9 @@ sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </sp
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
 sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>celery_ipa_india.service
 sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>celery_ipa_india.service
+
+<span class="c1"># enable the service to be automatically start on boot</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>celery_ipa_india.service
 </code></pre></div>
 <details class="info">
 <summary>celery_ipa_india.service</summary>
@@ -1096,6 +1162,9 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w
 <p>Ensure your virtual environment is activated, then run:</p>
 <div class="highlight"><pre><span></span><code>uwsgi<span class="w"> </span>--ini<span class="w"> </span>ipa_india.ini
 </code></pre></div>
+<blockquote>
+<p>Make sure to update the necessary fields in ipa_india.ini</p>
+</blockquote>
 <details class="info">
 <summary>ipa_india.ini</summary>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>uwsgi<span class="o">]</span>
@@ -1115,6 +1184,47 @@ route-run<span class="w"> </span><span class="o">=</span><span class="w"> </span
 </code></pre></div>
 </details>
 <p>This will launch the Django application using your <code>.ini</code> configuration.</p>
+<hr />
+<h2 id="restarting-celery-and-uwsgi-after-code-changes">Restarting Celery and uWSGI After Code Changes</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># reload the systemd files (this has been done everytime celery_ipa_india.service is changed)</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+
+<span class="c1">#Stop Celery Service</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>celery_ipa_india.service
+
+<span class="c1">#Start Celery Service</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>celery_ipa_india.service
+
+<span class="c1">#Verify Celery is Running Correctly</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>celery_ipa_india.service
+
+<span class="c1">#Kill Remaining Celery Processes</span>
+sudo<span class="w"> </span>pkill<span class="w"> </span>-9<span class="w"> </span>-f<span class="w"> </span><span class="s1">&#39;celery worker&#39;</span>
+
+<span class="c1">#Ensure All Processes Are Stoppedps aux | grep celery</span>
+ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>celery<span class="sb">`</span>
+
+<span class="c1">#Monitoring Logs</span>
+tail<span class="w"> </span>-f<span class="w"> </span>/home/aman/ipa_india/log/celery/worker1-7.log
+tail<span class="w"> </span>-f<span class="w"> </span>/home/aman/ipa_india/log/celery/worker1-6.log
+tail<span class="w"> </span>-f<span class="w"> </span>/home/aman/ipa_india/log/celery/worker1.log
+
+<span class="c1"># or all at once:</span>
+<span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>/home/aman/ipa_india/log/celery/*.log<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Checking </span><span class="nv">$file</span><span class="s2">&quot;</span>
+<span class="w">    </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="nv">$file</span>
+<span class="k">done</span>
+
+
+<span class="c1"># check all the running uWSGI workers</span>
+ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>uwsgi
+
+<span class="c1"># To stop uWSGI</span>
+sudo<span class="w"> </span>killall<span class="w"> </span>-9<span class="w"> </span>uwsgi
+
+<span class="c1">#Restart uWSGI (first activate the venv)</span>
+uwsgi<span class="w"> </span>--ini<span class="w"> </span>ipa_india.ini
+</code></pre></div>
 <hr />
 <h2 id="summary-of-configuration-files">Summary of Configuration Files</h2>
 <ul>
