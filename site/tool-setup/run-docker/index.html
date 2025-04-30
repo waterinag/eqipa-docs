@@ -12,13 +12,13 @@
         <meta name="author" content="waterinag">
       
       
-        <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/tool-setup/apache/">
+        <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/tool-setup/run-docker/">
       
       
-        <link rel="prev" href="../run-docker/">
+        <link rel="prev" href="../deployment/">
       
       
-        <link rel="next" href="../errors/">
+        <link rel="next" href="../apache/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Apache Configuration - India EQIPA</title>
+        <title>Run with Docker - India EQIPA</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#apache-configuration" class="md-skip">
+        <a href="#run-eqipa-using-docker" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Apache Configuration
+              Run with Docker
             
           </span>
         </div>
@@ -753,29 +753,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../run-docker/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Run with Docker
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -793,7 +770,7 @@
   
   
   <span class="md-ellipsis">
-    Apache Configuration
+    Run with Docker
     
   </span>
   
@@ -806,7 +783,7 @@
   
   
   <span class="md-ellipsis">
-    Apache Configuration
+    Run with Docker
     
   </span>
   
@@ -829,73 +806,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-copy-apache-virtual-host-configuration" class="md-nav__link">
+  <a href="#1-install-docker" class="md-nav__link">
     <span class="md-ellipsis">
-      1: Copy Apache Virtual Host Configuration
+      1: Install Docker
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-enable-required-apache-modules" class="md-nav__link">
+  <a href="#2-build-and-run-containers" class="md-nav__link">
     <span class="md-ellipsis">
-      2: Enable Required Apache Modules
+      2: Build and Run Containers
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-enable-the-site" class="md-nav__link">
-    <span class="md-ellipsis">
-      3: Enable the Site
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-enable-ssl-with-certbot" class="md-nav__link">
-    <span class="md-ellipsis">
-      4: Enable SSL with Certbot
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#apache-site-commands-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      📂 Apache Site Commands Summary
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="📂 Apache Site Commands Summary">
+    <nav class="md-nav" aria-label="2: Build and Run Containers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#enable-site" class="md-nav__link">
+  <a href="#build-docker-image" class="md-nav__link">
     <span class="md-ellipsis">
-      Enable site
+      🔨 Build Docker Image
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#disable-site" class="md-nav__link">
+  <a href="#start-all-services" class="md-nav__link">
     <span class="md-ellipsis">
-      Disable site
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-enabled-sites" class="md-nav__link">
-    <span class="md-ellipsis">
-      List enabled sites
+      🚀 Start All Services
     </span>
   </a>
   
@@ -907,35 +848,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#logs-and-troubleshooting" class="md-nav__link">
+  <a href="#stop-all-services" class="md-nav__link">
     <span class="md-ellipsis">
-      🔎 Logs and Troubleshooting
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🔎 Logs and Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#view-apache-error-log" class="md-nav__link">
-    <span class="md-ellipsis">
-      View Apache error log
+      Stop All Services
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#check-uwsgi-log" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#rebuild-without-cache-force-clean-build" class="md-nav__link">
     <span class="md-ellipsis">
-      Check uWSGI log
+      Rebuild Without Cache (Force Clean Build)
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#check-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Logs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enter-the-django-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enter the Django Container
+    </span>
+  </a>
   
 </li>
       
@@ -943,6 +887,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apache Configuration
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1005,73 +972,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-copy-apache-virtual-host-configuration" class="md-nav__link">
+  <a href="#1-install-docker" class="md-nav__link">
     <span class="md-ellipsis">
-      1: Copy Apache Virtual Host Configuration
+      1: Install Docker
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-enable-required-apache-modules" class="md-nav__link">
+  <a href="#2-build-and-run-containers" class="md-nav__link">
     <span class="md-ellipsis">
-      2: Enable Required Apache Modules
+      2: Build and Run Containers
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-enable-the-site" class="md-nav__link">
-    <span class="md-ellipsis">
-      3: Enable the Site
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-enable-ssl-with-certbot" class="md-nav__link">
-    <span class="md-ellipsis">
-      4: Enable SSL with Certbot
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#apache-site-commands-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      📂 Apache Site Commands Summary
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="📂 Apache Site Commands Summary">
+    <nav class="md-nav" aria-label="2: Build and Run Containers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#enable-site" class="md-nav__link">
+  <a href="#build-docker-image" class="md-nav__link">
     <span class="md-ellipsis">
-      Enable site
+      🔨 Build Docker Image
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#disable-site" class="md-nav__link">
+  <a href="#start-all-services" class="md-nav__link">
     <span class="md-ellipsis">
-      Disable site
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-enabled-sites" class="md-nav__link">
-    <span class="md-ellipsis">
-      List enabled sites
+      🚀 Start All Services
     </span>
   </a>
   
@@ -1083,35 +1014,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#logs-and-troubleshooting" class="md-nav__link">
+  <a href="#stop-all-services" class="md-nav__link">
     <span class="md-ellipsis">
-      🔎 Logs and Troubleshooting
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🔎 Logs and Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#view-apache-error-log" class="md-nav__link">
-    <span class="md-ellipsis">
-      View Apache error log
+      Stop All Services
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#check-uwsgi-log" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#rebuild-without-cache-force-clean-build" class="md-nav__link">
     <span class="md-ellipsis">
-      Check uWSGI log
+      Rebuild Without Cache (Force Clean Build)
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#check-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Logs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enter-the-django-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enter the Django Container
+    </span>
+  </a>
   
 </li>
       
@@ -1134,124 +1068,191 @@
   
 
 
-<h1 id="apache-configuration">🌐 Apache Configuration</h1>
-<p>This section explains how to configure Apache to serve the EQIPA Django project using <strong>uWSGI</strong> and enable <strong>SSL</strong> using Let's Encrypt via <strong>Certbot</strong>.</p>
+<h1 id="run-eqipa-using-docker">🐳 Run EQIPA Using Docker</h1>
+<p>This guide explains how to build and run the EQIPA platform using Docker and <code>docker-compose</code> in localhost.</p>
 <hr />
-<h2 id="1-copy-apache-virtual-host-configuration">1: Copy Apache Virtual Host Configuration</h2>
-<p>Copy the example configuration to the Apache sites-available directory:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>cp<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/ipa_india.conf<span class="w"> </span>/etc/apache2/sites-available/ipa_india.conf
+<h2 id="1-install-docker">1: Install Docker</h2>
+<p>Install Docker Desktop for your OS:</p>
+<ul>
+<li>
+<p><strong>Windows / macOS</strong>:<br />
+  👉 <a href="https://www.docker.com/products/docker-desktop">https://www.docker.com/products/docker-desktop</a></p>
+</li>
+<li>
+<p><strong>Ubuntu/Linux</strong>:<br />
+  👉 <a href="https://docs.docker.com/engine/install/ubuntu/">Install Docker Engine</a></p>
+</li>
+</ul>
+<p>Make sure Docker and Docker Compose are installed:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>--version
+docker-compose<span class="w"> </span>--version
+</code></pre></div>
+<hr />
+<h2 id="2-build-and-run-containers">2: Build and Run Containers</h2>
+<h3 id="build-docker-image">🔨 Build Docker Image</h3>
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>build
 </code></pre></div>
 <details class="info">
-<summary>ipa_india.conf</summary>
-<div class="highlight"><pre><span></span><code>&lt;VirtualHost<span class="w"> </span>*:80&gt;
-<span class="w">    </span>ServerName<span class="w"> </span>eqipa.waterinag.org
+<summary>Dockerfile</summary>
+<p>Below is a sample <code>Dockerfile</code> that builds the full Django + GRASS + GDAL + Python environment inside Ubuntu 22.04:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Use Ubuntu as the base image</span>
+FROM<span class="w"> </span>ubuntu:22.04
 
-Alias<span class="w"> </span>/static/<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/static/
+<span class="c1"># Set environment variables to avoid prompts during installation</span>
+ENV<span class="w"> </span><span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive
 
-<span class="w">    </span>&lt;Directory<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/ipa_india&gt;
-<span class="w">        </span>&lt;Files<span class="w"> </span>wsgi.py&gt;
-<span class="w">            </span>Require<span class="w"> </span>all<span class="w"> </span>granted
-<span class="w">        </span>&lt;/Files&gt;
-<span class="w">    </span>&lt;/Directory&gt;
-
-&lt;Location<span class="w"> </span>/static&gt;
-<span class="w">                </span>SetHandler<span class="w"> </span>none
-<span class="w">                </span>Options<span class="w"> </span>-Indexes
-<span class="w">        </span>&lt;/Location&gt;
-
-<span class="w">        </span>&lt;Location<span class="w"> </span>/media&gt;
-<span class="w">                </span>SetHandler<span class="w"> </span>none
-<span class="w">                </span>Options<span class="w"> </span>-Indexes
-<span class="w">        </span>&lt;/Location&gt;
-
-<span class="w">        </span>Alias<span class="w"> </span>/media/<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/media/
-
-<span class="w">        </span>Alias<span class="w"> </span>/static/<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/static/
-
-<span class="w">        </span>&lt;Directory<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/&gt;
-<span class="w">                </span>Require<span class="w"> </span>all<span class="w"> </span>granted
-<span class="w">        </span>&lt;/Directory&gt;
-
-<span class="w">        </span>&lt;Directory<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/static&gt;
-<span class="w">                </span>Options<span class="w"> </span>FollowSymLinks
-<span class="w">                </span>Order<span class="w"> </span>allow,deny
-<span class="w">                </span>Allow<span class="w"> </span>from<span class="w"> </span>all
-<span class="w">        </span>&lt;/Directory&gt;
-
-<span class="w">        </span>&lt;Directory<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/media&gt;
-<span class="w">                </span>Options<span class="w"> </span>FollowSymLinks
-<span class="w">                </span>Order<span class="w"> </span>allow,deny
-<span class="w">                </span>Allow<span class="w"> </span>from<span class="w"> </span>all
-<span class="w">        </span>&lt;/Directory&gt;
-
-<span class="w">    </span>ProxyPass<span class="w"> </span>/<span class="w"> </span>unix:/home/aman/ipa_india/webapp/ipa_india/ipa_india.sock<span class="p">|</span>uwsgi://localhost/
-<span class="w">    </span><span class="c1"># Proxying the connection to uWSGI</span>
-
-<span class="w">    </span><span class="c1"># ProxyPass / unix:/home/aman/ipa_india/webapp/ipa_india/ipa_india.sock|uwsgi://localhost/</span>
-<span class="w">    </span>ErrorLog<span class="w"> </span><span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/ipa_india_error.log
-<span class="w">    </span>CustomLog<span class="w"> </span><span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/ipa_india_access.log<span class="w"> </span>combined
+<span class="c1"># Install required system dependencies</span>
+RUN<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>python3<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>python3-pip<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>python3-venv<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>git<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>gdal-bin<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>postgis<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>redis-server<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>virtualenv<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>build-essential<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>python3-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>libpq-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>pango1.0-tools<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>postgresql<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>postgresql-postgis<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>grass<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>grass-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>clean
 
 
-&lt;/VirtualHost&gt;
+RUN<span class="w"> </span>mkdir<span class="w"> </span>/app
+
+<span class="c1"># Set GRASS GIS environment variables (PERSISTENT)</span>
+ENV<span class="w"> </span><span class="nv">GRASS_BIN</span><span class="o">=</span>/usr/bin/grass
+ENV<span class="w"> </span><span class="nv">GRASS_DB</span><span class="o">=</span>/app/grassdata
+ENV<span class="w"> </span><span class="nv">GRASS_LOCATION</span><span class="o">=</span>wagen
+ENV<span class="w"> </span><span class="nv">GISBASE</span><span class="o">=</span>/usr/lib/grass78
+ENV<span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/lib/grass78/lib:<span class="nv">$LD_LIBRARY_PATH</span>
+ENV<span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span>/usr/lib/grass78/etc/python:<span class="nv">$PYTHONPATH</span>
+
+
+<span class="c1"># Set working directory</span>
+WORKDIR<span class="w"> </span>/app
+
+
+COPY<span class="w"> </span>.<span class="w"> </span>/app
+
+COPY<span class="w"> </span>requirements.txt<span class="w"> </span>.
+RUN<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+
+<span class="c1"># Expose the port and define the default command</span>
+EXPOSE<span class="w"> </span><span class="m">8000</span>
 </code></pre></div>
 </details>
+<h3 id="start-all-services">🚀 Start All Services</h3>
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+<details class="info">
+<summary>docker-compose.yml</summary>
+<p>Here’s a sample docker-compose.yml to bring up the full stack:</p>
+<div class="highlight"><pre><span></span><code>services:
+    db:
+        image: postgis/postgis:15-3.3
+        container_name: postgres_db
+        restart: always
+        environment:
+        POSTGRES_DB: ipa_test
+        POSTGRES_USER: ipa_test
+        POSTGRES_PASSWORD: ipa_test123
+        # volumes:
+        #   - postgres_data:/var/lib/postgresql/data
+        volumes:
+        - /Volumes/ExternalSSD/Docker/ipa_docker/postgres_data:/var/lib/postgresql/data
+        ports:
+        - &quot;5433:5432&quot;  # Host port 5433 mapped to container&#39;s port 5432
+
+    redis:
+        image: redis:alpine
+        container_name: redis
+        restart: always
+        ports:
+        - &quot;6379:6379&quot;
+
+    web:
+        build: .
+        container_name: ipa_docker
+        restart: always
+        depends_on:
+        - db
+        ports:
+        - &quot;8000:8000&quot;
+        environment:
+        DATABASE_URL: postgresql://ipa_test:ipa_test123@db:5432/ipa_test
+        REDIS_URL: redis://redis:6379  # Define or remove if not using Redis
+        volumes:
+        - .:/app  # For development only; remove in production to use the baked image
+        - /Volumes/ExternalSSD/grassdata:/mnt/grassdata
+        command: sh -c &quot;python3 manage.py makemigrations webapp &amp;&amp; python3 manage.py migrate &amp;&amp; python3 manage.py collectstatic --noinput &amp;&amp; python3 manage.py runserver 0.0.0.0:8000&quot;
+
+
+
+    celery:
+        build: .
+        container_name: celery_worker
+        restart: always
+        depends_on:
+        - redis
+        - web
+        - db
+        environment:
+        DATABASE_URL: postgresql://ipa_test:ipa_test123@db:5432/ipa_test
+        REDIS_URL: redis://redis:6379
+        volumes:
+        - .:/app
+        - /Volumes/ExternalSSD/grassdata:/mnt/grassdata
+        command: celery -A ipa_india worker --loglevel=info
+
+volumes:
+    postgres_data:
+</code></pre></div>
+</details>
+<p>This will start:
+- Django app (<code>ipa_docker</code>)
+- PostgreSQL (<code>postgres_db</code>)
+- Redis (<code>redis_cache</code>)
+- Celery worker (<code>celery_worker</code>)</p>
+<hr />
+<h2 id="stop-all-services">Stop All Services</h2>
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>down
+</code></pre></div>
+<hr />
+<h2 id="rebuild-without-cache-force-clean-build">Rebuild Without Cache (Force Clean Build)</h2>
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>down
+docker-compose<span class="w"> </span>build<span class="w"> </span>--no-cache
+docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+<hr />
+<h2 id="check-logs">Check Logs</h2>
+<p>To verify that containers are running correctly, view logs for each service:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>logs<span class="w"> </span>celery_worker
+docker<span class="w"> </span>logs<span class="w"> </span>redis_cache
+docker<span class="w"> </span>logs<span class="w"> </span>postgres_db
+docker<span class="w"> </span>logs<span class="w"> </span>ipa_docker
+</code></pre></div>
+<hr />
+<h2 id="enter-the-django-container">Enter the Django Container</h2>
+<p>You can access the app container directly and run Django management commands:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>ipa_docker<span class="w"> </span>bash
+</code></pre></div>
+<p>Inside the container, you can:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create superuser (only first time)</span>
+python3<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
+</code></pre></div>
 <blockquote>
-<p>Make sure to update paths in the config to match your project directory.</p>
+<p>💡 Tip: You can also run migrations or collectstatic here if needed.</p>
 </blockquote>
 <hr />
-<h2 id="2-enable-required-apache-modules">2: Enable Required Apache Modules</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>a2enmod<span class="w"> </span>uwsgi
-sudo<span class="w"> </span>a2enmod<span class="w"> </span>ssl
-</code></pre></div>
-<hr />
-<h2 id="3-enable-the-site">3: Enable the Site</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>a2ensite<span class="w"> </span>ipa_india.conf
-</code></pre></div>
-<hr />
-<p>Verify Apache Configuration</p>
-<p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apachectl<span class="w"> </span>configtest
-</code></pre></div>
-You should see: <code>Syntax OK</code></p>
-<hr />
-<p>Restart Apache to apply changes:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>apache2
-sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
-</code></pre></div>
-<hr />
-<h2 id="4-enable-ssl-with-certbot">4: Enable SSL with Certbot</h2>
-<p>Install Certbot:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>certbot<span class="w"> </span>python3-certbot-apache
-</code></pre></div>
-<p>Enable HTTPS with your domain:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>certbot<span class="w"> </span>--apache<span class="w"> </span>-d<span class="w"> </span>eqipa.waterinag.org
-</code></pre></div>
-<p>Restart Apache to apply changes:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
-</code></pre></div>
-<hr />
-<h2 id="apache-site-commands-summary">📂 Apache Site Commands Summary</h2>
-<h3 id="enable-site">Enable site</h3>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>a2ensite<span class="w"> </span>eqipa.waterinag.org.conf
-</code></pre></div>
-<h3 id="disable-site">Disable site</h3>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>a2dissite<span class="w"> </span>eqipa.waterinag.org.conf
-</code></pre></div>
-<h3 id="list-enabled-sites">List enabled sites</h3>
-<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>/etc/apache2/sites-enabled
-</code></pre></div>
-<hr />
-<h2 id="logs-and-troubleshooting">🔎 Logs and Troubleshooting</h2>
-<h3 id="view-apache-error-log">View Apache error log</h3>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span>/var/log/apache2/ipa_india_error.log
-</code></pre></div>
-<h3 id="check-uwsgi-log">Check uWSGI log</h3>
-<div class="highlight"><pre><span></span><code>tail<span class="w"> </span>-f<span class="w"> </span>/home/aman/ipa_india/webapp/ipa_india/log/ipa_india.log
-</code></pre></div>
-<blockquote>
-<p>Ensure Apache's config is pointing to the correct uWSGI socket and the socket file has proper read/write permissions.</p>
-</blockquote>
-<hr />
-<p>✅ Apache is now configured and serving your EQIPA application securely over HTTPS!</p>
+<p>✅ Your EQIPA platform should now be running at:
+<div class="highlight"><pre><span></span><code>http://localhost:8000/
+</code></pre></div></p>
+<p>Update your <code>.env</code> and <code>docker-compose.yml</code> files as needed.</p>
 
 
 

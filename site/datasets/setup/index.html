@@ -452,26 +452,11 @@
           <li class="md-nav__item">
   <a href="#1-install-gdal-system-packages" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Install GDAL system packages:
+      1. Install GDAL system packages
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sudo-apt-get-install-gdal-bin-libgdal-dev-libspatialindex-dev" class="md-nav__link">
-    <span class="md-ellipsis">
-      sudo apt-get install gdal-bin libgdal-dev libspatialindex-dev
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="sudo apt-get install gdal-bin libgdal-dev libspatialindex-dev">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#2-create-and-activate-a-python-virtual-environment" class="md-nav__link">
@@ -782,6 +767,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../geo-tools/grass-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRASS GIS Python library
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../geo-tools/gdal/" class="md-nav__link">
         
   
@@ -873,12 +881,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool-setup/run-locally/" class="md-nav__link">
+      <a href="../../tool-setup/development-mode/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Running App in Development Mode
+    Running Tool in Development Mode
     
   </span>
   
@@ -902,6 +910,29 @@
   
   <span class="md-ellipsis">
     Deployment in Production
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool-setup/run-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Run with Docker
     
   </span>
   
@@ -1073,26 +1104,11 @@
           <li class="md-nav__item">
   <a href="#1-install-gdal-system-packages" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Install GDAL system packages:
+      1. Install GDAL system packages
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sudo-apt-get-install-gdal-bin-libgdal-dev-libspatialindex-dev" class="md-nav__link">
-    <span class="md-ellipsis">
-      sudo apt-get install gdal-bin libgdal-dev libspatialindex-dev
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="sudo apt-get install gdal-bin libgdal-dev libspatialindex-dev">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#2-create-and-activate-a-python-virtual-environment" class="md-nav__link">
@@ -1186,7 +1202,6 @@
 </code></pre></div>
 <hr />
 <h3 id="2-create-a-conda-environment">2: Create a Conda Environment</h3>
-<p>Conda makes it easy to isolate packages:</p>
 <div class="highlight"><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>eqipa_env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.10
 conda<span class="w"> </span>activate<span class="w"> </span>eqipa_env
 </code></pre></div>
@@ -1195,8 +1210,11 @@ conda<span class="w"> </span>activate<span class="w"> </span>eqipa_env
 <p>Use the <code>conda-forge</code> channel:</p>
 <div class="highlight"><pre><span></span><code>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>gdal<span class="w"> </span>libgdal-jp2openjpeg<span class="w"> </span>
 </code></pre></div>
-<p>Verify installation:</p>
+<p>Verify GDAL installation:</p>
 <div class="highlight"><pre><span></span><code>gdalinfo<span class="w"> </span>--version
+</code></pre></div>
+<p>Verify GRASS GIS installation:</p>
+<div class="highlight"><pre><span></span><code>grass<span class="w"> </span>--version
 </code></pre></div>
 <p>Then install required Python libraries:</p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>tqdm<span class="w"> </span>geopandas<span class="w"> </span>numpy<span class="w"> </span>xarray<span class="w"> </span>rioxarray<span class="w"> </span>rasterio<span class="w"> </span>netCDF4<span class="w"> </span>requests
@@ -1210,9 +1228,10 @@ conda<span class="w"> </span>activate<span class="w"> </span>eqipa_env
 </code></pre></div>
 <hr />
 <h2 id="on-ubuntu-without-conda">On Ubuntu (Without Conda)</h2>
-<h3 id="1-install-gdal-system-packages">1. Install GDAL system packages:</h3>
-<h2 id="sudo-apt-get-install-gdal-bin-libgdal-dev-libspatialindex-dev"><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>gdal-bin<span class="w"> </span>libgdal-dev<span class="w"> </span>libspatialindex-dev
-</code></pre></div></h2>
+<h3 id="1-install-gdal-system-packages">1. Install GDAL system packages</h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>gdal-bin<span class="w"> </span>libgdal-dev<span class="w"> </span>libspatialindex-dev
+</code></pre></div>
+<hr />
 <h3 id="2-create-and-activate-a-python-virtual-environment">2. Create and Activate a Python Virtual Environment</h3>
 <div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
 <span class="nb">source</span><span class="w"> </span>venv/bin/activate
