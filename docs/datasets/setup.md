@@ -141,6 +141,11 @@ pip install -r requirements.txt
 
 ---
 
+## Assets
+1. India Boundary: https://github.com/waterinag/eqipa-docs/blob/main/docs/assets/IndiaBoundary.geojson
+
+---
+
 ## ✅ Next Step
 
 Once the environment is set up, proceed to the dataset you want to download.
