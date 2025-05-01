@@ -64,7 +64,7 @@ gdalinfo --version
 Then install required Python libraries:
 
 ```bash
-pip install pandas tqdm geopandas numpy xarray rioxarray rasterio netCDF4 requests
+conda install pandas tqdm geopandas numpy xarray rioxarray rasterio netCDF4 requests
 ```
 
 ---
