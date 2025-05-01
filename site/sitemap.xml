@@ -2,86 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/datasets/elevation/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/datasets/eta_ssebop/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/datasets/eta_wapor/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/datasets/lulc/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/datasets/overview/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/datasets/pcp_chirps/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/datasets/pcp_imd/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/datasets/setup/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/datasets/tbp_wapor/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/geo-tools/gdal/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/geo-tools/grass-python/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/geo-tools/grass/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/geo-tools/overview/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/tool-setup/apache/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/tool-setup/deployment/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/tool-setup/development-mode/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/tool-setup/errors/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/tool-setup/installation/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/tool-setup/run-docker/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
     <url>
          <loc>https://waterinag.github.io/eqipa-docs/tool-setup/system-setup/</loc>
-         <lastmod>2025-04-30</lastmod>
+         <lastmod>2025-05-01</lastmod>
     </url>
 </urlset>

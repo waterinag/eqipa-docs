@@ -60,11 +60,6 @@ Verify GDAL installation:
 gdalinfo --version
 ```
 
-Verify GRASS GIS installation:
-
-```bash
-grass --version
-```
 
 Then install required Python libraries:
 
