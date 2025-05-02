@@ -983,7 +983,8 @@
 <hr />
 <h2 id="python-script-download-monthly-npp-wapor-v3">⬇️ Python Script: Download Monthly NPP (WaPOR v3)</h2>
 <p>This script downloads monthly NPP GeoTIFFs from FAO's WaPOR v3 Google-hosted URLs.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># tbp_wapor_v3.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
 
@@ -1034,7 +1035,8 @@
 <blockquote>
 <p>📁 Boundary file required: <code>assets/IndiaBoundary.geojson</code></p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># tbp_wapor_v3_clip.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">osgeo</span><span class="w"> </span><span class="kn">import</span> <span class="n">gdal</span>
