@@ -29,6 +29,7 @@ For estimating precipitation, the EQIPA platform uses high-resolution daily grid
 ## Download Annual NetCDF from IMD
 
 ```python
+# pcp_imd_download.py
 import requests
 import os
 import re
@@ -89,6 +90,7 @@ for year in range(firstyear, lastyear + 1):  # Adjust the range as needed
 The following Python script converts daily precipitation values from IMD NetCDF files to GeoTIFF format using `xarray` and `rioxarray`.
 
 ```python
+# pcp_imd_daily.py
 import xarray as xr
 import rioxarray
 import os
@@ -137,6 +139,7 @@ for year in range(firstyear, lastyear + 1):
 This script uses `rasterio` and `numpy` to aggregate daily rasters into **monthly precipitation maps** by summing values.
 
 ```python
+# pcp_imd_monthly.py
 import os
 import glob
 import rasterio
@@ -203,6 +206,7 @@ for year in range(firstyear, lastyear + 1):
 ## Aggregate Monthly GeoTIFFs to Annual
 
 ```python
+# pcp_imd_annual.py
 import os
 import numpy as np
 import rasterio

@@ -29,6 +29,7 @@ This script downloads monthly AETI GeoTIFFs from FAO's WaPOR v3 Google-hosted UR
 
 
 ```python
+# eta_wapor_v3.py
 import requests
 import os
 from tqdm import tqdm
@@ -83,6 +84,7 @@ Once downloaded, use this script to clip the **global raster** to the **India bo
 > 📁 Boundary file required: `assets/IndiaBoundary.geojson`
 
 ```python
+# eta_wapor_v3_clip.py
 import os
 import numpy as np
 import rasterio

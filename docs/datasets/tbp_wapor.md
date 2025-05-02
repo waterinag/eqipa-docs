@@ -30,6 +30,7 @@ This script downloads monthly NPP GeoTIFFs from FAO's WaPOR v3 Google-hosted URL
 
 
 ```python
+# tbp_wapor_v3.py
 import requests
 import os
 from tqdm import tqdm
@@ -86,6 +87,7 @@ Once downloaded, use this script to clip the **global raster** to the **India bo
 > 📁 Boundary file required: `assets/IndiaBoundary.geojson`
 
 ```python
+# tbp_wapor_v3_clip.py
 import os
 import numpy as np
 import rasterio
