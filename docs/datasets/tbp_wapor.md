@@ -45,8 +45,13 @@ os.makedirs(download_folder, exist_ok=True)
 
 for year in range(firstyear, lastyear+1):
     for month in range(1, 13):
-
         filename = f"WAPOR-3.L1-NPP-M.{year}-{month:02d}.tif"
+        output_path = os.path.join(download_folder, filename)
+
+        if os.path.exists(output_path):
+            print(f"File already exists: {filename}, skipping...")
+            continue
+
         url = f"https://gismgr.fao.org/DATA/WAPOR-3/MAPSET/L1-NPP-M/{filename}"
         print(f"Downloading {filename} from {url} ...")
         
@@ -60,7 +65,7 @@ for year in range(firstyear, lastyear+1):
             # Create a progress bar with tqdm
             progress_bar = tqdm(total=total_size, unit='B', unit_scale=True, desc=filename)
             
-            output_path = os.path.join(download_folder, filename)
+
             with open(output_path, "wb") as f:
                 for chunk in response.iter_content(chunk_size=8192):
                     if chunk:
@@ -84,7 +89,7 @@ for year in range(firstyear, lastyear+1):
 
 ## Clip Global Rasters to India Boundary
 Once downloaded, use this script to clip the **global raster** to the **India boundary** using a boundary file.
-> 📁 Boundary file required: `assets/IndiaBoundary.geojson`
+> 📁 India Boundary file required: https://github.com/waterinag/eqipa-docs/blob/main/docs/assets/IndiaBoundary.geojson
 
 ```python
 # tbp_wapor_v3_clip.py

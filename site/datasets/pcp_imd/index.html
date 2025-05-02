@@ -1019,7 +1019,8 @@
 </ol>
 <hr />
 <h2 id="download-annual-netcdf-from-imd">Download Annual NetCDF from IMD</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># pcp_imd_download.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
@@ -1073,7 +1074,8 @@
 <hr />
 <h2 id="convert-netcdf-to-daily-geotiffs">Convert NetCDF to Daily GeoTIFFs</h2>
 <p>The following Python script converts daily precipitation values from IMD NetCDF files to GeoTIFF format using <code>xarray</code> and <code>rioxarray</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># pcp_imd_daily.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">rioxarray</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
@@ -1116,7 +1118,8 @@
 <hr />
 <h2 id="aggregate-daily-geotiffs-to-monthly">Aggregate Daily GeoTIFFs to Monthly</h2>
 <p>This script uses <code>rasterio</code> and <code>numpy</code> to aggregate daily rasters into <strong>monthly precipitation maps</strong> by summing values.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># pcp_imd_monthly.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -1177,7 +1180,8 @@
 </code></pre></div>
 <hr />
 <h2 id="aggregate-monthly-geotiffs-to-annual">Aggregate Monthly GeoTIFFs to Annual</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># pcp_imd_annual.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
 
