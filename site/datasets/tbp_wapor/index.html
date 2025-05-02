@@ -998,8 +998,13 @@
 
 <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">firstyear</span><span class="p">,</span> <span class="n">lastyear</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">):</span>
-
         <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;WAPOR-3.L1-NPP-M.</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.tif&quot;</span>
+        <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">download_folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_path</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File already exists: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">, skipping...&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+
         <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://gismgr.fao.org/DATA/WAPOR-3/MAPSET/L1-NPP-M/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloading </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
 
@@ -1013,7 +1018,7 @@
             <span class="c1"># Create a progress bar with tqdm</span>
             <span class="n">progress_bar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">total_size</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">unit_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
 
-            <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">download_folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">8192</span><span class="p">):</span>
                     <span class="k">if</span> <span class="n">chunk</span><span class="p">:</span>
@@ -1033,7 +1038,7 @@
 <h2 id="clip-global-rasters-to-india-boundary">Clip Global Rasters to India Boundary</h2>
 <p>Once downloaded, use this script to clip the <strong>global raster</strong> to the <strong>India boundary</strong> using a boundary file.</p>
 <blockquote>
-<p>📁 Boundary file required: <code>assets/IndiaBoundary.geojson</code></p>
+<p>📁 India Boundary file required: https://github.com/waterinag/eqipa-docs/blob/main/docs/assets/IndiaBoundary.geojson</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><span class="c1"># tbp_wapor_v3_clip.py</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
