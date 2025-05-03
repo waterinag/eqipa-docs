@@ -12,13 +12,9 @@
         <meta name="author" content="waterinag">
       
       
-        <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/datasets/eta_wapor/">
+        <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/datasets/tbp_wapor%20copy/">
       
       
-        <link rel="prev" href="../pcp_chirps/">
-      
-      
-        <link rel="next" href="../eta_ssebop/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -26,7 +22,7 @@
     
     
       
-        <title>Evapotranspiration (WaPOR) - India EQIPA</title>
+        <title>Actual Evapotranspiration - India EQIPA</title>
       
     
     
@@ -114,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Evapotranspiration (WaPOR)
+              Actual Evapotranspiration
             
           </span>
         </div>
@@ -255,20 +251,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -284,7 +278,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Download Datasets
@@ -387,32 +381,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Evapotranspiration (WaPOR)
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../eta_wapor/" class="md-nav__link">
         
   
   
@@ -423,53 +395,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dataset-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dataset Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-processing-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      📌 Data Processing Summary
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#download-clipped-raster-and-apply-scale-factor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Download Clipped Raster and Apply Scale Factor
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -916,9 +841,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#download-clipped-raster-and-apply-scale-factor" class="md-nav__link">
+  <a href="#python-script-download-monthly-npp-wapor-v3" class="md-nav__link">
     <span class="md-ellipsis">
-      Download Clipped Raster and Apply Scale Factor
+      ⬇️ Python Script: Download Monthly NPP (WaPOR v3)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clip-global-rasters-to-india-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clip Global Rasters to India Boundary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download-clipped-npp-raster-apply-scale-factor-and-convert-inot-tbp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download Clipped NPP Raster, Apply Scale Factor and convert inot TBP
     </span>
   </a>
   
@@ -944,14 +887,13 @@
 
 
 <h1 id="actual-evapotranspiration">Actual Evapotranspiration</h1>
-<p>Evapotranspiration is the sum of the soil evaporation (E), canopy transpiration (T) and interception (I). 
-The sum of all three parameters i.e. the Actual Evapotranspiration and Interception (AETI) can be used to quantify the agricultural water consumption.
-For further information on the methodology read the WaPOR documentation available at: https://bitbucket.org/cioapps/wapor-et-look/wiki/Home</p>
+<p>Total Biomass Production (TBP) is defined as the sum of the above-ground dry matter produced for a given year. TBP is calculated from Net Primary Production (NPP). TBP is expressed in kgDM/ha/day, and has thus different biomass units compared to NPP, with 1 gC/m2/day (NPP) = 22.222 kgDM/ha/day (DMP).</p>
+<p>For further information on the methodology read the WaPOR documentation available at: <a href="https://bitbucket.org/cioapps/wapor-et-look/wiki/Home">https://bitbucket.org/cioapps/wapor-et-look/wiki/Home</a></p>
 <hr />
 <h2 id="dataset-overview">Dataset Overview</h2>
 <ul>
 <li><strong>Source</strong>: <a href="https://console.cloud.google.com/storage/browser/fao-gismgr-wapor-3-data/DATA/WAPOR-3/MAPSET">WaPOR L1 v3</a></li>
-<li><strong>Period of Use</strong>: 2018–present</li>
+<li><strong>Period of Use</strong>: 2018–2023 crop years</li>
 <li><strong>Spatial Resolution</strong>: 300m</li>
 <li><strong>Temporal Resolution</strong>: Monthly</li>
 <li><strong>Output Format Used in EQIPA</strong>: Monthly GeoTIFF</li>
@@ -959,15 +901,145 @@ For further information on the methodology read the WaPOR documentation availabl
 <hr />
 <h2 id="data-processing-summary">📌 Data Processing Summary</h2>
 <ol>
-<li>Monthly WaPOR L1 v3 AETI (300m) maps have been downloaded from WaPOR.</li>
-<li>Each monthly AETI raster have been multiplied by scale factor (0.1). See the scale factor for each WaPOR product here: https://data.apps.fao.org/wapor</li>
-<li>Annual AETI is computed for all crop years by aggregating monthly AETI values from June to May, covering crop years 2018-19 to 2022-23.</li>
+<li>Monthly WaPOR L1 v3 NPP (300m) maps have been downloaded from WaPOR.</li>
+<li>Monthly TBP maps are calculated as = Monthly NPP × Scale Factor (0.001) × Unit Conversion Factor (22.222). See the scale factor for each WaPOR product here: <a href="https://data.apps.fao.org/wapor">https://data.apps.fao.org/wapor</a></li>
+<li>Annual TBP maps is computed for all crop years by aggregating monthly TBP maps from June to May, covering crop years 2018-19 to 2022-23.</li>
 </ol>
 <hr />
-<h2 id="download-clipped-raster-and-apply-scale-factor">Download Clipped Raster and Apply Scale Factor</h2>
-<p>This script downloads monthly WaPOR v3 AETI raster files from FAO's WaPOR Google Cloud Bucket URLs, clips them  to the India boundary (using GDAL), and applies a scale factor.</p>
+<h2 id="python-script-download-monthly-npp-wapor-v3">⬇️ Python Script: Download Monthly NPP (WaPOR v3)</h2>
+<p>This script downloads monthly NPP GeoTIFFs from FAO's WaPOR v3 Google-hosted URLs.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># tbp_wapor_v3.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="n">firstyear</span> <span class="o">=</span> <span class="mi">2023</span>
+<span class="n">lastyear</span> <span class="o">=</span> <span class="mi">2024</span>
+
+<span class="c1"># Create a folder to store downloads (optional)</span>
+<span class="n">download_folder</span> <span class="o">=</span> <span class="s2">&quot;npp_wapor_v3_monthly&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">download_folder</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">firstyear</span><span class="p">,</span> <span class="n">lastyear</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">):</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;WAPOR-3.L1-NPP-M.</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.tif&quot;</span>
+        <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">download_folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_path</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File already exists: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">, skipping...&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://gismgr.fao.org/DATA/WAPOR-3/MAPSET/L1-NPP-M/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloading </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>  <span class="c1"># Raise an error for bad responses</span>
+
+            <span class="c1"># Get total file size from headers (if available)</span>
+            <span class="n">total_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;content-length&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+            <span class="c1"># Create a progress bar with tqdm</span>
+            <span class="n">progress_bar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">total_size</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">unit_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
+
+
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">8192</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">chunk</span><span class="p">:</span>
+                        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+                        <span class="n">progress_bar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">))</span>
+            <span class="n">progress_bar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+            <span class="c1"># Optional: Check if the download completed correctly</span>
+            <span class="k">if</span> <span class="n">total_size</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">progress_bar</span><span class="o">.</span><span class="n">n</span> <span class="o">!=</span> <span class="n">total_size</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARNING: Download size mismatch for </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloaded </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> successfully.&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to download </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="clip-global-rasters-to-india-boundary">Clip Global Rasters to India Boundary</h2>
+<p>Once downloaded, use this script to clip the <strong>global raster</strong> to the <strong>India boundary</strong> using a boundary file.</p>
 <blockquote>
-<p>📁 India Boundary file: <a href="https://github.com/waterinag/eqipa-docs/blob/main/docs/assets/IndiaBoundary.geojson">Link</a></p>
+<p>📁 India Boundary file required: https://github.com/waterinag/eqipa-docs/blob/main/docs/assets/IndiaBoundary.geojson</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="c1"># tbp_wapor_v3_clip.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">osgeo</span><span class="w"> </span><span class="kn">import</span> <span class="n">gdal</span>
+
+<span class="c1"># Set your paths</span>
+<span class="n">input_folder</span> <span class="o">=</span> <span class="s2">&quot;npp_wapor_v3_monthly&quot;</span>      
+<span class="n">output_folder</span> <span class="o">=</span> <span class="s2">&quot;tbp_wapor_v3_monthly_ind&quot;</span>   
+<span class="n">geojson_boundary</span> <span class="o">=</span> <span class="s2">&quot;IndiaBoundary.geojson&quot;</span> 
+<span class="n">scale_factor</span><span class="o">=</span><span class="mf">0.001</span><span class="o">*</span><span class="mf">22.222</span>
+<span class="n">firstyear</span> <span class="o">=</span> <span class="mi">2023</span>
+<span class="n">lastyear</span> <span class="o">=</span> <span class="mi">2024</span>
+
+<span class="c1"># Create the output folder if it doesn&#39;t exist</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_folder</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_folder</span><span class="p">)</span>
+
+<span class="c1"># Loop through all files in the input folder</span>
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">firstyear</span><span class="p">,</span> <span class="n">lastyear</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">):</span>
+        <span class="n">output_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;wapor_tbp_m_</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.tif&quot;</span>
+        <span class="n">temp_clip</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;temp_</span><span class="si">{</span><span class="n">output_filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Clip and Download raster from Cloud</span>
+        <span class="c1"># fileURL=f&quot;https://storage.googleapis.com/fao-gismgr-wapor-3-data/DATA/WAPOR-3/MAPSET/L2-NPP-M/WAPOR-3.L2-NPP-M.{year}-{month:02d}.tif&quot; </span>
+        <span class="c1"># vrt_file=f&quot;WAPOR-3.L2-NPP-M.{year}-{month:02d}.vrt&quot;</span>
+        <span class="c1"># gdal.BuildVRT(vrt_file, [f&quot;/vsicurl/{fileURL}&quot;])</span>
+        <span class="c1"># gdal.Warp(temp_clip, vrt_file, cutlineDSName=geojson_boundary, cropToCutline=True, dstNodata=-9999)</span>
+
+
+        <span class="c1"># Clip raster from local</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;WAPOR-3.L1-NPP-M.</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.tif&quot;</span>
+        <span class="n">input_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="n">warp_options</span> <span class="o">=</span> <span class="n">gdal</span><span class="o">.</span><span class="n">WarpOptions</span><span class="p">(</span><span class="n">cutlineDSName</span><span class="o">=</span><span class="n">geojson_boundary</span><span class="p">,</span> <span class="n">cropToCutline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">dstNodata</span><span class="o">=-</span><span class="mi">9999</span><span class="p">)</span>
+        <span class="n">gdal</span><span class="o">.</span><span class="n">Warp</span><span class="p">(</span><span class="n">destNameOrDestDS</span><span class="o">=</span><span class="n">temp_clip</span><span class="p">,</span> <span class="n">srcDSOrSrcDSTab</span><span class="o">=</span><span class="n">input_path</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">warp_options</span><span class="p">)</span>
+
+
+
+        <span class="c1"># Define the output path for the scaled raster</span>
+        <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="n">output_filename</span><span class="p">)</span>
+
+        <span class="c1"># Open the clipped raster with Rasterio</span>
+        <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">temp_clip</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+            <span class="n">profile</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">profile</span> 
+            <span class="n">data</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">nodata</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">nodata</span>
+
+            <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span> <span class="o">==</span> <span class="n">src</span><span class="o">.</span><span class="n">nodata</span><span class="p">,</span> <span class="o">-</span><span class="mi">9999</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  
+            <span class="n">scaled_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">9999</span><span class="p">,</span> <span class="n">data</span> <span class="o">*</span> <span class="n">scale_factor</span><span class="p">,</span> <span class="o">-</span><span class="mi">9999</span><span class="p">)</span>
+
+
+            <span class="c1"># Update the profile for the output file</span>
+            <span class="n">profile</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">rasterio</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> 
+                <span class="n">nodata</span><span class="o">=</span><span class="n">nodata</span><span class="p">,</span> 
+                <span class="n">compress</span><span class="o">=</span><span class="s2">&quot;LZW&quot;</span>  <span class="c1"># Apply LZW compression</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">nodata</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">profile</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">nodata</span><span class="o">=</span><span class="n">nodata</span><span class="p">)</span>
+
+            <span class="c1"># Write the scaled data to a new file</span>
+            <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">profile</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+                <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">scaled_data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">rasterio</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Optionally, remove the temporary clipped file</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">temp_clip</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processed: clipped and scaled saved to </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="download-clipped-npp-raster-apply-scale-factor-and-convert-inot-tbp">Download Clipped NPP Raster, Apply Scale Factor and convert inot TBP</h2>
+<p>This script downloads monthly WaPOR NPP raster files, clips them directly to the India boundary (using GDAL), and applies a scale factor and unit conversion and produce Monthly TBP Rasters.</p>
+<blockquote>
+<p>📁 India Boundary file required: https://github.com/waterinag/eqipa-docs/blob/main/docs/assets/IndiaBoundary.geojson</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -976,28 +1048,25 @@ For further information on the methodology read the WaPOR documentation availabl
 
 <span class="n">firstyear</span> <span class="o">=</span> <span class="mi">2023</span>
 <span class="n">lastyear</span> <span class="o">=</span> <span class="mi">2024</span>
+<span class="n">scale_factor</span> <span class="o">=</span> <span class="mf">0.001</span> <span class="o">*</span> <span class="mf">22.222</span>
 
-<span class="n">output_folder</span> <span class="o">=</span> <span class="s2">&quot;eta_wapor_v3_monthly_ind&quot;</span>
+<span class="n">output_folder</span> <span class="o">=</span> <span class="s2">&quot;tbp_wapor_v3_monthly_ind&quot;</span>
 <span class="n">geojson_boundary</span> <span class="o">=</span> <span class="s2">&quot;IndiaBoundary.geojson&quot;</span>
 <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">firstyear</span><span class="p">,</span> <span class="n">lastyear</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">):</span>
-        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;WAPOR-3.L1-AETI-M.</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.tif&quot;</span>
-        <span class="n">output_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;wapor_eta_m_</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.tif&quot;</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;WAPOR-3.L1-NPP-M.</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.tif&quot;</span>
+        <span class="n">output_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;wapor_tbp_m_</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">.tif&quot;</span>
         <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="n">output_filename</span><span class="p">)</span>
 
-        <span class="c1"># Skip if already processed</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_path</span><span class="p">):</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✅ </span><span class="si">{</span><span class="n">output_filename</span><span class="si">}</span><span class="s2"> already exists, skipping...&quot;</span><span class="p">)</span>
             <span class="k">continue</span>
 
-        <span class="c1"># Remote file URL via /vsicurl/</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://gismgr.fao.org/DATA/WAPOR-3/MAPSET/L1-AETI-M/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://gismgr.fao.org/DATA/WAPOR-3/MAPSET/L1-NPP-M/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">vsicurl_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/vsicurl/</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">temp_clip</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;temp_</span><span class="si">{</span><span class="n">output_filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloading...</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="n">warp_options</span> <span class="o">=</span> <span class="n">gdal</span><span class="o">.</span><span class="n">WarpOptions</span><span class="p">(</span>
@@ -1006,11 +1075,11 @@ For further information on the methodology read the WaPOR documentation availabl
                 <span class="n">dstNodata</span><span class="o">=-</span><span class="mi">9999</span>
             <span class="p">)</span>
             <span class="n">gdal</span><span class="o">.</span><span class="n">Warp</span><span class="p">(</span><span class="n">destNameOrDestDS</span><span class="o">=</span><span class="n">temp_clip</span><span class="p">,</span> <span class="n">srcDSOrSrcDSTab</span><span class="o">=</span><span class="n">vsicurl_url</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">warp_options</span><span class="p">)</span>
+
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ GDAL warp failed for </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">continue</span>
 
-        <span class="c1"># Scale and write output with compression</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">temp_clip</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
                 <span class="n">profile</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">profile</span>
@@ -1018,7 +1087,7 @@ For further information on the methodology read the WaPOR documentation availabl
                 <span class="n">nodata</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">nodata</span>
 
                 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span> <span class="o">==</span> <span class="n">nodata</span><span class="p">,</span> <span class="o">-</span><span class="mi">9999</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-                <span class="n">scaled_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">9999</span><span class="p">,</span> <span class="n">data</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mi">9999</span><span class="p">)</span>
+                <span class="n">scaled_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">9999</span><span class="p">,</span> <span class="n">data</span> <span class="o">*</span> <span class="n">scale_factor</span><span class="p">,</span> <span class="o">-</span><span class="mi">9999</span><span class="p">)</span>
 
                 <span class="n">profile</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
                     <span class="n">dtype</span><span class="o">=</span><span class="n">rasterio</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>

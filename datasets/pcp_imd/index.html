@@ -1095,14 +1095,21 @@
     <span class="c1"># Open the netCDF file</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">input_nc</span><span class="p">)</span>
     <span class="c1"># print(ds.variables)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">year</span><span class="p">)</span>
 
-    <span class="n">variable_name</span> <span class="o">=</span> <span class="s2">&quot;RAINFALL&quot;</span>
+    <span class="k">if</span> <span class="n">year</span><span class="o">&gt;</span><span class="mi">2023</span><span class="p">:</span>
+        <span class="n">variable_name</span> <span class="o">=</span> <span class="s2">&quot;rf&quot;</span>
+        <span class="n">time_var</span><span class="o">=</span><span class="s2">&quot;time&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">variable_name</span> <span class="o">=</span> <span class="s2">&quot;RAINFALL&quot;</span>
+        <span class="n">time_var</span><span class="o">=</span><span class="s2">&quot;TIME&quot;</span>
+
     <span class="n">da</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">variable_name</span><span class="p">]</span>
 
     <span class="c1"># Loop over each day using the &quot;TIME&quot; coordinate</span>
-    <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">da</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s2">&quot;TIME&quot;</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">da</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">time_var</span><span class="p">]:</span>
         <span class="c1"># Select the slice for the specific day</span>
-        <span class="n">daily_data</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">TIME</span><span class="o">=</span><span class="n">day</span><span class="p">)</span>
+        <span class="n">daily_data</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">sel</span><span class="p">({</span><span class="n">time_var</span><span class="p">:</span> <span class="n">day</span><span class="p">})</span>
 
         <span class="c1"># Write the CRS if not already present</span>
         <span class="n">daily_data</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">write_crs</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>

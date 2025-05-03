@@ -426,6 +426,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#4-enable-jupyter-notebook-support-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      4: Enable Jupyter Notebook Support (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#optional-save-environment-for-future-use" class="md-nav__link">
     <span class="md-ellipsis">
       Optional: Save Environment for Future Use
@@ -487,15 +496,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assets" class="md-nav__link">
-    <span class="md-ellipsis">
-      Assets
-    </span>
-  </a>
   
 </li>
       
@@ -1064,6 +1064,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#4-enable-jupyter-notebook-support-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      4: Enable Jupyter Notebook Support (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#optional-save-environment-for-future-use" class="md-nav__link">
     <span class="md-ellipsis">
       Optional: Save Environment for Future Use
@@ -1129,15 +1138,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#assets" class="md-nav__link">
-    <span class="md-ellipsis">
-      Assets
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#next-step" class="md-nav__link">
     <span class="md-ellipsis">
       ✅ Next Step
@@ -1166,7 +1166,7 @@
 
 
 <h1 id="environment-setup-for-dataset-download">⚙️ Environment Setup for Dataset Download</h1>
-<p>To download or process these dataset, you need to set up a Python environment with all required libraries.</p>
+<p>To download and process datasets, you need to set up a Python environment with geospatial libraries such as GDAL, Rasterio, and Xarray.</p>
 <h2 id="1-on-local-pc">1: On Local PC</h2>
 <h3 id="1-install-conda-recommended">1: Install Conda (Recommended)</h3>
 <p>Conda is a cross-platform environment manager that makes it easy to install geospatial libraries like GDAL.</p>
@@ -1211,6 +1211,14 @@ conda<span class="w"> </span>activate<span class="w"> </span>eqipa_env
 <p>Then install required Python libraries:</p>
 <div class="highlight"><pre><span></span><code>conda<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>tqdm<span class="w"> </span>geopandas<span class="w"> </span>numpy<span class="w"> </span>xarray<span class="w"> </span>rioxarray<span class="w"> </span>rasterio<span class="w"> </span>netCDF4<span class="w"> </span>requests
 </code></pre></div>
+<h3 id="4-enable-jupyter-notebook-support-optional">4: Enable Jupyter Notebook Support (Optional)</h3>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>notebook<span class="w"> </span>ipykernel
+python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--name<span class="o">=</span>eqipa_env<span class="w"> </span>--display-name<span class="w"> </span><span class="s2">&quot;Python (eqipa_env)&quot;</span>
+</code></pre></div>
+<blockquote>
+<p>To select the environment kernel in Jupyter:
+Kernel → Change Kernel → Python (eqipa_env)</p>
+</blockquote>
 <hr />
 <h3 id="optional-save-environment-for-future-use">Optional: Save Environment for Future Use</h3>
 <div class="highlight"><pre><span></span><code>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>&gt;<span class="w"> </span>eqipa_env.yml
@@ -1247,11 +1255,6 @@ netCDF4
 <p>Install with:</p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div>
-<hr />
-<h2 id="assets">Assets</h2>
-<ol>
-<li>India Boundary: https://github.com/waterinag/eqipa-docs/blob/main/docs/assets/IndiaBoundary.geojson</li>
-</ol>
 <hr />
 <h2 id="next-step">✅ Next Step</h2>
 <p>Once the environment is set up, proceed to the dataset you want to download.</p>
