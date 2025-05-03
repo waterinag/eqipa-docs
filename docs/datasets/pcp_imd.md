@@ -107,26 +107,33 @@ os.makedirs(output_folder, exist_ok=True)
 for year in range(firstyear, lastyear + 1):
     # Construct the full path to the netCDF file using f-string and os.path.join
     input_nc = os.path.join(input_folder, f"RF25_{year}.nc")
-    
+
     # Open the netCDF file
     ds = xr.open_dataset(input_nc)
     # print(ds.variables)
+    print(year)
 
-    variable_name = "RAINFALL"
+    if year>2023:
+        variable_name = "rf"
+        time_var="time"
+    else:
+        variable_name = "RAINFALL"
+        time_var="TIME"
+
     da = ds[variable_name]
 
     # Loop over each day using the "TIME" coordinate
-    for day in da.coords["TIME"]:
+    for day in da.coords[time_var]:
         # Select the slice for the specific day
-        daily_data = da.sel(TIME=day)
-        
+        daily_data = da.sel({time_var: day})
+
         # Write the CRS if not already present
         daily_data.rio.write_crs("EPSG:4326", inplace=True)
-        
+
         # Construct a filename based on the day (e.g., '2018-01-01')
         day_str = str(day.values).split("T")[0]
         output_path = os.path.join(output_folder, f"imd_pcp_{day_str}.tif")
-        
+
         # Export the daily slice to a GeoTIFF file
         daily_data.rio.to_raster(output_path)
         print(f"Saved {output_path}")

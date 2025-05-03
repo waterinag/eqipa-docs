@@ -19,43 +19,79 @@ models.
 
 ---
 
-## ⬇️ Python Script: Download Monthly ETa (SSEBop)
+## Download Monthly ETa (SSEBop)
 
 This script downloads monthly SSEBop ETa v6.1 GeoTIFFs.
+> 📁 India Boundary file: [Link](https://github.com/waterinag/eqipa-docs/blob/main/docs/assets/IndiaBoundary.geojson)
 
 
 
 ```python
 import requests
 import os
+import zipfile
+from osgeo import gdal
+
+# Config
+firstyear = 2023
+lastyear = 2024
+output_folder = "eta_ssebop_monthly"
+geojson_boundary = "IndiaBoundary.geojson"
+
+# Ensure folders exist
+os.makedirs(output_folder, exist_ok=True)
 
 
-firstyear = 2000
-lastyear = 2012
-
-# Create a folder to store downloads (optional)
-download_folder = "eta_ssebop_monthly"
-os.makedirs(download_folder, exist_ok=True)
-
-
-for year in range(firstyear,lastyear):
-    for month in range(1,13):
-        # Format filename as mYYYYmm.zip (e.g., m201202.zip)
+# Loop through dates
+for year in range(firstyear, lastyear + 1):
+    for month in range(1, 13):
         filename = f"m{year}{month:02d}.zip"
+        output_filename = f"ssebop_eta_m_{year}_{month:02d}.tif"
         url = f"https://edcintl.cr.usgs.gov/downloads/sciweb1/shared/fews/web/global/monthly/etav61/downloads/monthly/{filename}"
-        print(f"Downloading {filename} from {url} ...")
-        
+        print(f"Downloading {filename} ...")
+
+        zip_path = os.path.join(output_folder, filename)
+
         try:
+            # Download
             response = requests.get(url, stream=True)
-            response.raise_for_status()  # raise an error for bad responses
-            output_path = os.path.join(download_folder, filename)
-            with open(output_path, "wb") as f:
-                for chunk in response.iter_content(chunk_size=8192):
-                    if chunk:
-                        f.write(chunk)
-            print(f"Downloaded {filename} successfully.")
+            response.raise_for_status()
+            with open(zip_path, "wb") as f:
+                for chunk in response.iter_content(8192):
+                    f.write(chunk)
+            print(f"Downloaded {filename}")
+
+            # Unzip
+            with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+                zip_ref.extractall(output_folder)
+
+            # Find the GeoTIFF file (assume one tif per zip)
+            tif_files = [f for f in os.listdir(output_folder) if f.endswith(".tif") and f.startswith(f"m{year}{month:02d}")]
+            if not tif_files:
+                print(f"No .tif found in {filename}")
+                continue
+
+            tif_path = os.path.join(output_folder, tif_files[0])
+            clipped_path = os.path.join(output_folder, output_filename)
+
+            # Clip using gdal.Warp
+            gdal.Warp(
+                clipped_path,
+                tif_path,
+                cutlineDSName=geojson_boundary,
+                cropToCutline=True,
+                dstNodata=-9999
+            )
+            print(f"Clipped and saved: {clipped_path}")
+            os.remove(zip_path)
+            os.remove(tif_path)
+            
+
         except requests.exceptions.RequestException as e:
             print(f"Failed to download {filename}: {e}")
+        except Exception as e:
+            print(f"Error processing {filename}: {e}")
+
 
 ```
 

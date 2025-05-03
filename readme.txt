@@ -50,3 +50,9 @@ mkdocs gh-deploy
 
 
 
+
+
+
+# If gdal not works in Windows then try
+set GDAL_DATA=%CONDA_PREFIX%\Library\share\gdal
+set PROJ_LIB=%CONDA_PREFIX%\Library\share\proj

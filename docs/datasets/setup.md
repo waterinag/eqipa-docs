@@ -1,6 +1,6 @@
 # ⚙️ Environment Setup for Dataset Download
 
-To download or process these dataset, you need to set up a Python environment with all required libraries.
+To download and process datasets, you need to set up a Python environment with geospatial libraries such as GDAL, Rasterio, and Xarray.
 
 ## 1: On Local PC
 
@@ -66,6 +66,19 @@ Then install required Python libraries:
 ```bash
 conda install pandas tqdm geopandas numpy xarray rioxarray rasterio netCDF4 requests
 ```
+
+
+### 4: Enable Jupyter Notebook Support (Optional)
+
+```bash
+conda install -c conda-forge notebook ipykernel
+python -m ipykernel install --user --name=eqipa_env --display-name "Python (eqipa_env)"
+
+```
+> To select the environment kernel in Jupyter:
+Kernel → Change Kernel → Python (eqipa_env)
+
+
 
 ---
 
@@ -136,10 +149,6 @@ pip install -r requirements.txt
 
 ---
 
-## Assets
-1. India Boundary: https://github.com/waterinag/eqipa-docs/blob/main/docs/assets/IndiaBoundary.geojson
-
----
 
 ## ✅ Next Step
 
