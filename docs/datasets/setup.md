@@ -79,6 +79,10 @@ python -m ipykernel install --user --name=eqipa_env --display-name "Python (eqip
 Kernel → Change Kernel → Python (eqipa_env)
 
 
+Optional Cleanup: If you ever want to remove the kernel, use:
+```bash
+jupyter kernelspec uninstall eqipa_env
+```
 
 ---
 
