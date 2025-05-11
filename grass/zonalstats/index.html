@@ -12,13 +12,13 @@
         <meta name="author" content="waterinag">
       
       
-        <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/datasets/lulc/">
+        <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/grass/zonalstats/">
       
       
-        <link rel="prev" href="../tbp_wapor/">
+        <link rel="prev" href="../vector_basics/">
       
       
-        <link rel="next" href="../elevation/">
+        <link rel="next" href="../scripting/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Land Cover (NRSC LULC 250K) - India EQIPA</title>
+        <title>Zonal Statistics - India EQIPA</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#land-use-and-land-cover-lulc" class="md-skip">
+        <a href="#zonal-statistics-terminal" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Land Cover (NRSC LULC 250K)
+              Zonal Statistics
             
           </span>
         </div>
@@ -255,20 +255,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -284,7 +282,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Download Datasets
@@ -298,7 +296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview/" class="md-nav__link">
+      <a href="../../datasets/overview/" class="md-nav__link">
         
   
   
@@ -321,7 +319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup/" class="md-nav__link">
+      <a href="../../datasets/setup/" class="md-nav__link">
         
   
   
@@ -344,7 +342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pcp_imd/" class="md-nav__link">
+      <a href="../../datasets/pcp_imd/" class="md-nav__link">
         
   
   
@@ -367,7 +365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pcp_chirps/" class="md-nav__link">
+      <a href="../../datasets/pcp_chirps/" class="md-nav__link">
         
   
   
@@ -390,7 +388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../eta_wapor/" class="md-nav__link">
+      <a href="../../datasets/eta_wapor/" class="md-nav__link">
         
   
   
@@ -413,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../eta_ssebop/" class="md-nav__link">
+      <a href="../../datasets/eta_ssebop/" class="md-nav__link">
         
   
   
@@ -436,7 +434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tbp_wapor/" class="md-nav__link">
+      <a href="../../datasets/tbp_wapor/" class="md-nav__link">
         
   
   
@@ -456,32 +454,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Land Cover (NRSC LULC 250K)
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../datasets/lulc/" class="md-nav__link">
         
   
   
@@ -492,44 +468,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dataset-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dataset Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      📌 Notes
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -542,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../elevation/" class="md-nav__link">
+      <a href="../../datasets/elevation/" class="md-nav__link">
         
   
   
@@ -569,18 +507,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -596,7 +536,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Geospatial Tools
@@ -630,18 +570,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -657,7 +599,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             GRASS GIS
@@ -671,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../grass/intro/" class="md-nav__link">
+      <a href="../intro/" class="md-nav__link">
         
   
   
@@ -694,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../grass/installation/" class="md-nav__link">
+      <a href="../installation/" class="md-nav__link">
         
   
   
@@ -717,7 +659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../grass/concepts/" class="md-nav__link">
+      <a href="../concepts/" class="md-nav__link">
         
   
   
@@ -740,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../grass/quickstart/" class="md-nav__link">
+      <a href="../quickstart/" class="md-nav__link">
         
   
   
@@ -763,7 +705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../grass/raster_basics/" class="md-nav__link">
+      <a href="../raster_basics/" class="md-nav__link">
         
   
   
@@ -786,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../grass/vector_basics/" class="md-nav__link">
+      <a href="../vector_basics/" class="md-nav__link">
         
   
   
@@ -806,10 +748,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../grass/zonalstats/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Zonal Statistics
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -820,6 +784,89 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#import-vector-boundary-geojson" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import Vector Boundary (GeoJSON)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-raster-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import Raster Map
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-computational-region" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Computational Region
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perform-zonal-statistics-with-vraststats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Perform Zonal Statistics with v.rast.stats
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      View Results
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-export-the-results-to-geojson-or-shapefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: Export the Results to GeoJSON or Shapefile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-reproject-geojson-if-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      (Optional) Reproject GeoJSON if Needed
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -832,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../grass/scripting/" class="md-nav__link">
+      <a href="../scripting/" class="md-nav__link">
         
   
   
@@ -1119,18 +1166,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dataset-overview" class="md-nav__link">
+  <a href="#import-vector-boundary-geojson" class="md-nav__link">
     <span class="md-ellipsis">
-      Dataset Overview
+      Import Vector Boundary (GeoJSON)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#import-raster-map" class="md-nav__link">
     <span class="md-ellipsis">
-      📌 Notes
+      Import Raster Map
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-computational-region" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Computational Region
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perform-zonal-statistics-with-vraststats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Perform Zonal Statistics with v.rast.stats
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      View Results
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-export-the-results-to-geojson-or-shapefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: Export the Results to GeoJSON or Shapefile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-reproject-geojson-if-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      (Optional) Reproject GeoJSON if Needed
     </span>
   </a>
   
@@ -1155,27 +1247,59 @@
   
 
 
-<h1 id="land-use-and-land-cover-lulc">Land Use and Land Cover (LULC)</h1>
-<p>The <strong>Land Use and Land Cover (LULC)</strong> data used in the EQIPA tool is sourced from the <strong>National Remote Sensing Centre (NRSC)</strong>, India. These maps provide a detailed spatial representation of how different land types are utilized across agricultural regions, enabling spatial analysis of irrigation performance.</p>
+<h1 id="zonal-statistics-terminal">Zonal Statistics (Terminal)</h1>
+<p>Zonal statistics summarize raster values (e.g., mean, sum, count) within vector zones such as administrative boundaries, watersheds, or land parcels. This guide explains how to perform zonal statistics in GRASS GIS using a GeoJSON boundary file and a raster map.</p>
 <hr />
-<h2 id="dataset-overview">Dataset Overview</h2>
+<h3 id="import-vector-boundary-geojson">Import Vector Boundary (GeoJSON)</h3>
+<p>Use <code>v.in.ogr</code> to import a GeoJSON file:</p>
+<div class="highlight"><pre><span></span><code>v.in.ogr<span class="w"> </span><span class="nv">input</span><span class="o">=</span>/path/to/boundaries.geojson<span class="w"> </span><span class="nv">output</span><span class="o">=</span>zones
+</code></pre></div>
+<blockquote>
+<p>🔍 Check if the projection of your GeoJSON matches the current GRASS location. If not, reproject the vector (see section below).</p>
+</blockquote>
+<h3 id="import-raster-map">Import Raster Map</h3>
+<p>Use r.import to bring in a GeoTIFF or similar raster file:</p>
+<div class="highlight"><pre><span></span><code>r.import<span class="w"> </span><span class="nv">input</span><span class="o">=</span>/path/to/raster.tif<span class="w"> </span><span class="nv">output</span><span class="o">=</span>my_raster
+</code></pre></div>
+<h3 id="set-computational-region">Set Computational Region</h3>
+<p>Match the region to your raster map:</p>
+<div class="highlight"><pre><span></span><code>g.region<span class="w"> </span><span class="nv">raster</span><span class="o">=</span>my_raster<span class="w"> </span>-p
+
+<span class="c1"># (Optional) Expand region to fully cover vector zones:</span>
+g.region<span class="w"> </span><span class="nv">vector</span><span class="o">=</span>zones<span class="w"> </span><span class="nv">align</span><span class="o">=</span>my_raster
+</code></pre></div>
+<h3 id="perform-zonal-statistics-with-vraststats">Perform Zonal Statistics with v.rast.stats</h3>
+<p>Use the vector map (zones) to compute stats from the raster (my_raster) for each polygon:</p>
+<div class="highlight"><pre><span></span><code>v.rast.stats<span class="w"> </span><span class="nv">map</span><span class="o">=</span>zones<span class="w"> </span><span class="nv">raster</span><span class="o">=</span>my_raster<span class="w"> </span><span class="nv">column_prefix</span><span class="o">=</span>stats<span class="w"> </span><span class="nv">method</span><span class="o">=</span>average,sum,count
+</code></pre></div>
 <ul>
-<li><strong>Source</strong>: <a href="https://www.nrsc.gov.in/EO_LULC_Portals/">NRSC LULC Portal</a></li>
-<li><strong>Provider</strong>: National Remote Sensing Centre (NRSC), ISRO</li>
-<li><strong>Product</strong>: LULC at 1:250,000 scale (250K)</li>
-<li><strong>Spatial Resolution</strong>: ~56 meters</li>
-<li><strong>Temporal Resolution</strong>: Annual</li>
-<li><strong>Period of Use</strong>: 2018–2023</li>
-<li><strong>Output Format Used in EQIPA</strong>: Annual GeoTIFF</li>
+<li>column_prefix: Adds columns like stats_mean, stats_sum, etc.</li>
+<li>method: Can be one or more of: average, sum, count, min, max, stddev</li>
 </ul>
-<hr />
-<h2 id="notes">📌 Notes</h2>
+<p>This updates the attribute table of the vector map with the calculated values.</p>
+<h3 id="view-results">View Results</h3>
+<p>Display the updated attribute table:</p>
+<div class="highlight"><pre><span></span><code>v.db.select<span class="w"> </span><span class="nv">map</span><span class="o">=</span>zones
+</code></pre></div>
+<h3 id="optional-export-the-results-to-geojson-or-shapefile">Optional: Export the Results to GeoJSON or Shapefile</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Export GeoJSON</span>
+v.out.ogr<span class="w"> </span><span class="nv">input</span><span class="o">=</span>zones<span class="w"> </span><span class="nv">output</span><span class="o">=</span>zones_stats.geojson<span class="w"> </span><span class="nv">format</span><span class="o">=</span>GeoJSON
+
+<span class="c1"># or Export Shapefile</span>
+v.out.ogr<span class="w"> </span><span class="nv">input</span><span class="o">=</span>zones<span class="w"> </span><span class="nv">output</span><span class="o">=</span>zones_stats.shp<span class="w"> </span><span class="nv">format</span><span class="o">=</span>ESRI_Shapefile
+
+<span class="c1"># or Export Attribute Table to CSV</span>
+v.db.select<span class="w"> </span><span class="nv">map</span><span class="o">=</span>zones<span class="w"> </span><span class="nv">separator</span><span class="o">=</span>comma<span class="w"> </span><span class="nv">file</span><span class="o">=</span>zones_stats.csv
+</code></pre></div>
+<h3 id="optional-reproject-geojson-if-needed">(Optional) Reproject GeoJSON if Needed</h3>
+<p>If your GeoJSON CRS doesn't match the current GRASS location, you can either:</p>
 <ul>
-<li>The dataset is <strong>not directly downloadable online</strong>.</li>
-<li>Access to LULC maps from NRSC requires <strong>formal data request</strong> through their official portal or by contacting NRSC.</li>
-<li>For official data acquisition, visit: <a href="https://www.nrsc.gov.in/EO_LULC_Portals">https://www.nrsc.gov.in/EO_LULC_Portals</a></li>
+<li>Reproject using GDAL before importing, or</li>
+<li>Import it into a matching GRASS location, and use v.proj</li>
 </ul>
-<hr />
+<div class="highlight"><pre><span></span><code><span class="c1"># Run this inside your target location</span>
+v.proj<span class="w"> </span><span class="nv">location</span><span class="o">=</span>source_location<span class="w"> </span><span class="nv">mapset</span><span class="o">=</span>PERMANENT<span class="w"> </span><span class="nv">input</span><span class="o">=</span>zones<span class="w"> </span><span class="nv">output</span><span class="o">=</span>zones_reprojected
+</code></pre></div>
 
 
 

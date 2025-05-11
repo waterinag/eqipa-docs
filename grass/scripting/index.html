@@ -1,0 +1,1630 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Technical Documentation of EQIPA Platform">
+      
+      
+        <meta name="author" content="waterinag">
+      
+      
+        <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/grass/scripting/">
+      
+      
+        <link rel="prev" href="../zonalstats/">
+      
+      
+        <link rel="next" href="../../geo-tools/gdal/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>GRASS Python Scripting - India EQIPA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#grass-gis-scripting-with-python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="India EQIPA" class="md-header__button md-logo" aria-label="India EQIPA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            India EQIPA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GRASS Python Scripting
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="India EQIPA" class="md-nav__button md-logo" aria-label="India EQIPA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    India EQIPA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Download Datasets
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Download Datasets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Environment Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/pcp_imd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Precipitation (IMD)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/pcp_chirps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Precipitation (CHIRPS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/eta_wapor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evapotranspiration (WaPOR)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/eta_ssebop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evapotranspiration (SSEBop)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/tbp_wapor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Biomass Production (WaPOR)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/lulc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Land Cover (NRSC LULC 250K)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/elevation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elevation (AW3D30)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Geospatial Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Geospatial Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geo-tools/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    GRASS GIS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            GRASS GIS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quickstart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raster_basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raster Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vector_basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vector Operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zonalstats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zonal Statistics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    GRASS Python Scripting
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRASS Python Scripting
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-the-python-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up the Python Environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Script Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis Workflow
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geo-tools/gdal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GDAL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geo-tools/geoserver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GeoServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tool Setup
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tool Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool-setup/system-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    System Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool-setup/development-mode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Running Tool in Development Mode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool-setup/deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment in Production
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool-setup/run-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Run with Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool-setup/apache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apache Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool-setup/errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Errors & Fixes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-the-python-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up the Python Environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Script Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis Workflow
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="grass-gis-scripting-with-python">GRASS GIS Scripting with Python</h1>
+<p>GRASS GIS can be automated and extended using Python. This page demonstrates how to write a complete geospatial analysis workflow using GRASS GIS commands in Python using <code>grass.script</code> and <code>pygrass</code>.</p>
+<hr />
+<h3 id="setting-up-the-python-environment">Setting Up the Python Environment</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a Python 3 virtual environment </span>
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+
+<span class="c1"># Activate the virtual environment</span>
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+
+<span class="c1"># Install dependencies with `pip`</span>
+pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>numpy<span class="w"> </span>geopandas<span class="w"> </span>openpyxl
+
+<span class="c1"># or from requirements.txt</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+pip3<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+</code></pre></div>
+<h3 id="script-overview">Script Overview</h3>
+<p>We will build a Python script that:</p>
+<ul>
+<li>Initializes a GRASS session</li>
+<li>Imports a vector (GeoJSON) file</li>
+<li>Calculates zonal statistics for multiple rasters</li>
+<li>Derives Irrigation Performance Indicators (IPA) like Equity, Adequacy, and Cropping Intensity</li>
+<li>Exports results to Excel</li>
+</ul>
+<h3 id="analysis-workflow">Analysis Workflow</h3>
+<p>The script includes the following:</p>
+<ul>
+<li>Imports the GeoJSON vector layer</li>
+<li>Computes zonal statistics (v.rast.stats) on multiple rasters</li>
+<li>Computes IPA metrics like Equity and Adequacy</li>
+<li>Calculates Cropland and Gross Cropped Area from pixel counts</li>
+<li>Exports to Excel with two sheets (Info and Stats)</li>
+<li>See the Full Python Script below for the complete implementation.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Full Python Script</p>
+<div class="highlight"><pre><span></span><code>import<span class="w"> </span>os
+import<span class="w"> </span>sys
+import<span class="w"> </span>subprocess
+import<span class="w"> </span>shutil
+import<span class="w"> </span>calendar
+import<span class="w"> </span>math
+import<span class="w"> </span>grass.script<span class="w"> </span>as<span class="w"> </span>gs
+from<span class="w"> </span>grass.pygrass.modules.shortcuts<span class="w"> </span>import<span class="w"> </span>general<span class="w"> </span>as<span class="w"> </span>g
+from<span class="w"> </span>grass.pygrass.modules.shortcuts<span class="w"> </span>import<span class="w"> </span>raster<span class="w"> </span>as<span class="w"> </span>r
+from<span class="w"> </span>grass.pygrass.modules.shortcuts<span class="w"> </span>import<span class="w"> </span>display<span class="w"> </span>as<span class="w"> </span>d
+from<span class="w"> </span>grass.pygrass.modules.shortcuts<span class="w"> </span>import<span class="w"> </span>vector<span class="w"> </span>as<span class="w"> </span>v
+from<span class="w"> </span>grass.pygrass.gis<span class="w"> </span>import<span class="w"> </span>*
+import<span class="w"> </span>grass.script<span class="w"> </span>as<span class="w"> </span>grass
+import<span class="w"> </span>grass.script.setup<span class="w"> </span>as<span class="w"> </span>gsetup
+import<span class="w"> </span>re
+import<span class="w"> </span>numpy<span class="w"> </span>as<span class="w"> </span>np
+import<span class="w"> </span>geopandas<span class="w"> </span>as<span class="w"> </span>gdf
+import<span class="w"> </span>pandas<span class="w"> </span>as<span class="w"> </span>pd
+
+
+
+
+<span class="nv">GISDBASE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/Volumes/ExternalSSD/grassdata&quot;</span>
+<span class="nv">LOCATION_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;wagen&quot;</span>
+<span class="nv">MAPSET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;eqipa_stats&quot;</span>
+
+
+<span class="nv">geojson_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;StatesBoundary.geojson&#39;</span>
+<span class="nv">selectedYear</span><span class="o">=</span><span class="s2">&quot;2022_2023&quot;</span>
+
+
+os.environ<span class="o">[</span><span class="s1">&#39;GISDBASE&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>GISDBASE
+os.environ<span class="o">[</span><span class="s1">&#39;LOCATION_NAME&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>LOCATION_NAME
+
+<span class="c1"># Check if mapset exists; if not, create it</span>
+<span class="nv">mapset_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>os.path.join<span class="o">(</span>GISDBASE,<span class="w"> </span>LOCATION_NAME,<span class="w"> </span>MAPSET<span class="o">)</span>
+<span class="k">if</span><span class="w"> </span>not<span class="w"> </span>os.path.exists<span class="o">(</span>mapset_path<span class="o">)</span>:
+<span class="w">    </span>print<span class="o">(</span>f<span class="s2">&quot;Mapset &#39;{MAPSET}&#39; does not exist. Creating new mapset...&quot;</span><span class="o">)</span>
+<span class="w">    </span><span class="c1"># Create the new mapset</span>
+<span class="w">    </span>gs.run_command<span class="o">(</span><span class="s1">&#39;g.mapset&#39;</span>,<span class="w"> </span><span class="nv">flags</span><span class="o">=</span><span class="s1">&#39;c&#39;</span>,<span class="w"> </span><span class="nv">mapset</span><span class="o">=</span>MAPSET,<span class="w"> </span><span class="nv">location</span><span class="o">=</span>LOCATION_NAME,<span class="w"> </span><span class="nv">dbase</span><span class="o">=</span>GISDBASE<span class="o">)</span>
+<span class="k">else</span>:
+<span class="w">    </span>print<span class="o">(</span>f<span class="s2">&quot;Mapset &#39;{MAPSET}&#39; already exists.&quot;</span><span class="o">)</span>
+
+<span class="c1"># Initialize GRASS session</span>
+gsetup.init<span class="o">(</span>GISDBASE,<span class="w"> </span>LOCATION_NAME,<span class="w"> </span>MAPSET<span class="o">)</span>
+print<span class="o">(</span>f<span class="s2">&quot;GRASS GIS session initialized in {GISDBASE}/{LOCATION_NAME}/{MAPSET}&quot;</span><span class="o">)</span>
+
+
+print<span class="o">(</span><span class="s2">&quot;selected_year&quot;</span>,selectedYear<span class="o">)</span>
+
+<span class="nv">file_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>os.path.splitext<span class="o">(</span>geojson_file<span class="o">)[</span><span class="m">0</span><span class="o">]</span>
+
+<span class="nv">vector_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>re.sub<span class="o">(</span>r<span class="s1">&#39;[^a-zA-Z0-9_]&#39;</span>,<span class="w"> </span><span class="s1">&#39;_&#39;</span>,<span class="w"> </span>file_name<span class="o">)</span>
+
+<span class="c1"># Ensure the name starts with a letter</span>
+<span class="k">if</span><span class="w"> </span>not<span class="w"> </span>vector_name<span class="o">[</span><span class="m">0</span><span class="o">]</span>.isalpha<span class="o">()</span>:
+<span class="w">    </span><span class="nv">vector_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;v_&quot;</span><span class="w"> </span>+<span class="w"> </span>vector_name<span class="w">  </span><span class="c1"># Prefix with &quot;v_&quot;</span>
+
+<span class="c1"># Truncate if too long (max 256 chars)</span>
+<span class="nv">vector_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>vector_name<span class="o">[</span>:256<span class="o">]</span>
+
+
+<span class="nv">output_excel_path</span><span class="o">=</span>f<span class="s2">&quot;{vector_name}_{selectedYear}_zonalstats.xlsx&quot;</span>
+
+v.import_<span class="o">(</span><span class="nv">input</span><span class="o">=</span>geojson_file,<span class="w"> </span><span class="nv">output</span><span class="o">=</span>vector_name,<span class="w"> </span><span class="nv">overwrite</span><span class="o">=</span>True<span class="o">)</span>
+g.mapsets<span class="o">(</span><span class="nv">mapset</span><span class="o">=</span><span class="s2">&quot;nrsc_lulc,ind_annual_data&quot;</span>,<span class="w"> </span><span class="nv">operation</span><span class="o">=</span><span class="s2">&quot;add&quot;</span><span class="o">)</span>
+
+
+grass.run_command<span class="o">(</span>
+<span class="w">    </span><span class="s2">&quot;v.to.db&quot;</span>,
+<span class="w">    </span><span class="nv">map</span><span class="o">=</span>vector_name,
+<span class="w">    </span><span class="nv">option</span><span class="o">=</span><span class="s2">&quot;area&quot;</span>,
+<span class="w">    </span><span class="nv">columns</span><span class="o">=</span><span class="s2">&quot;geographical_area_ha&quot;</span>,
+<span class="w">    </span><span class="nv">units</span><span class="o">=</span><span class="s2">&quot;hectares&quot;</span>,
+<span class="w">    </span><span class="nv">overwrite</span><span class="o">=</span>True
+<span class="o">)</span>
+
+
+<span class="c1"># Set the region to match the raster</span>
+<span class="c1"># g.region(vector=vector_name, res=0.001)</span>
+g.region<span class="o">(</span><span class="nv">vector</span><span class="o">=</span>vector_name,<span class="w"> </span><span class="nv">res</span><span class="o">=</span><span class="m">0</span>.001<span class="o">)</span>
+<span class="c1"># 0.003 degrees ≈ 111 km * 0.003 ≈ 333 meters.</span>
+<span class="c1"># 0.001 degrees ≈ 111 km * 0.001 ≈ 111 meters.</span>
+
+<span class="c1"># LULC: 56m</span>
+<span class="c1"># WaPOR ETa: 300m</span>
+<span class="c1"># WaPOR TBP: 300m</span>
+<span class="c1"># IMD PCP: 0.25 degree</span>
+
+
+<span class="nv">lcc_map</span><span class="o">=</span>f<span class="s2">&quot;LULC_250k_{selectedYear}&quot;</span>
+<span class="nv">eta_map</span><span class="o">=</span>f<span class="s2">&quot;wapor3_eta_a_{selectedYear}&quot;</span>
+<span class="nv">tbp_map</span><span class="o">=</span>f<span class="s2">&quot;wapor3_tbp_a_{selectedYear}&quot;</span>
+<span class="nv">pcp_map</span><span class="o">=</span>f<span class="s2">&quot;imd_pcp_resamp_a_{selectedYear}&quot;</span>
+<span class="nv">bwp_map</span><span class="w"> </span><span class="o">=</span>f<span class="s2">&quot;wapor3_bwp_a_{selectedYear}&quot;</span>
+
+
+grass.parse_command<span class="o">(</span>
+<span class="w">        </span><span class="s1">&#39;v.rast.stats&#39;</span>,
+<span class="w">        </span><span class="nv">map</span><span class="o">=</span>vector_name,
+<span class="w">        </span><span class="nv">raster</span><span class="o">=</span>eta_map,
+<span class="w">        </span><span class="nv">method</span><span class="o">=[</span><span class="s1">&#39;average&#39;</span><span class="o">]</span>,
+<span class="w">        </span><span class="nv">column_prefix</span><span class="o">=</span>f<span class="s1">&#39;ETa_{selectedYear}&#39;</span>,
+<span class="w">        </span><span class="nv">overwrite</span><span class="o">=</span>True
+<span class="w">    </span><span class="o">)</span>
+
+grass.parse_command<span class="o">(</span>
+<span class="w">        </span><span class="s1">&#39;v.rast.stats&#39;</span>,
+<span class="w">        </span><span class="nv">map</span><span class="o">=</span>vector_name,
+<span class="w">        </span><span class="nv">raster</span><span class="o">=</span>pcp_map,
+<span class="w">        </span><span class="nv">method</span><span class="o">=[</span><span class="s1">&#39;average&#39;</span><span class="o">]</span>,
+<span class="w">        </span><span class="nv">column_prefix</span><span class="o">=</span>f<span class="s1">&#39;PCP_{selectedYear}&#39;</span>,
+<span class="w">        </span><span class="nv">overwrite</span><span class="o">=</span>True
+<span class="w">    </span><span class="o">)</span>
+
+
+r.mask<span class="o">(</span><span class="nv">raster</span><span class="o">=</span>lcc_map,<span class="w"> </span><span class="nv">maskcats</span><span class="o">=</span><span class="s1">&#39;2 3 4 5 7&#39;</span><span class="o">)</span>
+
+grass.mapcalc<span class="o">(</span>f<span class="s2">&quot;{bwp_map} = {tbp_map} / ({eta_map} * 10)&quot;</span>,overwrite<span class="o">=</span>True<span class="o">)</span>
+
+
+grass.parse_command<span class="o">(</span>
+<span class="w">    </span><span class="s1">&#39;v.rast.stats&#39;</span>,
+<span class="w">    </span><span class="nv">map</span><span class="o">=</span>vector_name,
+<span class="w">    </span><span class="nv">raster</span><span class="o">=</span>eta_map,
+<span class="w">    </span><span class="nv">method</span><span class="o">=[</span><span class="s2">&quot;average&quot;</span>,<span class="s2">&quot;coeff_var&quot;</span><span class="w"> </span><span class="o">]</span>,
+<span class="w">    </span><span class="nv">column_prefix</span><span class="o">=</span>f<span class="s1">&#39;ETa_cropland_{selectedYear}&#39;</span>,
+<span class="w">    </span><span class="nv">overwrite</span><span class="o">=</span>True
+<span class="o">)</span>
+grass.parse_command<span class="o">(</span>
+<span class="w">        </span><span class="s2">&quot;v.rast.stats&quot;</span>,
+<span class="w">        </span><span class="nv">map</span><span class="o">=</span>vector_name,
+<span class="w">        </span><span class="nv">raster</span><span class="o">=</span>eta_map,
+<span class="w">        </span><span class="nv">column_prefix</span><span class="o">=</span>f<span class="s1">&#39;ETa_cropland_{selectedYear}&#39;</span>,
+<span class="w">        </span><span class="nv">method</span><span class="o">=</span><span class="s2">&quot;percentile&quot;</span>,
+<span class="w">        </span><span class="nv">percentile</span><span class="o">=</span><span class="m">98</span>,
+<span class="w">        </span><span class="nv">overwrite</span><span class="o">=</span>True,
+<span class="w">    </span><span class="o">)</span>
+
+
+grass.parse_command<span class="o">(</span>
+<span class="w">        </span><span class="s2">&quot;v.rast.stats&quot;</span>,
+<span class="w">        </span><span class="nv">map</span><span class="o">=</span>vector_name,
+<span class="w">        </span><span class="nv">raster</span><span class="o">=</span>tbp_map,
+<span class="w">        </span><span class="nv">column_prefix</span><span class="o">=</span>f<span class="s1">&#39;BLP_{selectedYear}&#39;</span>,
+<span class="w">        </span><span class="nv">method</span><span class="o">=[</span><span class="w"> </span><span class="s2">&quot;average&quot;</span><span class="o">]</span>,
+<span class="w">        </span><span class="nv">overwrite</span><span class="o">=</span>True,
+<span class="w">    </span><span class="o">)</span>
+
+grass.parse_command<span class="o">(</span>
+<span class="w">    </span><span class="s2">&quot;v.rast.stats&quot;</span>,
+<span class="w">    </span><span class="nv">map</span><span class="o">=</span>vector_name,
+<span class="w">    </span><span class="nv">raster</span><span class="o">=</span>bwp_map,
+<span class="w">    </span><span class="nv">column_prefix</span><span class="o">=</span>f<span class="s1">&#39;BWP_{selectedYear}&#39;</span>,
+<span class="w">    </span><span class="nv">method</span><span class="o">=[</span><span class="w"> </span><span class="s2">&quot;average&quot;</span><span class="o">]</span>,
+<span class="w">    </span><span class="nv">overwrite</span><span class="o">=</span>True,
+<span class="o">)</span>
+
+r.mask<span class="o">(</span><span class="nv">flags</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="o">)</span>
+
+<span class="nv">cropland_classes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s1">&#39;exclusive_kharif&#39;</span>:<span class="w"> </span><span class="s1">&#39;2&#39;</span>,
+<span class="w">        </span><span class="s1">&#39;exclusive_rabi&#39;</span>:<span class="w"> </span><span class="s1">&#39;3&#39;</span>,
+<span class="w">        </span><span class="s1">&#39;exclusive_zaid&#39;</span>:<span class="w"> </span><span class="s1">&#39;4&#39;</span>,
+<span class="w">        </span><span class="s1">&#39;double_crop&#39;</span>:<span class="w"> </span><span class="s1">&#39;5&#39;</span>,
+<span class="w">        </span><span class="s1">&#39;plantation&#39;</span>:<span class="w"> </span><span class="s1">&#39;7&#39;</span>
+<span class="o">}</span>
+
+<span class="c1"># Iterate over each class and perform zonal statistics</span>
+<span class="k">for</span><span class="w"> </span>class_name,<span class="w"> </span>maskcats<span class="w"> </span><span class="k">in</span><span class="w"> </span>cropland_classes.items<span class="o">()</span>:
+<span class="w">    </span><span class="c1"># Apply mask</span>
+<span class="w">    </span>r.mask<span class="o">(</span><span class="nv">raster</span><span class="o">=</span>lcc_map,<span class="w"> </span><span class="nv">maskcats</span><span class="o">=</span>maskcats<span class="o">)</span>
+
+<span class="w">    </span>grass.parse_command<span class="o">(</span>
+<span class="w">        </span><span class="s2">&quot;v.rast.stats&quot;</span>,
+<span class="w">        </span><span class="nv">map</span><span class="o">=</span>vector_name,
+<span class="w">        </span><span class="nv">raster</span><span class="o">=</span>lcc_map,
+<span class="w">        </span><span class="nv">column_prefix</span><span class="o">=</span>f<span class="s2">&quot;{class_name}_pixelcount&quot;</span>,
+<span class="w">        </span><span class="nv">method</span><span class="o">=[</span><span class="s2">&quot;number&quot;</span><span class="o">]</span>,
+<span class="w">        </span><span class="nv">overwrite</span><span class="o">=</span>True,
+<span class="w">    </span><span class="o">)</span>
+
+
+<span class="w">    </span><span class="c1"># Remove mask</span>
+<span class="w">    </span>r.mask<span class="o">(</span><span class="nv">flags</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="o">)</span>
+
+<span class="nv">output_csv_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>output_excel_path.replace<span class="o">(</span><span class="s2">&quot;.xlsx&quot;</span>,<span class="w"> </span><span class="s2">&quot;.csv&quot;</span><span class="o">)</span>
+
+v.out_ogr<span class="o">(</span>
+<span class="w">    </span><span class="nv">input</span><span class="o">=</span>vector_name,
+<span class="w">    </span><span class="nv">output</span><span class="o">=</span>output_csv_path,
+<span class="w">    </span><span class="nv">format</span><span class="o">=</span><span class="s2">&quot;CSV&quot;</span>,
+<span class="w">    </span><span class="nv">overwrite</span><span class="o">=</span>True
+<span class="o">)</span>
+
+g.region<span class="o">(</span><span class="nv">flags</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="o">)</span><span class="w">  </span>
+
+
+<span class="nv">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>pd.read_csv<span class="o">(</span>output_csv_path<span class="o">)</span>
+<span class="nv">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>df.drop_duplicates<span class="o">()</span><span class="w">  </span>
+df.drop<span class="o">(</span><span class="nv">columns</span><span class="o">=[</span><span class="s1">&#39;cat&#39;</span><span class="o">]</span>,<span class="w"> </span><span class="nv">inplace</span><span class="o">=</span>True,<span class="w"> </span><span class="nv">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="o">)</span>
+
+
+<span class="nv">coeff_var_col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>f<span class="s2">&quot;ETa_cropland_{selectedYear}_coeff_var&quot;</span>
+<span class="nv">avg_col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>f<span class="s2">&quot;ETa_cropland_{selectedYear}_average&quot;</span>
+<span class="nv">perc_98_col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>f<span class="s2">&quot;ETa_cropland_{selectedYear}_percentile_98&quot;</span>
+<span class="nv">equity_col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>f<span class="s2">&quot;Equity&quot;</span>
+<span class="nv">adequacy_col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>f<span class="s2">&quot;Adequacy&quot;</span>
+
+
+
+<span class="c1"># Calculate Equity and Adequacy</span>
+<span class="k">if</span><span class="w"> </span><span class="o">(</span>
+<span class="w">    </span>coeff_var_col<span class="w"> </span><span class="k">in</span><span class="w"> </span>df.columns<span class="w"> </span>and<span class="w"> </span>
+<span class="w">    </span>avg_col<span class="w"> </span><span class="k">in</span><span class="w"> </span>df.columns<span class="w"> </span>and<span class="w"> </span>
+<span class="w">    </span>perc_98_col<span class="w"> </span><span class="k">in</span><span class="w"> </span>df.columns<span class="w"> </span>and<span class="w"> </span>
+<span class="w">    </span><span class="o">(</span>df<span class="o">[</span>coeff_var_col<span class="o">]</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="o">)</span>.any<span class="o">()</span><span class="w"> </span>and<span class="w"> </span>
+<span class="w">    </span><span class="o">(</span>df<span class="o">[</span>avg_col<span class="o">]</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="o">)</span>.any<span class="o">()</span><span class="w"> </span>and<span class="w"> </span>
+<span class="w">    </span><span class="o">(</span>df<span class="o">[</span>perc_98_col<span class="o">]</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="o">)</span>.any<span class="o">()</span>
+<span class="o">)</span>:
+<span class="w">    </span>df<span class="o">[</span>equity_col<span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="w"> </span>-<span class="w"> </span>df<span class="o">[</span>coeff_var_col<span class="o">]</span>
+<span class="w">    </span>df<span class="o">[</span>adequacy_col<span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span>df<span class="o">[</span>avg_col<span class="o">]</span><span class="w"> </span>*<span class="w"> </span><span class="m">100</span><span class="o">)</span><span class="w"> </span>/<span class="w"> </span>df<span class="o">[</span>perc_98_col<span class="o">]</span>
+<span class="k">else</span>:
+<span class="w">    </span>print<span class="o">(</span>f<span class="s2">&quot;Columns missing for class {class_name}. Skipping Equity and Adequacy calculations.&quot;</span><span class="o">)</span>
+
+df.drop<span class="o">(</span><span class="nv">columns</span><span class="o">=[</span><span class="w"> </span>perc_98_col<span class="o">]</span>,<span class="w"> </span><span class="nv">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span>,<span class="w"> </span><span class="nv">inplace</span><span class="o">=</span>True<span class="o">)</span>
+
+
+
+<span class="k">for</span><span class="w"> </span>class_name<span class="w"> </span><span class="k">in</span><span class="w"> </span>cropland_classes.keys<span class="o">()</span>:
+<span class="w">    </span><span class="nv">pixel_count_col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>f<span class="s2">&quot;{class_name}_pixelcount_number&quot;</span>
+<span class="w">    </span><span class="nv">area_col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>f<span class="s2">&quot;{class_name}_area_ha&quot;</span><span class="w">  </span>
+<span class="w">    </span><span class="c1"># Calculate area in hectares for the class</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>pixel_count_col<span class="w"> </span><span class="k">in</span><span class="w"> </span>df.columns:
+<span class="w">        </span><span class="c1"># df[area_col] = df[pixel_count_col] * 3020 / 10000  </span>
+<span class="w">        </span>df<span class="o">[</span>area_col<span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>df<span class="o">[</span>pixel_count_col<span class="o">]</span><span class="w"> </span>*<span class="w"> </span><span class="m">2978</span><span class="w"> </span>/<span class="w"> </span><span class="m">10000</span><span class="w">  </span>
+<span class="w">        </span>df.drop<span class="o">(</span><span class="nv">columns</span><span class="o">=[</span>pixel_count_col<span class="o">]</span>,<span class="w"> </span><span class="nv">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span>,<span class="w"> </span><span class="nv">inplace</span><span class="o">=</span>True<span class="o">)</span>
+
+
+<span class="nv">cropland_area_cols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>f<span class="s2">&quot;{class_name}_area_ha&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>class_name<span class="w"> </span><span class="k">in</span><span class="w"> </span>cropland_classes.keys<span class="o">()]</span>
+df<span class="o">[</span><span class="s2">&quot;Cropland_Area_ha&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>df<span class="o">[</span>cropland_area_cols<span class="o">]</span>.sum<span class="o">(</span><span class="nv">axis</span><span class="o">=</span><span class="m">1</span><span class="o">)</span><span class="w">  </span><span class="c1"># Sum all class areas</span>
+
+<span class="k">for</span><span class="w"> </span>col<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">[</span>f<span class="s2">&quot;{class_name}_area_ha&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>class_name<span class="w"> </span><span class="k">in</span><span class="w"> </span>cropland_classes.keys<span class="o">()]</span>:
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>col<span class="w"> </span>not<span class="w"> </span><span class="k">in</span><span class="w"> </span>df.columns:
+<span class="w">        </span>df<span class="o">[</span>col<span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+<span class="w">    </span>df<span class="o">[</span>col<span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>df<span class="o">[</span>col<span class="o">]</span>.fillna<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+
+
+df<span class="o">[</span><span class="s2">&quot;Gross_Cropped_Area_ha&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span>
+<span class="w">    </span>df<span class="o">[</span><span class="s2">&quot;exclusive_kharif_area_ha&quot;</span><span class="o">]</span>
+<span class="w">    </span>+<span class="w"> </span>df<span class="o">[</span><span class="s2">&quot;exclusive_rabi_area_ha&quot;</span><span class="o">]</span>
+<span class="w">    </span>+<span class="w"> </span>df<span class="o">[</span><span class="s2">&quot;exclusive_zaid_area_ha&quot;</span><span class="o">]</span>
+<span class="w">    </span>+<span class="w"> </span><span class="o">(</span>df<span class="o">[</span><span class="s2">&quot;double_crop_area_ha&quot;</span><span class="o">]</span><span class="w"> </span>*<span class="w"> </span><span class="m">2</span><span class="o">)</span>
+<span class="w">    </span>+<span class="w"> </span>df<span class="o">[</span><span class="s2">&quot;plantation_area_ha&quot;</span><span class="o">]</span>
+<span class="o">)</span>
+df<span class="o">[</span><span class="s2">&quot;Cropping_Intensity&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>df<span class="o">[</span><span class="s2">&quot;Gross_Cropped_Area_ha&quot;</span><span class="o">]</span><span class="w"> </span>*100/<span class="w"> </span>df<span class="o">[</span><span class="s2">&quot;Cropland_Area_ha&quot;</span><span class="o">]</span>
+df<span class="o">[</span><span class="s2">&quot;Cropping_Intensity&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>df<span class="o">[</span><span class="s2">&quot;Cropping_Intensity&quot;</span><span class="o">]</span>.replace<span class="o">([</span>np.inf,<span class="w"> </span>-np.inf,<span class="w"> </span>np.nan<span class="o">]</span>,<span class="w"> </span><span class="m">0</span><span class="o">)</span>
+
+
+<span class="nv">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>df.round<span class="o">(</span><span class="m">2</span><span class="o">)</span>
+df.to_csv<span class="o">(</span>output_csv_path,<span class="w"> </span><span class="nv">index</span><span class="o">=</span>False<span class="o">)</span>
+
+
+<span class="nv">info_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;Abbreviation&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">        </span><span class="s2">&quot;ETa_average&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;ETa_cropland_average&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;ETa_cropland_coeff_var&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="c1"># &quot;ETa_cropland_stddev&quot;, </span>
+<span class="w">        </span><span class="c1"># &quot;etb_a_average&quot;, </span>
+<span class="w">        </span><span class="c1"># &quot;etg_a_average&quot;, </span>
+<span class="w">        </span><span class="c1"># &quot;tbp_a_average&quot;,</span>
+<span class="w">        </span><span class="s2">&quot;PCP_average&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;Equity&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;Adequacy&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;BLP&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;BWP&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;exclusive_kharif&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;exclusive_rabi&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;exclusive_zaid&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;double_crop&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;plantation&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;Cropland&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;Gross cropped area&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;Cropping Intensity&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;Year&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;Annual period&quot;</span>,
+<span class="w">    </span><span class="o">]</span>,
+<span class="w">    </span><span class="s2">&quot;Definition&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">        </span><span class="s2">&quot;Average annual Evapotranspiration (ETa) in the command area&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;Average annual ETa over cropland in the command area&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;coefficient of variance of annual ETa over cropland in the command area&quot;</span>,
+<span class="w">        </span><span class="c1"># &quot;standard deviation of annual ETa over cropland in the command area&quot;,</span>
+<span class="w">        </span><span class="c1"># &quot;Average annual Blue ET in the command area&quot;,</span>
+<span class="w">        </span><span class="c1"># &quot;Average annual Green ET in the command area&quot;,</span>
+<span class="w">        </span><span class="c1"># &quot;Average annual Total biomass production in the command area&quot;,</span>
+<span class="w">        </span><span class="s2">&quot;Average annual precipitation in the command area&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;1- CV of ETa&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;ETa/ETp, [ETp = 98 percentile of ETa]&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;Biomass land Productivity&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;Biomass Water Productivity&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;Seasonal Crop land with crops grown during June to November period of agricultural calendar year.&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;Seasonal Crop land with crops grown during November to April period of agricultural calendar year.&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;Seasonal Crop land with crops grown during April to June period of agricultural calendar year.&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;Land with crops grown in more than one season specified above. This will also include annual crops.&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;Trees which are artificially planted.&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;Kharif + Rabi + Zaid + Double/Triple Crop  + Plantation/Orchard&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;Kharif + Rabi + Zaid + Double/Triple Crop *2  + Plantation/Orchard&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;Gross cropped area*100 / Cropland&quot;</span>,
+<span class="w">        </span>selectedYear,
+<span class="w">        </span><span class="s2">&quot;June to May&quot;</span>
+<span class="w">    </span><span class="o">]</span>,
+<span class="w">    </span><span class="s2">&quot;Unit&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">        </span><span class="s2">&quot;mm/year&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;mm/year&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;mm/year&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="c1"># &quot;mm/year&quot;, </span>
+<span class="w">        </span><span class="c1"># &quot;mm/year&quot;, </span>
+<span class="w">        </span><span class="c1"># &quot;mm/year&quot;, </span>
+<span class="w">        </span><span class="c1"># &#39;kg/ha/year&#39;,</span>
+<span class="w">        </span><span class="s2">&quot;mm/year&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;%&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;%&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;kg/ha&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;kg/m³&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;ha&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;ha&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;ha&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;ha&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;ha&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;ha&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;ha&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;%&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;&quot;</span>,<span class="w"> </span>
+<span class="w">        </span><span class="s2">&quot;&quot;</span>,
+<span class="w">    </span><span class="o">]</span>
+<span class="o">}</span>
+
+<span class="nv">info_df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>pd.DataFrame<span class="o">(</span>info_data<span class="o">)</span>
+
+<span class="c1"># Write to Excel with two sheets</span>
+with<span class="w"> </span>pd.ExcelWriter<span class="o">(</span>output_excel_path,<span class="w"> </span><span class="nv">engine</span><span class="o">=</span><span class="s2">&quot;openpyxl&quot;</span><span class="o">)</span><span class="w"> </span>as<span class="w"> </span>writer:
+<span class="w">    </span>info_df.to_excel<span class="o">(</span>writer,<span class="w"> </span><span class="nv">sheet_name</span><span class="o">=</span><span class="s2">&quot;Info&quot;</span>,<span class="w"> </span><span class="nv">index</span><span class="o">=</span>False<span class="o">)</span>
+<span class="w">    </span>df.to_excel<span class="o">(</span>writer,<span class="w"> </span><span class="nv">sheet_name</span><span class="o">=</span><span class="s2">&quot;Stats&quot;</span>,<span class="w"> </span><span class="nv">index</span><span class="o">=</span>False<span class="o">)</span>
+
+
+print<span class="o">(</span>f<span class="s2">&quot;zonalstats exported successfully: {vector_name}&quot;</span><span class="o">)</span>
+</code></pre></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; The World Bank Group
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
