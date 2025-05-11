@@ -91,9 +91,11 @@ The following Python script converts daily precipitation values from IMD NetCDF 
 
 ```python
 # pcp_imd_daily.py
+# pcp_imd_daily.py
 import xarray as xr
 import rioxarray
 import os
+from osgeo import gdal
 
 firstyear = 2023
 lastyear = 2024
@@ -124,19 +126,29 @@ for year in range(firstyear, lastyear + 1):
 
     # Loop over each day using the "TIME" coordinate
     for day in da.coords[time_var]:
-        # Select the slice for the specific day
         daily_data = da.sel({time_var: day})
-
-        # Write the CRS if not already present
         daily_data.rio.write_crs("EPSG:4326", inplace=True)
 
-        # Construct a filename based on the day (e.g., '2018-01-01')
         day_str = str(day.values).split("T")[0]
-        output_path = os.path.join(output_folder, f"imd_pcp_{day_str}.tif")
+        raw_tif = os.path.join(output_folder, f"imd_pcp_{day_str}_raw.tif")
+        final_tif = os.path.join(output_folder, f"imd_pcp_{day_str}.tif")
 
-        # Export the daily slice to a GeoTIFF file
-        daily_data.rio.to_raster(output_path)
-        print(f"Saved {output_path}")
+        # Export raw GeoTIFF
+        daily_data.rio.to_raster(raw_tif)
+       
+
+        # Use GDAL Warp to ensure north-up and EPSG:4326
+        gdal.Warp(
+            destNameOrDestDS=final_tif,
+            srcDSOrSrcDSTab=raw_tif,
+            dstSRS='EPSG:4326',
+            resampleAlg='bilinear',
+            format='GTiff'
+        )
+
+        os.remove(raw_tif)  # Clean up intermediate
+        print(f"Saved raw: {final_tif}")
+        
 ```
 
 ---
