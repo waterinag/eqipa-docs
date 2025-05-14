@@ -3,6 +3,8 @@
 GRASS GIS can be automated and extended using Python. This page demonstrates how to write a complete geospatial analysis workflow using GRASS GIS commands in Python using `grass.script` and `pygrass`.
 
 
+- **Python Scripts**  
+  ➡️ [Download All Scripts](https://github.com/waterinag/eqipa-docs/tree/main/docs/assets/python_scripts)
 
 
 

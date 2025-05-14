@@ -1452,8 +1452,8 @@ def<span class="w"> </span>main<span class="o">(</span>gisdb,<span class="w"> </
 
 <span class="w">    </span><span class="nv">geojson_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;StatesBoundary.geojson&#39;</span>
 <span class="w">    </span><span class="nv">output_csv_path</span><span class="o">=</span>f<span class="s2">&quot;IndiaStates_monthly_zonalstats.csv&quot;</span>
-<span class="w">    </span><span class="nv">start_yr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2022&#39;</span>
-<span class="w">    </span><span class="nv">end_yr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2023&#39;</span>
+<span class="w">    </span><span class="nv">start_yr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2023&#39;</span>
+<span class="w">    </span><span class="nv">end_yr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2024&#39;</span>
 
 <span class="w">    </span>os.environ<span class="o">[</span><span class="s1">&#39;GISDBASE&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gisdb
 <span class="w">    </span>os.environ<span class="o">[</span><span class="s1">&#39;LOCATION_NAME&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>location
@@ -1476,12 +1476,12 @@ def<span class="w"> </span>main<span class="o">(</span>gisdb,<span class="w"> </
 
 <span class="w">    </span>v.import_<span class="o">(</span><span class="nv">input</span><span class="o">=</span>geojson_file,<span class="w"> </span><span class="nv">output</span><span class="o">=</span>vector_name,<span class="w"> </span><span class="nv">overwrite</span><span class="o">=</span>True<span class="o">)</span>
 
-<span class="w">    </span>g.mapsets<span class="o">(</span><span class="nv">mapset</span><span class="o">=</span><span class="s2">&quot;nrsc_lulc,data_annual, data_monthly&quot;</span>,<span class="w"> </span><span class="nv">operation</span><span class="o">=</span><span class="s2">&quot;add&quot;</span><span class="o">)</span>
+<span class="w">    </span>g.mapsets<span class="o">(</span><span class="nv">mapset</span><span class="o">=</span><span class="s2">&quot;nrsc_lulc,data_annual,data_monthly&quot;</span>,<span class="w"> </span><span class="nv">operation</span><span class="o">=</span><span class="s2">&quot;add&quot;</span><span class="o">)</span>
 
 <span class="w">    </span>gs.run_command<span class="o">(</span><span class="s1">&#39;g.region&#39;</span>,<span class="w"> </span><span class="nv">vector</span><span class="o">=</span>vector_name,<span class="w"> </span><span class="nv">res</span><span class="o">=</span><span class="m">0</span>.00292<span class="o">)</span>
 
 
-<span class="w">    </span><span class="k">for</span><span class="w"> </span>year<span class="w"> </span><span class="k">in</span><span class="w"> </span>range<span class="o">(</span><span class="m">2018</span>,2024<span class="o">)</span>:
+<span class="w">    </span><span class="k">for</span><span class="w"> </span>year<span class="w"> </span><span class="k">in</span><span class="w"> </span>range<span class="o">(</span>int<span class="o">(</span>start_yr<span class="o">)</span>,<span class="w"> </span>int<span class="o">(</span>end_yr<span class="o">)</span><span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="o">)</span>:
 <span class="w">        </span><span class="k">for</span><span class="w"> </span>month<span class="w"> </span><span class="k">in</span><span class="w"> </span>range<span class="o">(</span><span class="m">1</span>,13<span class="o">)</span>:
 
 <span class="w">            </span><span class="nv">raster_name</span><span class="o">=</span>f<span class="s2">&quot;imd_pcp_resam_m_{year}_{month:02d}&quot;</span>
