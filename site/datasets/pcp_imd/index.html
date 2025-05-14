@@ -668,9 +668,20 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../geo-tools/grass/" class="md-nav__link">
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -679,7 +690,203 @@
   </span>
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            GRASS GIS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grass/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grass/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grass/concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grass/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quickstart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grass/raster_basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raster Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grass/vector_basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vector Operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grass/zonalstats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zonal Statistics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grass/scripting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRASS Python Scripting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -698,6 +905,29 @@
   
   <span class="md-ellipsis">
     GDAL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geo-tools/geoserver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GeoServer
     
   </span>
   
@@ -1075,9 +1305,11 @@
 <h2 id="convert-netcdf-to-daily-geotiffs">Convert NetCDF to Daily GeoTIFFs</h2>
 <p>The following Python script converts daily precipitation values from IMD NetCDF files to GeoTIFF format using <code>xarray</code> and <code>rioxarray</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># pcp_imd_daily.py</span>
+<span class="c1"># pcp_imd_daily.py</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">rioxarray</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">osgeo</span><span class="w"> </span><span class="kn">import</span> <span class="n">gdal</span>
 
 <span class="n">firstyear</span> <span class="o">=</span> <span class="mi">2023</span>
 <span class="n">lastyear</span> <span class="o">=</span> <span class="mi">2024</span>
@@ -1108,19 +1340,28 @@
 
     <span class="c1"># Loop over each day using the &quot;TIME&quot; coordinate</span>
     <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">da</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">time_var</span><span class="p">]:</span>
-        <span class="c1"># Select the slice for the specific day</span>
         <span class="n">daily_data</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">sel</span><span class="p">({</span><span class="n">time_var</span><span class="p">:</span> <span class="n">day</span><span class="p">})</span>
-
-        <span class="c1"># Write the CRS if not already present</span>
         <span class="n">daily_data</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">write_crs</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-        <span class="c1"># Construct a filename based on the day (e.g., &#39;2018-01-01&#39;)</span>
         <span class="n">day_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;imd_pcp_</span><span class="si">{</span><span class="n">day_str</span><span class="si">}</span><span class="s2">.tif&quot;</span><span class="p">)</span>
+        <span class="n">raw_tif</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;imd_pcp_</span><span class="si">{</span><span class="n">day_str</span><span class="si">}</span><span class="s2">_raw.tif&quot;</span><span class="p">)</span>
+        <span class="n">final_tif</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;imd_pcp_</span><span class="si">{</span><span class="n">day_str</span><span class="si">}</span><span class="s2">.tif&quot;</span><span class="p">)</span>
 
-        <span class="c1"># Export the daily slice to a GeoTIFF file</span>
-        <span class="n">daily_data</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">to_raster</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="c1"># Export raw GeoTIFF</span>
+        <span class="n">daily_data</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">to_raster</span><span class="p">(</span><span class="n">raw_tif</span><span class="p">)</span>
+
+
+        <span class="c1"># Use GDAL Warp to ensure north-up and EPSG:4326</span>
+        <span class="n">gdal</span><span class="o">.</span><span class="n">Warp</span><span class="p">(</span>
+            <span class="n">destNameOrDestDS</span><span class="o">=</span><span class="n">final_tif</span><span class="p">,</span>
+            <span class="n">srcDSOrSrcDSTab</span><span class="o">=</span><span class="n">raw_tif</span><span class="p">,</span>
+            <span class="n">dstSRS</span><span class="o">=</span><span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span>
+            <span class="n">resampleAlg</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">,</span>
+            <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;GTiff&#39;</span>
+        <span class="p">)</span>
+
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">raw_tif</span><span class="p">)</span>  <span class="c1"># Clean up intermediate</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved raw: </span><span class="si">{</span><span class="n">final_tif</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 <hr />
 <h2 id="aggregate-daily-geotiffs-to-monthly">Aggregate Daily GeoTIFFs to Monthly</h2>

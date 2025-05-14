@@ -59,6 +59,7 @@ nav:
       - Quickstart: grass/quickstart.md
       - Raster Analysis: grass/raster_basics.md
       - Vector Operations: grass/vector_basics.md
+      - Common GRASS GIS Commands: grass/common-commands.md
       - Zonal Statistics: grass/zonalstats.md
       - GRASS Python Scripting: grass/scripting.md
       

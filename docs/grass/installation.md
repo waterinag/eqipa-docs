@@ -28,3 +28,15 @@ After installation, launch GRASS GIS from your system menu or use the CLI:
 grass
 ```
 You should see the GRASS startup window asking you to select or create a Location and Mapset.
+
+
+### Sample Data
+
+
+- **India Boundary GeoJSON (for clipping/analysis)**  
+  ➡️ [Download IndiaBoundary.geojson](https://waterinag.github.io/eqipa-docs/assets/IndiaBoundary.geojson)
+
+- **GRASS GIS North Carolina Dataset**  
+  ➡️ [Download Western_Kosi.geojson](https://waterinag.github.io/eqipa-docs/assets/Western_Kosi.geojson)
+
+
