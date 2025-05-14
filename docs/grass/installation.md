@@ -33,10 +33,13 @@ You should see the GRASS startup window asking you to select or create a Locatio
 ### Sample Data
 
 
-- **India Boundary GeoJSON (for clipping/analysis)**  
+- **India Boundary**  
   ➡️ [Download IndiaBoundary.geojson](https://waterinag.github.io/eqipa-docs/assets/IndiaBoundary.geojson)
 
-- **GRASS GIS North Carolina Dataset**  
+- **India States**  
+  ➡️ [Download IndiaStates.geojson](https://waterinag.github.io/eqipa-docs/assets/IndiaStates.geojson)
+
+- **Western Kosi Command**  
   ➡️ [Download Western_Kosi.geojson](https://waterinag.github.io/eqipa-docs/assets/Western_Kosi.geojson)
 
 
