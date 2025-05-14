@@ -145,6 +145,8 @@ g.list type=vector
 ### 9. View Layer Metadata
 ```bash
 r.info my_raster
+r.info -g my_raster
+
 v.info my_vector
 ```
 

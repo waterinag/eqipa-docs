@@ -60,8 +60,8 @@ nav:
       - Raster Analysis: grass/raster_basics.md
       - Vector Operations: grass/vector_basics.md
       - Common GRASS GIS Commands: grass/common-commands.md
-      - Zonal Statistics: grass/zonalstats.md
       - GRASS Python Scripting: grass/scripting.md
+      - Zonal Statistics: grass/zonalstats.md
       
     - GDAL: geo-tools/gdal.md
     - GeoServer: geo-tools/geoserver.md

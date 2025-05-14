@@ -39,6 +39,9 @@ You should see the GRASS startup window asking you to select or create a Locatio
 - **India States**  
   ➡️ [Download IndiaStates.geojson](https://waterinag.github.io/eqipa-docs/assets/IndiaStates.geojson)
 
+- **Bihar Commands**  
+  ➡️ [Download Bihar_CA.geojson](https://waterinag.github.io/eqipa-docs/assets/Bihar_CA.geojson)
+
 - **Western Kosi Command**  
   ➡️ [Download Western_Kosi.geojson](https://waterinag.github.io/eqipa-docs/assets/Western_Kosi.geojson)
 
