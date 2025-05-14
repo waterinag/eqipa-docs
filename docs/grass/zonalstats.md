@@ -146,8 +146,8 @@ pip3 freeze > requirements.txt
 
         geojson_file = 'StatesBoundary.geojson'
         output_csv_path=f"IndiaStates_monthly_zonalstats.csv"
-        start_yr = '2022'
-        end_yr = '2023'
+        start_yr = '2023'
+        end_yr = '2024'
 
         os.environ['GISDBASE'] = gisdb
         os.environ['LOCATION_NAME'] = location
@@ -170,12 +170,12 @@ pip3 freeze > requirements.txt
 
         v.import_(input=geojson_file, output=vector_name, overwrite=True)
         
-        g.mapsets(mapset="nrsc_lulc,data_annual, data_monthly", operation="add")
+        g.mapsets(mapset="nrsc_lulc,data_annual,data_monthly", operation="add")
 
         gs.run_command('g.region', vector=vector_name, res=0.00292)
 
 
-        for year in range(2018,2024):
+        for year in range(int(start_yr), int(end_yr) + 1):
             for month in range(1,13):
 
                 raster_name=f"imd_pcp_resam_m_{year}_{month:02d}"
@@ -212,6 +212,9 @@ pip3 freeze > requirements.txt
 
         # Call the main function
         main(GISDBASE, LOCATION_NAME, MAPSET)
+
+
+
 
 
 
