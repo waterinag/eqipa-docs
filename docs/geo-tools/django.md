@@ -146,7 +146,7 @@ Hello, Django!
 a) Create Templates Directory
 In myapp/, create a folder called templates/myapp/
 ```bash
-mkdir -p myapp/templates/myapp
+mkdir -p myapp/templates/
 ```
 
 b) Create index.html
@@ -169,7 +169,7 @@ Edit myapp/views.py:
 from django.shortcuts import render
 
 def home(request):
-    return render(request, 'myapp/index.html')
+    return render(request, 'index.html')
 ```
 
 d) Ensure Templates Directory is Set (Optional)
