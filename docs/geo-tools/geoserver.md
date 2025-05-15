@@ -79,3 +79,15 @@ You can style layers using SLD (Styled Layer Descriptor):
 - Name your style and paste the SLD XML
 - Save and apply to your layer
 - Use GeoServer SLD Cookbook for examples.
+
+
+---
+
+
+
+### 📚 Learn More
+
+- [GeoServer Official Site](https://docs.geoserver.org/)
+- [GeoServer Tutorials](https://docs.geoserver.org/main/en/user/tutorials/index.html)
+- [GeoServer REST API](https://docs.geoserver.org/stable/en/user/rest/)
+

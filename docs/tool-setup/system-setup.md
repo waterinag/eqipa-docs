@@ -31,6 +31,15 @@ Ensure the following software is installed:
 
 ## Install Required System Packages
 
+
+
+Check Ubuntu version
+```bash
+lsb_release -a
+```
+Should be Ubuntu 22.04
+
+
 ```bash
 sudo apt-get update
 ```
@@ -46,6 +55,7 @@ sudo apt-get install -y \
     build-essential \
     python3-dev \
     libpq-dev \
+    python3-venv \
     pango1.0-tools
 ```
 
@@ -53,10 +63,15 @@ sudo apt-get install -y \
 
 ```bash
 python3 --version
+```
+
+Install Python 3.10
+```bash
 sudo apt install -y python3.10 python3.10-venv python3.10-dev
 ```
 
-##  Choose the default version
+
+Choose the default python version
 ```bash
 sudo update-alternatives --config python3
 
@@ -89,21 +104,7 @@ sudo apt-get install -y grass grass-dev
 
 ---
 
-## Create a GRASS GIS Location
 
-```bash
-grass -c EPSG:4326 -e /mnt/mapdata/grassdata/ipa_india
-```
-
-Verify the mapset:
-
-```bash
-ls /mnt/mapdata/grassdata/ipa_india
-```
-
-> **Note:** In `settings.py`, the value of `GRASS_DB` should be set as `/mnt/mapdata/grassdata`
-
----
 
 ## Configure PostgreSQL User and Database
 
@@ -122,16 +123,26 @@ sudo -u postgres psql
 Inside psql:
 
 ```sql
+
+# Change password of postgres user*
 ALTER USER postgres PASSWORD 'ipa_india';
 ALTER USER ipa_india PASSWORD 'ipa_india123';
+
+# Give more privileges to user ipa_india*
 ALTER USER ipa_india WITH SUPERUSER;
+
+# quit psql*
 \q
 ```
 
 Create the database and enable PostGIS:
 
 ```bash
+# Create a new DB named "ipa_india":
 createdb -U ipa_india -h localhost ipa_india
+
+Pass: ipa_india123
+
 psql -U ipa_india -h localhost ipa_india -c "CREATE EXTENSION postgis"
 ```
 
@@ -148,4 +159,4 @@ psql -U ipa_india -h localhost ipa_india -c "CREATE EXTENSION postgis"
 | Redis          | Required for Celery queue                     |
 | Apache2 + uWSGI| For production deployment                     |
 
-You're now ready to proceed with setting up the Django app. → [Continue to Running tool in Development Mode](development-mode.md)
+

@@ -65,6 +65,7 @@ nav:
       
     - GDAL: geo-tools/gdal.md
     - GeoServer: geo-tools/geoserver.md
+    - Django: geo-tools/django.md
     
   - Tool Setup:
     - System Setup: tool-setup/system-setup.md

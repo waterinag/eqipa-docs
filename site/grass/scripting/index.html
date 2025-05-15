@@ -859,6 +859,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#python-script-export-geotiffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Script: Export GeoTIFF's
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1192,6 +1201,15 @@
   <a href="#python-script-raster-calculation-and-masking" class="md-nav__link">
     <span class="md-ellipsis">
       Python Script: Raster Calculation and Masking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-script-export-geotiffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Script: Export GeoTIFF's
     </span>
   </a>
   
@@ -1567,6 +1585,92 @@ def<span class="w"> </span>main<span class="o">(</span>gisdb,<span class="w"> </
 <span class="w">    </span><span class="nv">GISDBASE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/Volumes/ExternalSSD/eqipa_data/grassdata&quot;</span>
 <span class="w">    </span><span class="nv">LOCATION_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;eqipa&quot;</span>
 <span class="w">    </span><span class="nv">MAPSET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;data_annual&quot;</span><span class="w">                 </span>
+
+<span class="w">    </span><span class="c1"># Call the main function</span>
+<span class="w">    </span>main<span class="o">(</span>GISDBASE,<span class="w"> </span>LOCATION_NAME,<span class="w"> </span>MAPSET<span class="o">)</span>
+</code></pre></div>
+</div>
+<hr />
+<h3 id="python-script-export-geotiffs">Python Script: Export GeoTIFF's</h3>
+<div class="admonition info">
+<p class="admonition-title">Export GeoTIFF's</p>
+<div class="highlight"><pre><span></span><code>import<span class="w"> </span>os
+import<span class="w"> </span>sys
+import<span class="w"> </span>subprocess
+import<span class="w"> </span>grass.script<span class="w"> </span>as<span class="w"> </span>gs
+from<span class="w"> </span>grass.pygrass.modules.shortcuts<span class="w"> </span>import<span class="w"> </span>general<span class="w"> </span>as<span class="w"> </span>g
+from<span class="w"> </span>grass.pygrass.modules.shortcuts<span class="w"> </span>import<span class="w"> </span>raster<span class="w"> </span>as<span class="w"> </span>r
+from<span class="w"> </span>grass.pygrass.modules.shortcuts<span class="w"> </span>import<span class="w"> </span>display<span class="w"> </span>as<span class="w"> </span>d
+from<span class="w"> </span>grass.pygrass.modules.shortcuts<span class="w"> </span>import<span class="w"> </span>vector<span class="w"> </span>as<span class="w"> </span>v
+from<span class="w"> </span>grass.pygrass.gis<span class="w"> </span>import<span class="w"> </span>*
+import<span class="w"> </span>grass.script<span class="w"> </span>as<span class="w"> </span>grass
+import<span class="w"> </span>grass.script.setup<span class="w"> </span>as<span class="w"> </span>gsetup
+import<span class="w"> </span>re
+
+
+
+
+<span class="c1"># Main function</span>
+def<span class="w"> </span>main<span class="o">(</span>gisdb,<span class="w"> </span>location,<span class="w"> </span>mapset<span class="o">)</span>:<span class="w"> </span>
+
+
+<span class="w">    </span>os.environ<span class="o">[</span><span class="s1">&#39;GISDBASE&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gisdb
+<span class="w">    </span>os.environ<span class="o">[</span><span class="s1">&#39;LOCATION_NAME&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>location
+
+<span class="w">    </span><span class="c1"># Check if mapset exists; if not, create it</span>
+<span class="w">    </span><span class="nv">mapset_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>os.path.join<span class="o">(</span>gisdb,<span class="w"> </span>location,<span class="w"> </span>mapset<span class="o">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>not<span class="w"> </span>os.path.exists<span class="o">(</span>mapset_path<span class="o">)</span>:
+<span class="w">        </span>print<span class="o">(</span>f<span class="s2">&quot;Mapset &#39;{mapset}&#39; does not exist. Creating new mapset...&quot;</span><span class="o">)</span>
+<span class="w">        </span><span class="c1"># Create the new mapset</span>
+<span class="w">        </span>gs.run_command<span class="o">(</span><span class="s1">&#39;g.mapset&#39;</span>,<span class="w"> </span><span class="nv">flags</span><span class="o">=</span><span class="s1">&#39;c&#39;</span>,<span class="w"> </span><span class="nv">mapset</span><span class="o">=</span>mapset,<span class="w"> </span><span class="nv">location</span><span class="o">=</span>location,<span class="w"> </span><span class="nv">dbase</span><span class="o">=</span>GISDBASE<span class="o">)</span>
+<span class="w">    </span><span class="k">else</span>:
+<span class="w">        </span>print<span class="o">(</span>f<span class="s2">&quot;Mapset &#39;{mapset}&#39; already exists.&quot;</span><span class="o">)</span>
+
+<span class="w">    </span><span class="c1"># Initialize GRASS session</span>
+<span class="w">    </span>gsetup.init<span class="o">(</span>gisdb,<span class="w"> </span>location,<span class="w"> </span>mapset<span class="o">)</span>
+<span class="w">    </span>print<span class="o">(</span>f<span class="s2">&quot;GRASS GIS session initialized in {gisdb}/{location}/{mapset}&quot;</span><span class="o">)</span>
+
+
+
+<span class="w">    </span><span class="c1"># Directory to export rasters</span>
+<span class="w">    </span><span class="nv">export_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/Volumes/ExternalSSD/eqipa_data/pcp_resamp&quot;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>not<span class="w"> </span>os.path.exists<span class="o">(</span>export_dir<span class="o">)</span>:
+<span class="w">        </span>os.makedirs<span class="o">(</span>export_dir<span class="o">)</span>
+
+<span class="w">    </span><span class="c1"># create list of all rasters to export</span>
+<span class="w">    </span><span class="nv">raster_names</span><span class="o">=[]</span>
+<span class="w">    </span><span class="nv">start_yr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2023&#39;</span>
+<span class="w">    </span><span class="nv">end_yr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2023&#39;</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span>year<span class="w"> </span><span class="k">in</span><span class="w"> </span>range<span class="o">(</span>int<span class="o">(</span>start_yr<span class="o">)</span>,<span class="w"> </span>int<span class="o">(</span>end_yr<span class="o">)</span><span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="o">)</span>:
+<span class="w">        </span><span class="k">for</span><span class="w"> </span>month<span class="w"> </span><span class="k">in</span><span class="w"> </span>range<span class="o">(</span><span class="m">1</span>,<span class="w"> </span><span class="m">13</span><span class="o">)</span>:
+<span class="w">            </span><span class="nv">file_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>f<span class="s2">&quot;imd_pcp_resamp_m_{year}_{month:02d}&quot;</span>
+<span class="w">            </span>raster_names.append<span class="o">(</span>file_name<span class="o">)</span>
+
+
+
+<span class="w">    </span><span class="c1"># raster_names=gs.list_grouped(type=[&#39;raster&#39;], pattern=f&#39;imd_pcp_resamp_m_*&#39;)[&#39;data_monthly&#39;]</span>
+
+
+
+<span class="w">    </span><span class="c1"># Export rasters using r.out.gdal</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span>raster<span class="w"> </span><span class="k">in</span><span class="w"> </span>raster_names:
+<span class="w">        </span><span class="nv">output_tif</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>f<span class="s2">&quot;{export_dir}/{raster}.tif&quot;</span>
+<span class="w">        </span>gs.run_command<span class="o">(</span>
+<span class="w">            </span><span class="s1">&#39;r.out.gdal&#39;</span>,
+<span class="w">            </span><span class="nv">input</span><span class="o">=</span>raster,
+<span class="w">            </span><span class="nv">output</span><span class="o">=</span>output_tif,
+<span class="w">            </span><span class="nv">format</span><span class="o">=</span><span class="s1">&#39;GTiff&#39;</span>,
+<span class="w">            </span><span class="c1"># createopt=&quot;COMPRESS=LZW&quot;,</span>
+<span class="w">            </span><span class="nv">overwrite</span><span class="o">=</span>True
+<span class="w">        </span><span class="o">)</span>
+<span class="w">        </span>print<span class="o">(</span>f<span class="s2">&quot;Raster {raster} exported to {output_tif}&quot;</span><span class="o">)</span>
+
+
+<span class="k">if</span><span class="w"> </span><span class="nv">__name__</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;__main__&#39;</span>:
+<span class="w">    </span><span class="nv">GISDBASE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/Volumes/ExternalSSD/eqipa_data/grassdata&quot;</span>
+<span class="w">    </span><span class="nv">LOCATION_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;eqipa&quot;</span>
+<span class="w">    </span><span class="nv">MAPSET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;data_monthly&quot;</span><span class="w">                 </span>
 
 <span class="w">    </span><span class="c1"># Call the main function</span>
 <span class="w">    </span>main<span class="o">(</span>GISDBASE,<span class="w"> </span>LOCATION_NAME,<span class="w"> </span>MAPSET<span class="o">)</span>
