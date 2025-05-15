@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://waterinag.github.io/eqipa-docs/tool-setup/system-setup/">
       
       
-        <link rel="prev" href="../../geo-tools/geoserver/">
+        <link rel="prev" href="../../geo-tools/django/">
       
       
         <link rel="next" href="../development-mode/">
@@ -863,6 +863,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geo-tools/django/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Django
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1003,15 +1026,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#choose-the-default-version" class="md-nav__link">
-    <span class="md-ellipsis">
-      Choose the default version
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#install-postgresql-postgis" class="md-nav__link">
     <span class="md-ellipsis">
       Install PostgreSQL &amp; PostGIS
@@ -1024,15 +1038,6 @@
   <a href="#install-grass-gis" class="md-nav__link">
     <span class="md-ellipsis">
       Install GRASS GIS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-a-grass-gis-location" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create a GRASS GIS Location
     </span>
   </a>
   
@@ -1250,15 +1255,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#choose-the-default-version" class="md-nav__link">
-    <span class="md-ellipsis">
-      Choose the default version
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#install-postgresql-postgis" class="md-nav__link">
     <span class="md-ellipsis">
       Install PostgreSQL &amp; PostGIS
@@ -1271,15 +1267,6 @@
   <a href="#install-grass-gis" class="md-nav__link">
     <span class="md-ellipsis">
       Install GRASS GIS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-a-grass-gis-location" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create a GRASS GIS Location
     </span>
   </a>
   
@@ -1349,6 +1336,10 @@ minimum 126 GB RAM for efficient performance.</li>
 </ul>
 <hr />
 <h2 id="install-required-system-packages">Install Required System Packages</h2>
+<p>Check Ubuntu version
+<div class="highlight"><pre><span></span><code>lsb_release<span class="w"> </span>-a
+</code></pre></div>
+Should be Ubuntu 22.04</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
@@ -1361,13 +1352,16 @@ minimum 126 GB RAM for efficient performance.</li>
 <span class="w">    </span>build-essential<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>python3-dev<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>libpq-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>python3-venv<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>pango1.0-tools
 </code></pre></div>
 <h2 id="verify-installation">Verify Installation</h2>
 <div class="highlight"><pre><span></span><code>python3<span class="w"> </span>--version
-sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3.10<span class="w"> </span>python3.10-venv<span class="w"> </span>python3.10-dev
 </code></pre></div>
-<h2 id="choose-the-default-version">Choose the default version</h2>
+<p>Install Python 3.10
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3.10<span class="w"> </span>python3.10-venv<span class="w"> </span>python3.10-dev
+</code></pre></div></p>
+<p>Choose the default python version
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>update-alternatives<span class="w"> </span>--config<span class="w"> </span>python3
 
 <span class="w">  </span>Selection<span class="w">    </span>Path<span class="w">                </span>Priority<span class="w">   </span>Status
@@ -1375,7 +1369,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 *<span class="w"> </span><span class="m">0</span><span class="w">            </span>/usr/bin/python3.8<span class="w">   </span><span class="m">2</span><span class="w">         </span>auto<span class="w"> </span>mode
 <span class="w">  </span><span class="m">1</span><span class="w">            </span>/usr/bin/python3.8<span class="w">   </span><span class="m">2</span><span class="w">         </span>manual<span class="w"> </span>mode
 <span class="w">  </span><span class="m">2</span><span class="w">            </span>/usr/bin/python3.10<span class="w">  </span><span class="m">1</span><span class="w">         </span>manual<span class="w"> </span>mode
-</code></pre></div>
+</code></pre></div></p>
 <hr />
 <h2 id="install-postgresql-postgis">Install PostgreSQL &amp; PostGIS</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>postgresql<span class="w"> </span>postgresql-postgis
@@ -1386,16 +1380,6 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>grass<span class="w"> </span>grass-dev
 </code></pre></div>
 <hr />
-<h2 id="create-a-grass-gis-location">Create a GRASS GIS Location</h2>
-<div class="highlight"><pre><span></span><code>grass<span class="w"> </span>-c<span class="w"> </span>EPSG:4326<span class="w"> </span>-e<span class="w"> </span>/mnt/mapdata/grassdata/ipa_india
-</code></pre></div>
-<p>Verify the mapset:</p>
-<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/mnt/mapdata/grassdata/ipa_india
-</code></pre></div>
-<blockquote>
-<p><strong>Note:</strong> In <code>settings.py</code>, the value of <code>GRASS_DB</code> should be set as <code>/mnt/mapdata/grassdata</code></p>
-</blockquote>
-<hr />
 <h2 id="configure-postgresql-user-and-database">Configure PostgreSQL User and Database</h2>
 <p>Create a new PostgreSQL user:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>createuser<span class="w"> </span>ipa_india
@@ -1404,13 +1388,22 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>psql
 </code></pre></div>
 <p>Inside psql:</p>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">postgres</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;ipa_india&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="n">Change</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">postgres</span><span class="w"> </span><span class="k">user</span><span class="o">*</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">postgres</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;ipa_india&#39;</span><span class="p">;</span>
 <span class="k">ALTER</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">ipa_india</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;ipa_india123&#39;</span><span class="p">;</span>
+
+<span class="o">#</span><span class="w"> </span><span class="n">Give</span><span class="w"> </span><span class="k">more</span><span class="w"> </span><span class="k">privileges</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="n">ipa_india</span><span class="o">*</span>
 <span class="k">ALTER</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">ipa_india</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">SUPERUSER</span><span class="p">;</span>
+
+<span class="o">#</span><span class="w"> </span><span class="n">quit</span><span class="w"> </span><span class="n">psql</span><span class="o">*</span>
 <span class="err">\</span><span class="n">q</span>
 </code></pre></div>
 <p>Create the database and enable PostGIS:</p>
-<div class="highlight"><pre><span></span><code>createdb<span class="w"> </span>-U<span class="w"> </span>ipa_india<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>ipa_india
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a new DB named &quot;ipa_india&quot;:</span>
+createdb<span class="w"> </span>-U<span class="w"> </span>ipa_india<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>ipa_india
+
+Pass:<span class="w"> </span>ipa_india123
+
 psql<span class="w"> </span>-U<span class="w"> </span>ipa_india<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>ipa_india<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;CREATE EXTENSION postgis&quot;</span>
 </code></pre></div>
 <hr />
@@ -1449,7 +1442,6 @@ psql<span class="w"> </span>-U<span class="w"> </span>ipa_india<span class="w"> 
 </tr>
 </tbody>
 </table>
-<p>You're now ready to proceed with setting up the Django app. → <a href="../development-mode/">Continue to Running tool in Development Mode</a></p>
 
 
 
