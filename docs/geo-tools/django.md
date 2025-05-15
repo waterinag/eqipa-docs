@@ -58,7 +58,7 @@ cd mysite
 
 ### Step 4: Run the Development Server
 ```bash
-p# For Ubuntu & Mac
+# For Ubuntu & Mac
 python3 manage.py runserver
 
 # For Windows
@@ -140,7 +140,77 @@ Expected Output:
 Hello, Django!
 ```
 
+### Step 10: Create and Render a Template 
 
+
+a) Create Templates Directory
+In myapp/, create a folder called templates/myapp/
+```bash
+mkdir -p myapp/templates/myapp
+```
+
+b) Create index.html
+Inside myapp/templates/myapp/index.html:
+```bash
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django Home</title>
+</head>
+<body>
+    <h1>Welcome to Django Home Page!</h1>
+</body>
+</html>
+```
+
+c) Update the View to Render Template
+Edit myapp/views.py:
+```bash
+from django.shortcuts import render
+
+def home(request):
+    return render(request, 'myapp/index.html')
+```
+
+d) Ensure Templates Directory is Set (Optional)
+Django automatically finds templates in app's templates/ directory. But if needed, verify in mysite/settings.py:
+
+```bash
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+```
+
+e) Run Server & Check
+```bash
+python manage.py runserver
+```
+Visit: http://127.0.0.1:8000/
+
+
+Expected Output:
+```bash
+Welcome to Django Home Page!
+
+```
 
 ### Optional: Django Admin Access
 ```bash
