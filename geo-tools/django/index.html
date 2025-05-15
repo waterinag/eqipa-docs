@@ -1518,7 +1518,7 @@ Visit: http://127.0.0.1:8000/</p>
 <h3 id="step-10-create-and-render-a-template">Step 10: Create and Render a Template</h3>
 <p>a) Create Templates Directory
 In myapp/, create a folder called templates/myapp/
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>myapp/templates/myapp
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>myapp/templates/
 </code></pre></div></p>
 <p>b) Create index.html
 Inside myapp/templates/myapp/index.html:
@@ -1537,7 +1537,7 @@ Edit myapp/views.py:
 <div class="highlight"><pre><span></span><code>from<span class="w"> </span>django.shortcuts<span class="w"> </span>import<span class="w"> </span>render
 
 def<span class="w"> </span>home<span class="o">(</span>request<span class="o">)</span>:
-<span class="w">    </span><span class="k">return</span><span class="w"> </span>render<span class="o">(</span>request,<span class="w"> </span><span class="s1">&#39;myapp/index.html&#39;</span><span class="o">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span>render<span class="o">(</span>request,<span class="w"> </span><span class="s1">&#39;index.html&#39;</span><span class="o">)</span>
 </code></pre></div></p>
 <p>d) Ensure Templates Directory is Set (Optional)
 Django automatically finds templates in app's templates/ directory. But if needed, verify in mysite/settings.py:</p>
