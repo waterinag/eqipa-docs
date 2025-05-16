@@ -152,7 +152,7 @@ psql -U ipa_india -h localhost ipa_india -c "CREATE EXTENSION postgis"
 
 | Component      | Version / Details                            |
 |----------------|-----------------------------------------------|
-| OS             | Ubuntu 20.04 or later                         |
+| OS             | Ubuntu 22.04 or later                         |
 | Python         | 3.10                                          |
 | PostgreSQL     | With PostGIS extension                        |
 | GRASS GIS      | Installed via ubuntugis-unstable PPA          |

@@ -1437,6 +1437,27 @@ route-run<span class="w"> </span><span class="o">=</span><span class="w"> </span
 </code></pre></div>
 </details>
 <p>This will launch the Django application using your <code>.ini</code> configuration.</p>
+<details class="info">
+<summary>uWSGI (Socket Permissions Error)</summary>
+<p>If you encounter this error in the Apache logs:
+<div class="highlight"><pre><span></span><code><span class="o">(</span><span class="m">13</span><span class="o">)</span>Permission<span class="w"> </span>denied:<span class="w"> </span>AH02454:<span class="w"> </span>uwsgi:<span class="w"> </span>attempt<span class="w"> </span>to<span class="w"> </span>connect<span class="w"> </span>to<span class="w"> </span>Unix<span class="w"> </span>domain<span class="w"> </span>socket<span class="w"> </span>...
+</code></pre></div>
+It means Apache doesn't have permission to access the .sock file created by uWSGI.</p>
+<ol>
+<li>Ensure Apache (www-data) can access the socket directory path:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add Apache user to your Linux user&#39;s group</span>
+sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>vboxuser<span class="w"> </span>www-data
+</code></pre></div>
+<p>2.Update directory permissions to allow group (www-data) access:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>/home/vboxuser
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>/home/vboxuser/Documents
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>/home/vboxuser/Documents/eqipa_india
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>/home/vboxuser/Documents/eqipa_india/webapp
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>/home/vboxuser/Documents/eqipa_india/webapp/ipa_india
+</code></pre></div>
+These commands ensure only the owner (vboxuser) and group (www-data) can traverse the directory tree securely.</p>
+</details>
 <hr />
 <h2 id="restarting-celery-and-uwsgi-after-code-changes">Restarting Celery and uWSGI After Code Changes</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># reload the systemd files (this has been done everytime celery_ipa_india.service is changed)</span>
