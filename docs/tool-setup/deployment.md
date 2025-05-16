@@ -114,6 +114,36 @@ uwsgi --ini ipa_india.ini
 
 This will launch the Django application using your `.ini` configuration.
 
+
+
+??? info "uWSGI (Socket Permissions Error)"
+
+    If you encounter this error in the Apache logs:
+    ```bash
+    (13)Permission denied: AH02454: uwsgi: attempt to connect to Unix domain socket ...
+    ```
+    It means Apache doesn't have permission to access the .sock file created by uWSGI.
+
+    1. Ensure Apache (www-data) can access the socket directory path:
+
+    ```bash
+    # Add Apache user to your Linux user's group
+    sudo usermod -a -G vboxuser www-data
+    ```
+
+    2.Update directory permissions to allow group (www-data) access:
+    ```bash
+    sudo chmod 750 /home/vboxuser
+    sudo chmod 750 /home/vboxuser/Documents
+    sudo chmod 750 /home/vboxuser/Documents/eqipa_india
+    sudo chmod 750 /home/vboxuser/Documents/eqipa_india/webapp
+    sudo chmod 750 /home/vboxuser/Documents/eqipa_india/webapp/ipa_india
+
+    ```
+    These commands ensure only the owner (vboxuser) and group (www-data) can traverse the directory tree securely.
+   
+
+
 ---
 
 ## Restarting Celery and uWSGI After Code Changes
